@@ -62,7 +62,7 @@ const Navbar = (): JSX.Element => {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="https://github.com"
+                href="https://github.com/colinhemphill/colinhemphill-website"
                 rel="noopener noreferrer"
                 target="_blank"
               >

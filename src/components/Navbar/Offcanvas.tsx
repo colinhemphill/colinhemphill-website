@@ -125,7 +125,7 @@ const Offcanvas = (): JSX.Element => {
                   <li className="nav-item">
                     <a
                       className="nav-link"
-                      href="https://github.com/colinhemphill"
+                      href="https://github.com/colinhemphill/colinhemphill-website"
                       onClick={toggle}
                       rel="noopener noreferrer"
                       target="_blank"
