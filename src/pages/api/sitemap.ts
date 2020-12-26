@@ -1,11 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { ErrorLevel, SitemapStream, streamToPromise } from 'sitemap';
 import { createGzip } from 'zlib';
+import { getCMSIntegration } from '../../cms';
 
 let sitemap;
 
 const routes = [
   { changefreq: 'monthly', priority: 1, url: 'https://colinhemphill.com' },
+  {
+    changefreq: 'weekly',
+    priority: 0.8,
+    url: 'https://colinhemphill.com/blog',
+  },
   {
     changefreq: 'monthly',
     priority: 1,
@@ -30,6 +36,17 @@ const api = async (req: NextApiRequest, res: NextApiResponse) => {
 
     routes.forEach((route) => {
       sitemapStream.write(route);
+    });
+
+    const CMS = getCMSIntegration();
+    const blogPosts = await CMS.getBlogPosts();
+
+    blogPosts.forEach((post) => {
+      sitemapStream.write({
+        changefreq: 'weekly',
+        priority: 0.8,
+        url: `https://colinhemphill.com/blog/${post.uid}`,
+      });
     });
 
     sitemapStream.end();
