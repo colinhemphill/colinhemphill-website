@@ -1,0 +1,32 @@
+html,
+body {
+  font-family: 'sofia-pro', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: $spacer-xxxs;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: $spacer-xxs;
+}
+section {
+  a {
+    color: $primary-medium;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

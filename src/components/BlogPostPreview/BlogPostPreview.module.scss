@@ -1,0 +1,7 @@
+.contentPreview {
+  display: -webkit-box;
+  overflow: hidden;
+  max-height: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}

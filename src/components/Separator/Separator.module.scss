@@ -1,0 +1,30 @@
+@use '../../styles/variables.scss';
+
+.backgroundDark {
+  background-color: variables.$dark;
+}
+.backgroundLight {
+  background-color: variables.$light;
+}
+.backgroundPrimary {
+  background-color: variables.$primary;
+}
+.backgroundWhite {
+  background-color: white;
+}
+.foregroundDark {
+  fill: variables.$dark;
+  stroke: variables.$dark;
+}
+.foregroundLight {
+  fill: variables.$light;
+  stroke: variables.$light;
+}
+.foregroundPrimary {
+  fill: variables.$primary;
+  stroke: variables.$primary;
+}
+.foregroundWhite {
+  fill: white;
+  stroke: white;
+}

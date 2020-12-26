@@ -1,0 +1,5 @@
+@use '../../styles/variables.scss';
+
+.blogPostPreview {
+  padding: variables.$spacer-xs 0;
+}

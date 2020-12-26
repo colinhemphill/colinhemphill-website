@@ -1,0 +1,21 @@
+{
+  "name": "Colin Hemphill from Austin, TX",
+  "short_name": "Colin Hemphill",
+  "icons": [
+    {
+      "src": "/img/icons/favicon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/icons/favicon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#33333d",
+  "description": "Colin Hemphill is a front end web developer, a musician, and a podcast host in Austin, TX.",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#0073e6"
+}

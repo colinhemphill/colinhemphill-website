@@ -1,0 +1,12 @@
+@use '../../styles/variables';
+
+.hero {
+  padding: variables.$spacer-xs 0;
+  background-color: variables.$primary;
+}
+.imageContainer {
+  width: 150px;
+  height: 150px;
+  border: 5px solid white;
+  border-radius: 50%;
+}
