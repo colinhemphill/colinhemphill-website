@@ -41,6 +41,14 @@ const Page = (props: Props): JSX.Element => {
       <Section color="white">
         <Breadcrumbs currentPage="Blog" />
 
+        <div className="text-center mb-sm">
+          <h1>Blog Posts</h1>
+          <h2>
+            Front End Web Development, Music Production, Audio Engineering, and
+            Podcasting
+          </h2>
+        </div>
+
         <div className="row row-cols-md-2 row-cols-1 g-xs">
           {blogPosts.map((post) => (
             <div className="col" key={post.id}>

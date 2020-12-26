@@ -1,4 +1,6 @@
 @import 'variables';
+@import url('https://use.typekit.net/hpk1puc.css');
+@import '~@fortawesome/fontawesome-svg-core/styles';
 
 $grid-gutter-width: $spacer-xxs * 2;
 $spacers: ();
@@ -59,12 +61,6 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // @import '~bootstrap/scss/spinners';
 @import '~bootstrap/scss/helpers';
 @import '~bootstrap/scss/utilities/api';
-
-// Fontawesome
-@import '~@fortawesome/fontawesome-svg-core/styles';
-
-// Adobe Typekit
-@import 'typekit';
 
 // Custom
 @import 'typography';

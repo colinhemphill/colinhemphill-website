@@ -80,7 +80,7 @@ const Page = (props: Props): JSX.Element => {
           <figcaption className="figure-caption">{image.alt}</figcaption>
         </figure>
 
-        <h2 className="mb-xs">{title}</h2>
+        <h1 className="mb-xs">{title}</h1>
         <BlogAuthor date={date} reading_stats={blogPost.reading_stats} />
       </Section>
 
