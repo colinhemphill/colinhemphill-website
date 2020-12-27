@@ -1,6 +1,7 @@
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { OutboundLink } from 'react-ga';
 import { getCMSIntegration } from '../../cms';
 import { CMSLink } from '../../_types/CMSLink';
 import styles from './Footer.module.scss';
@@ -20,11 +21,12 @@ const Footer = (props: Props): JSX.Element => {
         <div className="row row-cols-auto gx-xxxs justify-content-center">
           {links.map((link) => (
             <div className="col" key={link.href}>
-              <a
+              <OutboundLink
                 className="d-block fa-3x"
-                href={link.href}
+                eventLabel={`${personalInformation.given_name} ${personalInformation.family_name} on ${link.title}`}
                 rel="noopener noreferrer"
                 target="_blank"
+                to={link.href}
               >
                 <span className="visually-hidden">
                   {personalInformation.given_name} on {link.title}
@@ -38,7 +40,7 @@ const Footer = (props: Props): JSX.Element => {
                     transform="shrink-8"
                   />
                 </span>
-              </a>
+              </OutboundLink>
             </div>
           ))}
         </div>
@@ -51,32 +53,35 @@ const Footer = (props: Props): JSX.Element => {
         <div className="mt-xxxs">
           <small>
             This site was built with{' '}
-            <a
+            <OutboundLink
               className={styles.footerLink}
-              href="https://nextjs.org/"
+              eventLabel="Next.js website"
               rel="noopener noreferrer"
               target="_blank"
+              to="https://nextjs.org/"
             >
               Next.js
-            </a>{' '}
+            </OutboundLink>{' '}
             and{' '}
-            <a
+            <OutboundLink
               className={styles.footerLink}
-              href={CMS.link}
+              eventLabel="CMS website"
               rel="noopener noreferrer"
               target="_blank"
+              to={CMS.link}
             >
               {CMS.name}
-            </a>
+            </OutboundLink>
             , and deployed on{' '}
-            <a
+            <OutboundLink
               className={styles.footerLink}
-              href="https://vercel.com/"
+              eventLabel="Vercel website"
               rel="noopener noreferrer"
               target="_blank"
+              to="https://vercel.com/"
             >
               Vercel
-            </a>
+            </OutboundLink>
             .
           </small>
         </div>

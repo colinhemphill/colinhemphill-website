@@ -1,10 +1,11 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
+import { OutboundLink } from 'react-ga';
 import { OffcanvasContext } from '../../pages/_app';
 
 interface NavLink {
@@ -60,17 +61,18 @@ const Navbar = (): JSX.Element => {
               );
             })}
             <li className="nav-item">
-              <a
+              <OutboundLink
                 className="nav-link"
-                href="https://github.com/colinhemphill/colinhemphill-website"
+                eventLabel="GitHub repo"
                 rel="noopener noreferrer"
                 target="_blank"
+                to="https://github.com/colinhemphill/colinhemphill-website"
               >
                 <span className="visually-hidden">
                   Access the GitHub repository for colinhemphill.com
                 </span>
                 <FontAwesomeIcon color="white" icon={faGithub} size="lg" />
-              </a>
+              </OutboundLink>
             </li>
           </ul>
         </div>

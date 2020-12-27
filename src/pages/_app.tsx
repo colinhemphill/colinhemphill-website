@@ -22,10 +22,16 @@ const MyApp = ({ Component, pageProps }: AppPropsType): JSX.Element => {
   };
 
   useEffect(() => {
-    const { route } = router;
-    ReactGA.initialize('UA-81584300-1');
+    const { asPath } = router;
 
-    ReactGA.pageview(route);
+    ReactGA.initialize('UA-81584300-1');
+    ReactGA.pageview(asPath);
+    ReactGA.timing({
+      category: 'App',
+      label: 'Initial client render',
+      value: Math.round(performance.now()),
+      variable: 'Load',
+    });
 
     const handleRouteChange = (url) => {
       ReactGA.pageview(url);
@@ -36,7 +42,7 @@ const MyApp = ({ Component, pageProps }: AppPropsType): JSX.Element => {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, [router]);
+  }, []);
 
   return (
     <>

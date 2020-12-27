@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import Image from 'next/image';
 import React from 'react';
+import { OutboundLink } from 'react-ga';
 import { getCMSIntegration } from '../../cms';
 import { PrismicImageType, PrismicRichText } from '../../cms/prismic';
 
@@ -13,7 +14,12 @@ const Project = (
   return (
     <div className="card h-100">
       {image?.url && (
-        <a href={href} rel="noopener noreferrer" target="_blank">
+        <OutboundLink
+          eventLabel={`${title} website`}
+          rel="noopener noreferrer"
+          target="_blank"
+          to={href}
+        >
           <span className="visually-hidden">{title} website</span>
           <Image
             alt={image.alt}
@@ -22,7 +28,7 @@ const Project = (
             width={image.dimensions.width}
             src={image.url}
           />
-        </a>
+        </OutboundLink>
       )}
       <div className="card-body">
         <h3
@@ -38,14 +44,15 @@ const Project = (
         </div>
       </div>
       <div className="card-footer text-center">
-        <a
+        <OutboundLink
           className="card-link"
-          href={href}
+          eventLabel={`${title} website`}
           rel="noopener noreferrer"
           target="_blank"
+          to={href}
         >
           {title} website
-        </a>
+        </OutboundLink>
       </div>
     </div>
   );

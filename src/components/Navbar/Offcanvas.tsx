@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useRef } from 'react';
+import { OutboundLink } from 'react-ga';
 import { OffcanvasContext } from '../../pages/_app';
 import { navLinks } from './Navbar';
 import styles from './Offcanvas.module.scss';
@@ -123,16 +124,17 @@ const Offcanvas = (): JSX.Element => {
                     );
                   })}
                   <li className="nav-item">
-                    <a
+                    <OutboundLink
                       className="nav-link"
-                      href="https://github.com/colinhemphill/colinhemphill-website"
+                      eventLabel="GitHub repo"
                       onClick={toggle}
                       rel="noopener noreferrer"
                       target="_blank"
+                      to="https://github.com/colinhemphill/colinhemphill-website"
                     >
                       GitHub Repo
                       <FontAwesomeIcon className="ms-xxxs" icon={faGithub} />
-                    </a>
+                    </OutboundLink>
                   </li>
                 </ul>
               </div>

@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import classnames from 'classnames';
 import React, { useRef, useState } from 'react';
+import ReactGA from 'react-ga';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -14,34 +15,54 @@ const schema = yup.object().shape({
 
 const ContactForm = (): JSX.Element => {
   const recaptchaRef = useRef(null);
-  const [formStatus, setFormStatus] = useState<string>('');
-  const {
-    errors,
-    formState,
-    handleSubmit,
-    register,
-    reset,
-  } = useForm<FormData>({
+  const [formStatus, setFormStatus] = useState<{
+    message?: string;
+    successful?: boolean;
+  }>({});
+  const [submitting, setSubmitting] = useState<boolean>(false);
+  const { errors, handleSubmit, register, reset } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
 
+  const submitError = (description: string, message?: string) => {
+    recaptchaRef.current.reset();
+    setFormStatus({ message, successful: false });
+    ReactGA.exception({ description, fatal: false });
+    setSubmitting(false);
+  };
+
   const onSubmit = async (data, event) => {
+    setSubmitting(true);
+    const t0 = Math.round(performance.now());
     const token = recaptchaRef.current.getValue();
 
+    if (!token) {
+      return submitError(
+        'Contact form: missing reCAPTCHA token',
+        'Please complete the reCAPTCHA verification.',
+      );
+    }
+
     try {
-      const response = await fetch('/api/recaptcha/', {
+      const response = await fetch('/api/recaptcha', {
         body: JSON.stringify({ token }),
         method: 'POST',
       });
-      const validCaptcha = await response.json();
-      if (!validCaptcha) {
-        recaptchaRef.current.reset();
-        return setFormStatus('ERROR');
+      const captchaResult = await response.json();
+      if (captchaResult.valid === false) {
+        return submitError('Contact form: failed reCAPTCHA validation');
       }
     } catch (err) {
-      recaptchaRef.current.reset();
-      return setFormStatus('ERROR');
+      return submitError(`Contact form: ${err.message}`);
     }
+
+    const t1 = Math.round(performance.now());
+    ReactGA.timing({
+      category: 'Requests',
+      label: 'Contact form',
+      value: t1 - t0,
+      variable: 'reCAPTCH verification',
+    });
 
     const form = event.target;
     const formData = new FormData();
@@ -53,13 +74,28 @@ const ContactForm = (): JSX.Element => {
     xhr.open(form.method, form.action);
     xhr.setRequestHeader('Accept', 'application/json');
     xhr.onreadystatechange = () => {
+      const t2 = Math.round(performance.now());
+      setSubmitting(false);
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
       if (xhr.status === 200) {
         recaptchaRef.current.reset();
         reset();
-        setFormStatus('SUCCESS');
+        setFormStatus({ successful: true });
+        ReactGA.event({
+          action: 'Submitted contact form',
+          category: 'Forms',
+          label: 'Submit',
+        });
+        ReactGA.timing({
+          category: 'Requests',
+          label: 'Contact form',
+          value: t2 - t0,
+          variable: 'Formspree submission',
+        });
       } else {
-        setFormStatus('ERROR');
+        submitError(
+          `Contact form: ${xhr.status} error submitting to Formspree`,
+        );
       }
     };
     xhr.send(formData);
@@ -82,6 +118,7 @@ const ContactForm = (): JSX.Element => {
           className={classnames('form-control', {
             'is-invalid': errors.email,
           })}
+          disabled={formStatus.successful === true}
           id="form-email"
           name="email"
           placeholder="name@example.com"
@@ -102,6 +139,7 @@ const ContactForm = (): JSX.Element => {
           className={classnames('form-control', {
             'is-invalid': errors.message,
           })}
+          disabled={formStatus.successful === true}
           id="form-message"
           name="message"
           placeholder="Leave your message here"
@@ -117,33 +155,36 @@ const ContactForm = (): JSX.Element => {
 
       <div className="row mt-xxs justify-content-end">
         <div className="col-auto">
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
-            size="normal"
-            theme="light"
-          />
+          {formStatus.successful !== true && (
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
+              size="normal"
+              theme="light"
+            />
+          )}
         </div>
       </div>
 
-      {formStatus === 'SUCCESS' && (
+      {formStatus.successful === true && (
         <div className="alert alert-success mt-xxs" role="alert">
-          Your message was submitted successfully! Colin will try to get back to
-          you shortly.
+          {formStatus.message ||
+            'Your message was submitted successfully! Colin will try to get back to you shortly.'}
         </div>
       )}
-      {formStatus === 'ERROR' && (
+      {formStatus.successful === false && (
         <div className="alert alert-danger mt-xxs" role="alert">
-          There was an error submitting your message. Please try again!
+          {formStatus.message ||
+            'There was an error submitting your message. Please try again!'}
         </div>
       )}
 
-      {formStatus !== 'SUCCESS' && (
+      {formStatus.successful !== true && (
         <div className="row justify-content-end">
           <div className="col-auto">
             <button
               className="btn btn-lg btn-primary mt-xxs"
-              disabled={formState.isSubmitting || formState.isSubmitSuccessful}
+              disabled={submitting}
               type="submit"
             >
               Submit

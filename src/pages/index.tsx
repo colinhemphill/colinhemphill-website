@@ -6,6 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { InferGetStaticPropsType } from 'next';
 import React from 'react';
+import { OutboundLink } from 'react-ga';
 import { getCMSIntegration } from '../cms';
 import ContactForm from '../components/ContactForm/ContactForm';
 import Footer from '../components/Footer/Footer';
@@ -73,13 +74,14 @@ const Page = (props: Props): JSX.Element => {
         <SectionHeader icon={faCode} text="Professional Work" />
         <p>
           My current position is Front End Engineer II at{' '}
-          <a
-            href="https://www.thezebra.com"
+          <OutboundLink
+            eventLabel="The Zebra website"
             rel="noopener noreferrer"
             target="_blank"
+            to="https://www.thezebra.com"
           >
             The Zebra
-          </a>
+          </OutboundLink>
           , a website created to simplify insurance shopping by comparing quotes
           across hundreds of providers. At The Zebra, I create front end
           applications in React and Vue.js for our product team. I am

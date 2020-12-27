@@ -23,10 +23,13 @@ const api = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (!success) {
     res.writeHead(500);
-    return res.send('There was an errory veirfying recaptcha validity.');
+    return res.send({
+      message: 'There was an error verifying recaptcha validity',
+      valid: false,
+    });
   }
 
-  return res.send(true);
+  return res.send({ valid: true });
 };
 
 export default api;
