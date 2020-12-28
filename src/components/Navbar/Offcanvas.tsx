@@ -1,4 +1,3 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
@@ -133,7 +132,10 @@ const Offcanvas = (): JSX.Element => {
                       to="https://github.com/colinhemphill/colinhemphill-website"
                     >
                       GitHub Repo
-                      <FontAwesomeIcon className="ms-xxxs" icon={faGithub} />
+                      <FontAwesomeIcon
+                        className="ms-xxxs"
+                        icon={['fab', 'github']}
+                      />
                     </OutboundLink>
                   </li>
                 </ul>

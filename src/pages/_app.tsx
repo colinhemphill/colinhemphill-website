@@ -1,5 +1,12 @@
 import { config, library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub,
+  faGitlab,
+  faLinkedin,
+  faNpm,
+  faTwitch,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 import { AppPropsType } from 'next/dist/next-server/lib/utils';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -9,7 +16,7 @@ import Offcanvas from '../components/Navbar/Offcanvas';
 import '../styles/globals.scss';
 
 config.autoAddCss = false;
-library.add(fab);
+library.add(faGithub, faGitlab, faLinkedin, faNpm, faTwitch, faTwitter);
 
 export const OffcanvasContext = createContext(null);
 

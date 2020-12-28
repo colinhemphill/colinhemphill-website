@@ -1,4 +1,3 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
@@ -71,7 +70,11 @@ const Navbar = (): JSX.Element => {
                 <span className="visually-hidden">
                   Access the GitHub repository for colinhemphill.com
                 </span>
-                <FontAwesomeIcon color="white" icon={faGithub} size="lg" />
+                <FontAwesomeIcon
+                  color="white"
+                  icon={['fab', 'github']}
+                  size="lg"
+                />
               </OutboundLink>
             </li>
           </ul>

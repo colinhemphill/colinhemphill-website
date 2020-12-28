@@ -1,5 +1,7 @@
-const bundleAnalyzer = require('@next/bundle-analyzer');
 const offline = require('next-offline');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 const withPlugins = require('next-compose-plugins');
 
 const workboxOpts = {
@@ -43,14 +45,6 @@ const nextConfig = {
   workboxOpts,
 };
 
-const plugins = [
-  [
-    bundleAnalyzer,
-    {
-      enabled: process.env.ANALYZE === 'true',
-    },
-  ],
-  [offline],
-];
+const plugins = [[withBundleAnalyzer], [offline]];
 
 module.exports = withPlugins(plugins, nextConfig);
