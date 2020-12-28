@@ -124,6 +124,7 @@ const ContactForm = (): JSX.Element => {
           placeholder="name@example.com"
           ref={register({ required: true })}
         />
+        <input className="d-none" type="text" name="_gotcha" />
         {errors.email && (
           <div className="invalid-feedback" role="alert">
             {errors.email?.message}
