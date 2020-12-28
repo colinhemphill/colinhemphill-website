@@ -20,10 +20,10 @@ const Hero = (): JSX.Element => {
                 <Image
                   alt="Photograph of Colin Hemphill taken as he was preparing for his wedding ceremony"
                   className="rounded-circle"
-                  height={957}
+                  height={420}
                   priority
                   src="/img/Colin-Wedding-Square.jpg"
-                  width={957}
+                  width={420}
                 />
               </div>
             </div>
