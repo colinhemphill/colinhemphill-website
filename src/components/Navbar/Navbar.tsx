@@ -24,7 +24,7 @@ export const navLinks: NavLink[] = [
 
 const Navbar = (): JSX.Element => {
   const { pathname } = useRouter();
-  const { toggle } = useContext(OffcanvasContext);
+  const { isOpen, toggle } = useContext(OffcanvasContext);
 
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-primary sticky-top">
@@ -33,7 +33,14 @@ const Navbar = (): JSX.Element => {
           <a className="navbar-brand">Colin Hemphill</a>
         </Link>
         <div className="d-sm-none d-flex">
-          <button className="btn btn-primary" onClick={toggle}>
+          <button
+            aria-controls="navbarSupportedContent"
+            aria-expanded={isOpen ? 'true' : 'false'}
+            aria-label="Toggle navigation"
+            className="btn btn-primary"
+            onClick={toggle}
+            type="button"
+          >
             <FontAwesomeIcon icon={faBars} size="lg" />
           </button>
         </div>

@@ -20,6 +20,11 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preconnect" href="https://p.typekit.net" />
+          <link rel="preconnect" href="https://use.typekit.net" />
+          <link rel="preconnect" href="https://www.google.com" />
+          <link rel="preconnect" href="https://www.google-analytics.com" />
+
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.ico" />
           <meta name="theme-color" content="#0073e6" />

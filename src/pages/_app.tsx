@@ -18,7 +18,10 @@ import '../styles/globals.scss';
 config.autoAddCss = false;
 library.add(faGithub, faGitlab, faLinkedin, faNpm, faTwitch, faTwitter);
 
-export const OffcanvasContext = createContext(null);
+export const OffcanvasContext = createContext<{
+  isOpen: boolean;
+  toggle: () => void;
+}>(null);
 
 const MyApp = ({ Component, pageProps }: AppPropsType): JSX.Element => {
   const [offcanvasIsOpen, setOffcanvasIsOpen] = useState(false);
