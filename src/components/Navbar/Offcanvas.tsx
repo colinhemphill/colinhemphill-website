@@ -58,7 +58,7 @@ const Offcanvas = (): JSX.Element => {
 
   return (
     <>
-      <Transition in={isOpen} timeout={duration}>
+      <Transition in={isOpen} timeout={duration} unmountOnExit>
         {(state) => (
           <div
             className={styles.overlay}
@@ -70,9 +70,9 @@ const Offcanvas = (): JSX.Element => {
         )}
       </Transition>
 
-      <div onKeyDown={onKeyDown} ref={menuRef} tabIndex={isOpen ? 0 : -1}>
-        <Transition in={isOpen} timeout={duration}>
-          {(state) => (
+      <Transition in={isOpen} timeout={duration} unmountOnExit>
+        {(state) => (
+          <div onKeyDown={onKeyDown} ref={menuRef} tabIndex={isOpen ? 0 : -1}>
             <nav
               className={styles.offcanvas}
               style={{ ...defaultStyle, ...transitionStyles[state] }}
@@ -80,6 +80,7 @@ const Offcanvas = (): JSX.Element => {
               <div className={styles.navHeader}>
                 <div className="d-flex justify-content-end" onClick={toggle}>
                   <button
+                    aria-label="Close"
                     className="btn btn-primary rounded-circle"
                     onClick={toggle}
                     type="button"
@@ -153,9 +154,9 @@ const Offcanvas = (): JSX.Element => {
                 </ul>
               </div>
             </nav>
-          )}
-        </Transition>
-      </div>
+          </div>
+        )}
+      </Transition>
 
       <style jsx global>{`
         body {
