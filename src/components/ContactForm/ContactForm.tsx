@@ -1,8 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import classnames from 'classnames';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import ReactGA from 'react-ga';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -14,7 +13,7 @@ const schema = yup.object().shape({
 });
 
 const ContactForm = (): JSX.Element => {
-  const recaptchaRef = useRef(null);
+  const [captchaReady, setCaptchaReady] = useState<boolean>(false);
   const [formStatus, setFormStatus] = useState<{
     message?: string;
     successful?: boolean;
@@ -24,8 +23,21 @@ const ContactForm = (): JSX.Element => {
     resolver: yupResolver(schema),
   });
 
+  const loadCaptcha = () => {
+    if (captchaReady) return;
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js';
+    script.id = 'recaptcha';
+    document.body.appendChild(script);
+    setCaptchaReady(true);
+  };
+
+  const resetCaptcha = () => {
+    grecaptcha.reset();
+  };
+
   const submitError = (description: string, message?: string) => {
-    recaptchaRef.current.reset();
+    resetCaptcha();
     setFormStatus({ message, successful: false });
     ReactGA.exception({ description, fatal: false });
     setSubmitting(false);
@@ -34,7 +46,7 @@ const ContactForm = (): JSX.Element => {
   const onSubmit = async (data, event) => {
     setSubmitting(true);
     const t0 = Math.round(performance.now());
-    const token = recaptchaRef.current.getValue();
+    const token = grecaptcha.getResponse();
 
     if (!token) {
       return submitError(
@@ -78,7 +90,7 @@ const ContactForm = (): JSX.Element => {
       setSubmitting(false);
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
       if (xhr.status === 200) {
-        recaptchaRef.current.reset();
+        resetCaptcha();
         reset();
         setFormStatus({ successful: true });
         ReactGA.event({
@@ -121,6 +133,7 @@ const ContactForm = (): JSX.Element => {
           disabled={formStatus.successful === true}
           id="form-email"
           name="email"
+          onFocus={() => loadCaptcha()}
           placeholder="name@example.com"
           ref={register({ required: true })}
         />
@@ -156,12 +169,10 @@ const ContactForm = (): JSX.Element => {
 
       <div className="row mt-xxs justify-content-end">
         <div className="col-auto">
-          {formStatus.successful !== true && (
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
-              size="normal"
-              theme="light"
+          {captchaReady && formStatus.successful !== true && (
+            <div
+              className="g-recaptcha"
+              data-sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
             />
           )}
         </div>

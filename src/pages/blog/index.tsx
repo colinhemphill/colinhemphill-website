@@ -1,6 +1,10 @@
 import { InferGetStaticPropsType } from 'next';
 import React from 'react';
-import { getCMSIntegration } from '../../cms';
+import {
+  prismicGetBlogPosts,
+  prismicGetLinks,
+  prismicGetPersonalInformation,
+} from '../../cms/prismic';
 import BlogPostPreview from '../../components/BlogPostPreview/BlogPostPreview';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import Footer from '../../components/Footer/Footer';
@@ -11,10 +15,9 @@ import Separator from '../../components/Separator/Separator';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getStaticProps = async () => {
-  const CMS = getCMSIntegration();
-  const personalInformation = await CMS.getPersonalInformation();
-  const blogPosts = await CMS.getBlogPosts();
-  const links = await CMS.getLinks();
+  const personalInformation = await prismicGetPersonalInformation();
+  const blogPosts = await prismicGetBlogPosts();
+  const links = await prismicGetLinks();
 
   return {
     props: {

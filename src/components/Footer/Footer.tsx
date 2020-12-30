@@ -2,7 +2,6 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { OutboundLink } from 'react-ga';
-import { getCMSIntegration } from '../../cms';
 import { CMSLink } from '../../_types/CMSLink';
 import styles from './Footer.module.scss';
 
@@ -13,7 +12,6 @@ interface Props {
 
 const Footer = (props: Props): JSX.Element => {
   const { personalInformation, links } = props;
-  const CMS = getCMSIntegration();
 
   return (
     <footer className={styles.footer}>
@@ -68,9 +66,9 @@ const Footer = (props: Props): JSX.Element => {
               eventLabel="CMS website"
               rel="noopener noreferrer"
               target="_blank"
-              to={CMS.link}
+              to="https://prismic.io"
             >
-              {CMS.name}
+              Prismic
             </OutboundLink>
             , and deployed on{' '}
             <OutboundLink

@@ -2,14 +2,16 @@ import classnames from 'classnames';
 import Image from 'next/image';
 import React from 'react';
 import { OutboundLink } from 'react-ga';
-import { getCMSIntegration } from '../../cms';
-import { PrismicImageType, PrismicRichText } from '../../cms/prismic';
+import {
+  PrismicImageType,
+  PrismicRichText,
+  PrismicRichTextComponent,
+} from '../../cms/prismic';
 
 const Project = (
   props: CMSPersonalProject<PrismicRichText, PrismicImageType>,
 ): JSX.Element => {
   const { description, href, image, subtitle, title } = props;
-  const CMS = getCMSIntegration();
 
   return (
     <div className="card h-100">
@@ -40,7 +42,7 @@ const Project = (
         </h3>
         {subtitle && <h4 className="h6 card-subtitle mb-xxs">{subtitle}</h4>}
         <div className="card-text">
-          <CMS.RichTextComponent richText={description} />
+          <PrismicRichTextComponent richText={description} />
         </div>
       </div>
       <div className="card-footer text-center">

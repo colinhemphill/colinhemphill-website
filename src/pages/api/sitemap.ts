@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { ErrorLevel, SitemapStream, streamToPromise } from 'sitemap';
 import { createGzip } from 'zlib';
-import { getCMSIntegration } from '../../cms';
+import { prismicGetBlogPosts } from '../../cms/prismic';
 
 let sitemap;
 
@@ -38,8 +38,7 @@ const api = async (req: NextApiRequest, res: NextApiResponse) => {
       sitemapStream.write(route);
     });
 
-    const CMS = getCMSIntegration();
-    const blogPosts = await CMS.getBlogPosts();
+    const blogPosts = await prismicGetBlogPosts();
 
     blogPosts.forEach((post) => {
       sitemapStream.write({

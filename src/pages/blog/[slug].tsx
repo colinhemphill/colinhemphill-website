@@ -5,8 +5,15 @@ import {
 } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { getCMSIntegration } from '../../cms';
-import { formatDate } from '../../cms/helpers';
+import {
+  formatDate,
+  parseDate,
+  prismicGetBlogPost,
+  prismicGetBlogPosts,
+  prismicGetLinks,
+  prismicGetPersonalInformation,
+  PrismicRichTextComponent,
+} from '../../cms/prismic';
 import BlogAuthor from '../../components/BlogAuthor/BlogAuthor';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import Footer from '../../components/Footer/Footer';
@@ -19,10 +26,9 @@ import Separator from '../../components/Separator/Separator';
 export const getStaticProps = async (ctx: GetStaticPropsContext) => {
   const { params } = ctx;
   const { slug } = params;
-  const CMS = getCMSIntegration();
-  const personalInformation = await CMS.getPersonalInformation();
-  const blogPost = await CMS.getBlogPost(slug as string);
-  const links = await CMS.getLinks();
+  const personalInformation = await prismicGetPersonalInformation();
+  const blogPost = await prismicGetBlogPost(slug as string);
+  const links = await prismicGetLinks();
 
   return {
     props: {
@@ -35,8 +41,7 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const CMS = getCMSIntegration();
-  const blogPosts = await CMS.getBlogPosts();
+  const blogPosts = await prismicGetBlogPosts();
 
   const paths = blogPosts.map((post) => {
     return { params: { slug: post.uid } };
@@ -53,8 +58,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 const Page = (props: Props): JSX.Element => {
   const { blogPost, links, personalInformation } = props;
   const { content, first_publication_date, image, tags, title } = blogPost;
-  const CMS = getCMSIntegration();
-  const date = formatDate(CMS.parseDate(first_publication_date));
+  const date = formatDate(parseDate(first_publication_date));
 
   return (
     <>
@@ -87,7 +91,7 @@ const Page = (props: Props): JSX.Element => {
       <Separator background="white" direction="up" foreground="light" />
 
       <Section color="light">
-        <CMS.RichTextComponent richText={content} />
+        <PrismicRichTextComponent richText={content} />
         <h4 className="mt-md">
           {tags.map((tag) => (
             <span className="badge bg-primary me-xxxs" key={tag}>

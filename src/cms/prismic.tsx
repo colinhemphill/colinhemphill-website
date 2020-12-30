@@ -7,9 +7,10 @@ import {
 } from 'prismic-reactjs';
 import React from 'react';
 import readingTime from 'reading-time';
-import { accessToken, apiEndpoint } from '.';
 import { CMSLink } from '../_types/CMSLink';
 
+const apiEndpoint = process.env.CMS_ENDPOINT;
+const accessToken = process.env.CMS_KEY;
 export type PrismicRichText = RichTextBlock[];
 export type PrismicImageType = {
   alt: string;
@@ -187,6 +188,14 @@ export const PrismicRichTextComponent = ({
   return <RichText render={richText} />;
 };
 
-export const prismicParseDate = (date: string): Date => {
+export const formatDate = (date: Date | number): string => {
+  return new Intl.DateTimeFormat('en-US', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+};
+
+export const parseDate = (date: string): Date => {
   return parsePrismicDate(date);
 };

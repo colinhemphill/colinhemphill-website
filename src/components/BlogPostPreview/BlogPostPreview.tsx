@@ -3,9 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { RichText } from 'prismic-reactjs';
 import React from 'react';
-import { getCMSIntegration } from '../../cms';
-import { formatDate } from '../../cms/helpers';
-import { PrismicImageType, PrismicRichText } from '../../cms/prismic';
+import {
+  formatDate,
+  parseDate,
+  PrismicImageType,
+  PrismicRichText,
+} from '../../cms/prismic';
 import styles from './BlogPostPreview.module.scss';
 
 const BlogPostPreview = (
@@ -20,7 +23,6 @@ const BlogPostPreview = (
     title,
     uid,
   } = props;
-  const CMS = getCMSIntegration();
 
   return (
     <div className="card h-100">
@@ -41,7 +43,7 @@ const BlogPostPreview = (
       <div className="card-body">
         <h3 className="card-title">{title}</h3>
         <h4 className="h6 card-subtitle mb-xxs text-muted">
-          {formatDate(CMS.parseDate(first_publication_date))} •{' '}
+          {formatDate(parseDate(first_publication_date))} •{' '}
           <em>{reading_stats.text}</em>
         </h4>
         <div className={classnames('card-text', styles.contentPreview)}>

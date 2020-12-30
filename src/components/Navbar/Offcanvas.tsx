@@ -1,20 +1,42 @@
 import { faExternalLinkAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useRef } from 'react';
 import { OutboundLink } from 'react-ga';
+import { Transition } from 'react-transition-group';
 import { OffcanvasContext } from '../../pages/_app';
 import { navLinks } from './Navbar';
 import styles from './Offcanvas.module.scss';
 
-const defaultSpringOptions = {
-  damping: 20,
-  stiffness: 300,
-  type: 'spring',
-  velocity: 2,
+const duration = 400;
+
+const overlayDefaultStyle = {
+  opacity: 0,
+  transition: `opacity ${duration}ms ease-in-out`,
+  zIndex: -1,
+};
+
+const defaultStyle = {
+  opacity: 0,
+  transform: 'scale(0.5)',
+  transition: `opacity ${duration}ms cubic-bezier(0.65, 0, 0.35, 1),
+    transform ${duration}ms cubic-bezier(0.3, 1.5, 0.65, 1)`,
+};
+
+const overlayTransitionStyles = {
+  entered: { opacity: 1, zIndex: 2000 },
+  entering: { opacity: 1, zIndex: 2000 },
+  exited: { opacity: 0 },
+  exiting: { opacity: 0 },
+};
+
+const transitionStyles = {
+  entered: { opacity: 1, transform: 'scale(1.0)' },
+  entering: { opacity: 1, transform: 'scale(1.0)' },
+  exited: { opacity: 0, transform: 'scale(0.5)' },
+  exiting: { opacity: 0, transform: 'scale(0.5)' },
 };
 
 const Offcanvas = (): JSX.Element => {
@@ -36,34 +58,24 @@ const Offcanvas = (): JSX.Element => {
 
   return (
     <>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            animate={{ opacity: 1 }}
+      <Transition in={isOpen} timeout={duration}>
+        {(state) => (
+          <div
             className={styles.overlay}
-            exit={{ opacity: 0 }}
-            initial={{ opacity: 0 }}
-            onClick={toggle}
-            transition={{ duration: 0.3 }}
+            style={{
+              ...overlayDefaultStyle,
+              ...overlayTransitionStyles[state],
+            }}
           />
         )}
-      </AnimatePresence>
+      </Transition>
 
       <div onKeyDown={onKeyDown} ref={menuRef} tabIndex={isOpen ? 0 : -1}>
-        <AnimatePresence>
-          {isOpen && (
-            <motion.nav
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
+        <Transition in={isOpen} timeout={duration}>
+          {(state) => (
+            <nav
               className={styles.offcanvas}
-              exit={{ opacity: 0, scale: 0.5 }}
-              initial={{ opacity: 0, scale: 0.5 }}
-              transition={{
-                opacity: { duration: 0.3, ease: 'easeInOut', type: 'tween' },
-                scale: defaultSpringOptions,
-              }}
+              style={{ ...defaultStyle, ...transitionStyles[state] }}
             >
               <div className={styles.navHeader}>
                 <div className="d-flex justify-content-end" onClick={toggle}>
@@ -140,16 +152,16 @@ const Offcanvas = (): JSX.Element => {
                   </li>
                 </ul>
               </div>
-            </motion.nav>
+            </nav>
           )}
-        </AnimatePresence>
-
-        <style jsx global>{`
-          body {
-            overflow-y: ${isOpen ? 'hidden' : 'auto'};
-          }
-        `}</style>
+        </Transition>
       </div>
+
+      <style jsx global>{`
+        body {
+          overflow-y: ${isOpen ? 'hidden' : 'auto'};
+        }
+      `}</style>
     </>
   );
 };
