@@ -65,14 +65,12 @@ const Page = (props: Props): JSX.Element => {
       <PageHead pageTitle="Web Developer & Noise-Maker" />
 
       <Navbar />
-
-      <Separator background="white" direction="down" foreground="primary" />
+      <Breadcrumbs
+        currentPage={blogPost.title}
+        previousPage={{ href: '/blog', title: 'Blog' }}
+      />
 
       <Section color="white">
-        <Breadcrumbs
-          currentPage={blogPost.title}
-          previousPage={{ href: '/blog', title: 'Blog' }}
-        />
         <figure className="figure mb-xs">
           <Image
             alt={image.alt}

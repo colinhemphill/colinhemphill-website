@@ -20,9 +20,9 @@ const overlayDefaultStyle = {
 
 const defaultStyle = {
   opacity: 0,
-  transform: 'scale(0.5)',
-  transition: `opacity ${duration}ms cubic-bezier(0.65, 0, 0.35, 1),
-    transform ${duration}ms cubic-bezier(0.3, 1.5, 0.65, 1)`,
+  transform: 'scale(0.8)',
+  transition: `opacity ${duration}ms ease-in-out,
+    transform ${duration}ms cubic-bezier(0.3, 2.0, 0.6, 1)`,
 };
 
 const overlayTransitionStyles = {
@@ -35,8 +35,12 @@ const overlayTransitionStyles = {
 const transitionStyles = {
   entered: { opacity: 1, transform: 'scale(1.0)' },
   entering: { opacity: 1, transform: 'scale(1.0)' },
-  exited: { opacity: 0, transform: 'scale(0.5)' },
-  exiting: { opacity: 0, transform: 'scale(0.5)' },
+  exited: { opacity: 0, transform: 'scale(0.8)' },
+  exiting: {
+    opacity: 0,
+    transform: 'scale(0.8)',
+    transition: `all ${duration}ms cubic-bezier(0.25, 1, 0.6, 1)`,
+  },
 };
 
 const Offcanvas = (): JSX.Element => {

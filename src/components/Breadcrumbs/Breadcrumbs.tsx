@@ -10,25 +10,27 @@ const Breadcrumbs = (props: Props): JSX.Element => {
   const { currentPage, previousPage } = props;
 
   return (
-    <nav aria-label="breadcrumb">
-      <ol className="breadcrumb mb-xs">
-        <li className="breadcrumb-item">
-          <Link href="/">
-            <a>colinhemphill.com</a>
-          </Link>
-        </li>
-        {previousPage && (
+    <div className="container mt-xxs">
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb mb-xs">
           <li className="breadcrumb-item">
-            <Link href={previousPage.href}>
-              <a>{previousPage.title}</a>
+            <Link href="/">
+              <a>colinhemphill.com</a>
             </Link>
           </li>
-        )}
-        <li className="breadcrumb-item active" aria-current="page">
-          {currentPage}
-        </li>
-      </ol>
-    </nav>
+          {previousPage && (
+            <li className="breadcrumb-item">
+              <Link href={previousPage.href}>
+                <a>{previousPage.title}</a>
+              </Link>
+            </li>
+          )}
+          <li className="breadcrumb-item active" aria-current="page">
+            {currentPage}
+          </li>
+        </ol>
+      </nav>
+    </div>
   );
 };
 

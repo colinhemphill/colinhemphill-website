@@ -39,11 +39,9 @@ const Page = (props: Props): JSX.Element => {
       <PageHead pageTitle="Web Developer & Noise-Maker" />
 
       <Navbar />
-      <Separator background="white" direction="down" foreground="primary" />
+      <Breadcrumbs currentPage="Blog" />
 
       <Section color="white">
-        <Breadcrumbs currentPage="Blog" />
-
         <div className="text-center mb-sm">
           <h1>Blog Posts</h1>
           <h2>
