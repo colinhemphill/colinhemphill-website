@@ -20,10 +20,15 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link rel="preconnect" href="https://p.typekit.net" />
-          <link rel="preconnect" href="https://use.typekit.net" />
           <link rel="preconnect" href="https://www.google.com" />
           <link rel="preconnect" href="https://www.google-analytics.com" />
+          <link
+            as="font"
+            crossOrigin="true"
+            href="/fonts/Inter-roman-var.woff2"
+            rel="preload"
+            type="font/woff2"
+          />
 
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon.ico" />
