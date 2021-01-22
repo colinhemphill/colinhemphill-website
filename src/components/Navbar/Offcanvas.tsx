@@ -50,12 +50,12 @@ const Offcanvas = (): JSX.Element => {
 
   useEffect(() => {
     if (isOpen) {
-      menuRef.current.focus();
+      menuRef.current.focus({ preventScroll: true });
     }
   }, [isOpen]);
 
   const onKeyDown = (e) => {
-    if (e.key === 'Escape') {
+    if (e.key === 'Escape' && isOpen) {
       toggle();
     }
   };
@@ -76,7 +76,7 @@ const Offcanvas = (): JSX.Element => {
 
       <Transition in={isOpen} timeout={duration} unmountOnExit>
         {(state) => (
-          <div onKeyDown={onKeyDown} ref={menuRef} tabIndex={isOpen ? 0 : -1}>
+          <div onKeyDown={onKeyDown} ref={menuRef} tabIndex={0}>
             <nav
               className={styles.offcanvas}
               style={{ ...defaultStyle, ...transitionStyles[state] }}
