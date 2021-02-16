@@ -12,7 +12,7 @@ const ThemeSwitch = (): JSX.Element => {
 
   if (!theme) return null;
 
-  const themeVariables = theme === 'light' ? lightModeTheme : darkModeTheme;
+  const themeVariables = darkMode ? darkModeTheme : lightModeTheme;
 
   return (
     <div>
@@ -24,6 +24,7 @@ const ThemeSwitch = (): JSX.Element => {
         type="checkbox"
       />
       <label htmlFor="theme-toggle" className="toggle">
+        <span className="visually-hidden">Toggle dark theme</span>
         <span className="toggle__handler">
           <span className="crater crater--1"></span>
           <span className="crater crater--2"></span>

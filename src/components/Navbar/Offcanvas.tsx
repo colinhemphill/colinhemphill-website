@@ -7,6 +7,7 @@ import React, { useContext, useEffect, useRef } from 'react';
 import { OutboundLink } from 'react-ga';
 import { Transition } from 'react-transition-group';
 import { OffcanvasContext } from '../../pages/_app';
+import ThemeSwitch from '../Theme/ThemeSwitch';
 import { navLinks } from './Navbar';
 import styles from './Offcanvas.module.scss';
 
@@ -98,9 +99,9 @@ const Offcanvas = (): JSX.Element => {
                   <li className="nav-item">
                     <Link href="/">
                       <a
-                        className={classnames('nav-link', {
+                        className={classnames('nav-link', styles.navLink, {
                           active: pathname === '/',
-                          'bg-dark rounded': pathname === '/',
+                          'bg-primary rounded': pathname === '/',
                         })}
                         onClick={toggle}
                       >
@@ -115,9 +116,9 @@ const Offcanvas = (): JSX.Element => {
                         <Link href={link.href}>
                           <a
                             aria-current={active ? 'page' : undefined}
-                            className={classnames('nav-link', {
+                            className={classnames('nav-link', styles.navLink, {
                               active,
-                              'bg-dark rounded': active,
+                              'bg-primary rounded': active,
                             })}
                             onClick={toggle}
                             target={link.targetBlank ? '_blank' : undefined}
@@ -141,7 +142,7 @@ const Offcanvas = (): JSX.Element => {
                   })}
                   <li className="nav-item">
                     <OutboundLink
-                      className="nav-link"
+                      className={classnames('nav-link', styles.navLink)}
                       eventLabel="GitHub repo"
                       onClick={toggle}
                       rel="noopener noreferrer"
@@ -156,6 +157,12 @@ const Offcanvas = (): JSX.Element => {
                     </OutboundLink>
                   </li>
                 </ul>
+                <div className="d-flex justify-content-center align-items-center mt-xs">
+                  <ThemeSwitch />
+                  <label className="ms-xxs" htmlFor="theme-toggle">
+                    Dark mode
+                  </label>
+                </div>
               </div>
             </nav>
           </div>

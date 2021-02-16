@@ -89,7 +89,9 @@ const Navbar = (): JSX.Element => {
           </ul>
         </div>
 
-        <ThemeSwitch />
+        <div className="d-none d-sm-block ms-xxs">
+          <ThemeSwitch />
+        </div>
       </div>
     </nav>
   );
