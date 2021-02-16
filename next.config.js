@@ -1,35 +1,23 @@
-const offline = require('next-offline');
+const withPWA = require('next-pwa');
+const runtimeCaching = require('next-pwa/cache');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 const withPlugins = require('next-compose-plugins');
 
-const workboxOpts = {
-  runtimeCaching: [
-    {
-      urlPattern: /^https?.*/,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: 'https-calls',
-        networkTimeoutSeconds: 15,
-        expiration: {
-          maxEntries: 150,
-          maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
-        },
-        cacheableResponse: {
-          statuses: [0, 200],
-        },
-      },
-    },
-  ],
-  swDest: 'static/service-worker.js',
+const isDev = process.env.NODE_ENV === 'development';
+
+const pwa = {
+  disable: isDev,
+  dest: 'public',
+  runtimeCaching,
 };
 
 const nextConfig = {
-  generateInDevMode: false,
   images: {
     domains: ['images.prismic.io'],
   },
+  pwa,
   reactStrictMode: true,
   async redirects() {
     return [
@@ -40,11 +28,8 @@ const nextConfig = {
       },
     ];
   },
-  target: 'serverless',
-  transformManifest: (manifest) => ['/'].concat(manifest),
-  workboxOpts,
 };
 
-const plugins = [[withBundleAnalyzer], [offline]];
+const plugins = [[withBundleAnalyzer], [withPWA]];
 
 module.exports = withPlugins(plugins, nextConfig);
