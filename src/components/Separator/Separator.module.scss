@@ -1,30 +1,31 @@
 @use '../../styles/variables.scss';
 
+.backgroundAlternate {
+  background-color: var(--color-background-alternate);
+}
 .backgroundDark {
   background-color: variables.$dark;
 }
-.backgroundLight {
-  background-color: variables.$light;
-}
 .backgroundPrimary {
-  background-color: variables.$primary;
+  background-color: var(--color-primary);
 }
-.backgroundWhite {
-  background-color: white;
+.backgroundStandard {
+  background-color: var(--color-background-standard);
+}
+
+.foregroundAlternate {
+  fill: var(--color-background-alternate);
+  stroke: var(--color-background-alternate);
 }
 .foregroundDark {
   fill: variables.$dark;
   stroke: variables.$dark;
 }
-.foregroundLight {
-  fill: variables.$light;
-  stroke: variables.$light;
-}
 .foregroundPrimary {
-  fill: variables.$primary;
-  stroke: variables.$primary;
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
 }
-.foregroundWhite {
-  fill: white;
-  stroke: white;
+.foregroundStandard {
+  fill: var(--color-background-standard);
+  stroke: var(--color-background-standard);
 }

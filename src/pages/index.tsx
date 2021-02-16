@@ -47,9 +47,9 @@ const Page = (props: Props): JSX.Element => {
       <PageHead pageTitle="Web Developer & Noise-Maker" />
 
       <Hero />
-      <Separator background="white" direction="down" foreground="primary" />
+      <Separator background="standard" direction="down" foreground="primary" />
 
-      <Section color="white">
+      <Section color="standard">
         <SectionHeader icon={faAddressCard} text="About Colin" />
         <p>
           I have worked in professional web development since 2013, and
@@ -71,9 +71,9 @@ const Page = (props: Props): JSX.Element => {
         </p>
       </Section>
 
-      <Separator background="white" direction="up" foreground="light" />
+      <Separator background="standard" direction="up" foreground="alternate" />
 
-      <Section color="light">
+      <Section color="alternate">
         <SectionHeader icon={faCode} text="Professional Work" />
         <p>
           My current position is Front End Engineer II at{' '}
@@ -110,9 +110,13 @@ const Page = (props: Props): JSX.Element => {
         </p>
       </Section>
 
-      <Separator background="white" direction="down" foreground="light" />
+      <Separator
+        background="standard"
+        direction="down"
+        foreground="alternate"
+      />
 
-      <Section color="white">
+      <Section color="standard">
         <SectionHeader icon={faPodcast} text="Personal Projects" />
         <p>
           Each of the following is a website that I designed, built, and shipped
@@ -136,14 +140,14 @@ const Page = (props: Props): JSX.Element => {
         </div>
       </Section>
 
-      <Separator background="white" direction="up" foreground="light" />
+      <Separator background="standard" direction="up" foreground="alternate" />
 
-      <Section color="light">
+      <Section color="alternate">
         <SectionHeader icon={faEnvelope} text="Get In Touch" />
         <ContactForm />
       </Section>
 
-      <Separator background="dark" direction="down" foreground="light" />
+      <Separator background="dark" direction="down" foreground="alternate" />
 
       <Footer links={links} personalInformation={personalInformation} />
     </>

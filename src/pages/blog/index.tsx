@@ -41,7 +41,7 @@ const Page = (props: Props): JSX.Element => {
       <Navbar />
       <Breadcrumbs currentPage="Blog" />
 
-      <Section color="white">
+      <Section color="standard">
         <div className="text-center mb-sm">
           <h1>Blog Posts</h1>
           <h2>
@@ -68,7 +68,7 @@ const Page = (props: Props): JSX.Element => {
         </div>
       </Section>
 
-      <Separator background="dark" direction="down" foreground="white" />
+      <Separator background="dark" direction="down" foreground="standard" />
 
       <Footer links={links} personalInformation={personalInformation} />
     </>

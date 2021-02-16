@@ -2,8 +2,6 @@ import classnames from 'classnames';
 import React from 'react';
 import styles from './Separator.module.scss';
 
-type Color = 'dark' | 'light' | 'primary' | 'white';
-
 interface Props {
   background: Color;
   direction: 'down' | 'up';
@@ -14,10 +12,10 @@ const Curve = (props: Props) => {
   const { direction, foreground } = props;
 
   const pathClasses = classnames({
+    [styles.foregroundAlternate]: foreground === 'alternate',
     [styles.foregroundDark]: foreground === 'dark',
-    [styles.foregroundLight]: foreground === 'light',
     [styles.foregroundPrimary]: foreground === 'primary',
-    [styles.foregroundWhite]: foreground === 'white',
+    [styles.foregroundStandard]: foreground === 'standard',
   });
 
   if (direction === 'down') {
@@ -37,10 +35,10 @@ const Curve = (props: Props) => {
 const Separator = (props: Props): JSX.Element => {
   const { background, direction, foreground } = props;
   const separatorClass = classnames('d-block', {
+    [styles.backgroundAlternate]: background === 'alternate',
     [styles.backgroundDark]: background === 'dark',
-    [styles.backgroundLight]: background === 'light',
     [styles.backgroundPrimary]: background === 'primary',
-    [styles.backgroundWhite]: background === 'white',
+    [styles.backgroundStandard]: background === 'standard',
   });
 
   return (

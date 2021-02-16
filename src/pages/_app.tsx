@@ -13,7 +13,9 @@ import { useRouter } from 'next/router';
 import React, { createContext, useEffect, useState } from 'react';
 import ReactGA from 'react-ga';
 import Offcanvas from '../components/Navbar/Offcanvas';
-import '../styles/globals.scss';
+import ThemeProvider from '../components/Theme/ThemeProvider';
+import ThemeScriptTag from '../components/Theme/ThemeScriptTag';
+import '../styles/_main.scss';
 
 config.autoAddCss = false;
 library.add(faGithub, faGitlab, faLinkedin, faNpm, faTwitch, faTwitter);
@@ -60,11 +62,15 @@ const MyApp = ({ Component, pageProps }: AppPropsType): JSX.Element => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
+      <ThemeScriptTag />
+
       <OffcanvasContext.Provider
         value={{ isOpen: offcanvasIsOpen, toggle: toggleOffcanvas }}
       >
-        <Offcanvas />
-        <Component {...pageProps} />
+        <ThemeProvider>
+          <Offcanvas />
+          <Component {...pageProps} />
+        </ThemeProvider>
       </OffcanvasContext.Provider>
     </>
   );

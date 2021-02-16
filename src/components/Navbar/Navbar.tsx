@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import { OutboundLink } from 'react-ga';
 import { OffcanvasContext } from '../../pages/_app';
+import ThemeSwitch from '../Theme/ThemeSwitch';
 
 interface NavLink {
   href: string;
@@ -44,6 +45,7 @@ const Navbar = (): JSX.Element => {
             <FontAwesomeIcon icon={faBars} size="lg" />
           </button>
         </div>
+
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ms-lg-xxxs ms-auto text-decoration-underline align-items-center">
             {navLinks.map((link) => {
@@ -86,6 +88,8 @@ const Navbar = (): JSX.Element => {
             </li>
           </ul>
         </div>
+
+        <ThemeSwitch />
       </div>
     </nav>
   );

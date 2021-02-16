@@ -1,0 +1,12 @@
+@use './variables.scss';
+
+// Export whatever we need to use in JavaScript
+:export {
+  backgroundAlternate: variables.$light;
+  backgroundStandard: variables.$white;
+  card: variables.$white;
+  primary: variables.$primary;
+  primaryLight: variables.$primary-light;
+  primaryMedium: variables.$primary-medium;
+  text: variables.$dark;
+}

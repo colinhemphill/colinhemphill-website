@@ -64,3 +64,4 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // Custom
 @import 'typography';
 @import 'app';
+@import 'components/card';

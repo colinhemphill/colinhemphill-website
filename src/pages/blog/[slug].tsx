@@ -70,7 +70,7 @@ const Page = (props: Props): JSX.Element => {
         previousPage={{ href: '/blog', title: 'Blog' }}
       />
 
-      <Section color="white">
+      <Section color="standard">
         <figure className="figure mb-xs">
           <Image
             alt={image.alt}
@@ -86,9 +86,9 @@ const Page = (props: Props): JSX.Element => {
         <BlogAuthor date={date} reading_stats={blogPost.reading_stats} />
       </Section>
 
-      <Separator background="white" direction="up" foreground="light" />
+      <Separator background="standard" direction="up" foreground="alternate" />
 
-      <Section color="light">
+      <Section color="alternate">
         <PrismicRichTextComponent richText={content} />
         <h4 className="mt-md">
           {tags.map((tag) => (
@@ -99,7 +99,7 @@ const Page = (props: Props): JSX.Element => {
         </h4>
       </Section>
 
-      <Separator background="dark" direction="down" foreground="light" />
+      <Separator background="dark" direction="down" foreground="alternate" />
 
       <Footer links={links} personalInformation={personalInformation} />
     </>

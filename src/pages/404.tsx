@@ -15,7 +15,7 @@ const Page = (): JSX.Element => {
       <Navbar />
       <Breadcrumbs currentPage="404" />
 
-      <Section color="white">
+      <Section color="standard">
         <div className="text-center">
           <h1>404: Page Not Found</h1>
           <p>The link you tried to visit does not exist.</p>

@@ -33,7 +33,7 @@ p {
 }
 section {
   a {
-    color: $primary-medium;
+    color: var(--color-text);
   }
   p:last-child {
     margin-bottom: 0;

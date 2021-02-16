@@ -1,24 +1,20 @@
-import classnames from 'classnames';
 import React, { ReactNode } from 'react';
+import styles from './Section.module.scss';
 
 interface Props {
   children?: ReactNode;
-  color?: 'light' | 'primary' | 'white';
+  color?: Background;
   pdf?: boolean;
 }
 
 const Section = (props: Props): JSX.Element => {
   const { children, color } = props;
 
+  const sectionClass =
+    color === 'standard' ? styles.section : styles.sectionAlternate;
+
   return (
-    <section
-      className={classnames('py-sm', {
-        'bg-light': color === 'light',
-        'bg-primary': color === 'primary',
-        'bg-white': color === 'white',
-        'text-white': color === 'primary',
-      })}
-    >
+    <section className={`${sectionClass} py-sm`}>
       <div className="container">{children}</div>
     </section>
   );
