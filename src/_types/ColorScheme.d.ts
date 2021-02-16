@@ -1,0 +1,1 @@
+type ColorScheme = 'light' | 'dark';
