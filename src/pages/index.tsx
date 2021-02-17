@@ -76,7 +76,7 @@ const Page = (props: Props): JSX.Element => {
       <Section color="alternate">
         <SectionHeader icon={faCode} text="Professional Work" />
         <p>
-          My current position is Front End Engineer II at{' '}
+          My current position is Senior Software Engineer at{' '}
           <OutboundLink
             eventLabel="The Zebra website"
             rel="noopener noreferrer"

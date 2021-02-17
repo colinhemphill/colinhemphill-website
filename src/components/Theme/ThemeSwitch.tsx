@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import darkModeTheme from '../../styles/themeDark.module.scss';
 import lightModeTheme from '../../styles/themeLight.module.scss';
-import { ThemeContext } from './ThemeProvider';
+import { ThemeContext } from './ThemeContext';
 
 const width = 80;
 const height = 35;

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import darkModeTheme from '../../styles/themeDark.module.scss';
 import lightModeTheme from '../../styles/themeLight.module.scss';
-import { ThemeContext } from '../Theme/ThemeProvider';
+import { ThemeContext } from '../Theme/ThemeContext';
 
 interface Props {
   icon: IconDefinition;

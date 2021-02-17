@@ -1,30 +1,12 @@
-import React, { createContext, ReactNode, useEffect, useState } from 'react';
-import darkModeTheme from '../../styles/themeDark.module.scss';
-import lightModeTheme from '../../styles/themeLight.module.scss';
+import React, { ReactNode, useEffect, useState } from 'react';
+import { getMediaQuery, storageKey, usingSystemTheme } from './helpers';
+import { ThemeContext } from './ThemeContext';
 import { themeProperties } from './themeProperties';
 import ThemeScriptTag from './ThemeScriptTag';
-
-const storageKey = 'theme';
-
-export const ThemeContext = createContext<{
-  darkMode: boolean;
-  theme: Theme;
-  setTheme: (theme: string, updateStorage?: boolean) => void;
-  toggleTheme: () => void;
-}>(null);
 
 interface Props {
   children?: ReactNode;
 }
-
-const supportsTheme = () =>
-  window.matchMedia('(prefers-color-scheme)').media !== 'not all';
-
-const getMediaQuery = () => window.matchMedia('(prefers-color-scheme: dark)');
-
-const usingSystemTheme = () => {
-  return supportsTheme() && localStorage.getItem(storageKey) === null;
-};
 
 const ThemeProvider = (props: Props): JSX.Element => {
   const { children } = props;
@@ -44,23 +26,6 @@ const ThemeProvider = (props: Props): JSX.Element => {
       const cssVar = '--color-' + name;
       root.style.setProperty(cssVar, colorByTheme[newTheme]);
     });
-
-    root.style.setProperty(
-      '--color-text',
-      newTheme === 'light' ? lightModeTheme.text : darkModeTheme.text,
-    );
-    root.style.setProperty(
-      '--color-background-standard',
-      newTheme === 'light'
-        ? lightModeTheme.backgroundStandard
-        : darkModeTheme.backgroundStandard,
-    );
-    root.style.setProperty(
-      '--color-background-alternate',
-      newTheme === 'light'
-        ? lightModeTheme.backgroundAlternate
-        : darkModeTheme.backgroundAlternate,
-    );
 
     if (updateStorage) {
       localStorage.setItem(storageKey, newTheme);
