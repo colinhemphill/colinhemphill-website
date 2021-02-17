@@ -2,7 +2,7 @@
 
 .hero {
   padding: variables.$spacer-xs 0;
-  background-color: variables.$primary;
+  background-color: var(--color-primary);
 }
 .imageContainer {
   width: 150px;

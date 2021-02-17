@@ -7,6 +7,7 @@ import React, { useContext } from 'react';
 import { OutboundLink } from 'react-ga';
 import { OffcanvasContext } from '../../pages/_app';
 import ThemeSwitch from '../Theme/ThemeSwitch';
+import styles from './Navbar.module.scss';
 
 interface NavLink {
   href: string;
@@ -28,7 +29,12 @@ const Navbar = (): JSX.Element => {
   const { isOpen, toggle } = useContext(OffcanvasContext);
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-primary sticky-top">
+    <nav
+      className={classnames(
+        'navbar navbar-expand-sm navbar-dark  sticky-top',
+        styles.navbar,
+      )}
+    >
       <div className="container">
         <Link href="/">
           <a className="navbar-brand">Colin Hemphill</a>
