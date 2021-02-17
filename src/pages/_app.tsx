@@ -14,7 +14,6 @@ import React, { createContext, useEffect, useState } from 'react';
 import ReactGA from 'react-ga';
 import Offcanvas from '../components/Navbar/Offcanvas';
 import ThemeProvider from '../components/Theme/ThemeProvider';
-import ThemeScriptTag from '../components/Theme/ThemeScriptTag';
 import '../styles/_main.scss';
 
 config.autoAddCss = false;
@@ -54,15 +53,13 @@ const MyApp = ({ Component, pageProps }: AppPropsType): JSX.Element => {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, []);
+  }, [router]);
 
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
-      <ThemeScriptTag />
 
       <OffcanvasContext.Provider
         value={{ isOpen: offcanvasIsOpen, toggle: toggleOffcanvas }}
