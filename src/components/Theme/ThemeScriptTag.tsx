@@ -3,7 +3,7 @@ import { stringifiedThemeProperties } from './themeProperties';
 
 const clientCode = `(function() {
   function getInitialTheme() {
-    const persistedColorPreference = window.localStorage.getItem(${storageKey});
+    const persistedColorPreference = window.localStorage.getItem('${storageKey}');
     const hasPersistedPreference = typeof persistedColorPreference === 'string';
 
     if (hasPersistedPreference) {
