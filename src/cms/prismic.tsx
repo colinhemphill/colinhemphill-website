@@ -1,5 +1,6 @@
-import prismic from 'prismic-javascript';
-import { DefaultClient } from 'prismic-javascript/types/client';
+import prismic from '@prismicio/client';
+import { DefaultClient } from '@prismicio/client/types/client';
+import { Document } from '@prismicio/client/types/documents';
 import {
   Date as parsePrismicDate,
   RichText,
@@ -38,11 +39,20 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
   };
 };
 
-const cmsClient = (req = null): DefaultClient =>
+export const cmsClient = (req = null): DefaultClient =>
   prismic.client(apiEndpoint, createClientOptions(req, accessToken));
 
-export const prismicGetBlogPost = async (postId: string): Promise<BlogPost> => {
-  const document = await cmsClient().getByUID('blog_post', postId, {});
+export const linkResolver = (doc: Document): string => {
+  if (doc.type === 'blog_post') return `/blog/${doc.uid}`;
+};
+
+export const prismicGetBlogPost = async (
+  postId: string,
+  ref?: string,
+): Promise<BlogPost> => {
+  const document = await cmsClient().getByUID('blog_post', postId, {
+    ref,
+  });
   const reading_stats = readingTime(RichText.asText(document.data.content));
   return {
     first_publication_date: document.first_publication_date,
@@ -189,11 +199,11 @@ export const PrismicRichTextComponent = ({
 };
 
 export const formatDate = (date: Date | number): string => {
-  return new Intl.DateTimeFormat('en-US', {
+  return new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
-  }).format(date);
+  });
 };
 
 export const parseDate = (date: string): Date => {

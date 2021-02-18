@@ -20,6 +20,11 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <script
+            async
+            defer
+            src="https://static.cdn.prismic.io/prismic.js?new=true&repo=resume-colinhemphill"
+          />
           <link rel="preconnect" href="https://www.google.com" />
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <link

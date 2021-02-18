@@ -3,7 +3,10 @@ import { NextApiRequest, NextApiResponse } from 'next';
 const verifyURL = 'https://www.google.com/recaptcha/api/siteverify';
 const recaptchaSecretKey = process.env.CAPTCHA_SECRET_KEY;
 
-const api = async (req: NextApiRequest, res: NextApiResponse) => {
+const api = async (
+  req: NextApiRequest,
+  res: NextApiResponse,
+): Promise<void> => {
   const body = JSON.parse(req.body);
   const { token } = body;
 
@@ -29,7 +32,7 @@ const api = async (req: NextApiRequest, res: NextApiResponse) => {
     });
   }
 
-  return res.send({ valid: true });
+  res.send({ valid: true });
 };
 
 export default api;

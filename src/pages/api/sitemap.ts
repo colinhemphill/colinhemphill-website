@@ -19,7 +19,10 @@ const routes = [
   },
 ];
 
-const api = async (req: NextApiRequest, res: NextApiResponse) => {
+const api = async (
+  req: NextApiRequest,
+  res: NextApiResponse,
+): Promise<void> => {
   res.setHeader('Content-Type', 'application/xml');
   res.setHeader('Content-Encoding', 'gzip');
 
@@ -57,7 +60,7 @@ const api = async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (err) {
     console.error(err);
     res.writeHead(500);
-    return res.end(err.message);
+    res.end(err.message);
   }
 };
 

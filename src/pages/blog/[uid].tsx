@@ -4,6 +4,7 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 import Image from 'next/image';
+import { type } from 'os';
 import React from 'react';
 import {
   formatDate,
@@ -24,10 +25,11 @@ import Separator from '../../components/Separator/Separator';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getStaticProps = async (ctx: GetStaticPropsContext) => {
-  const { params } = ctx;
-  const { slug } = params;
+  const { params, previewData = {} } = ctx;
+  const { uid } = params;
+  const { ref = null } = previewData;
   const personalInformation = await prismicGetPersonalInformation();
-  const blogPost = await prismicGetBlogPost(slug as string);
+  const blogPost = await prismicGetBlogPost(uid as string, ref);
   const links = await prismicGetLinks();
 
   return {
@@ -43,8 +45,8 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogPosts = await prismicGetBlogPosts();
 
-  const paths = blogPosts.map((post) => {
-    return { params: { slug: post.uid } };
+  const paths = blogPosts.map(({ uid }) => {
+    return { params: { uid } };
   });
 
   return {
@@ -71,16 +73,18 @@ const Page = (props: Props): JSX.Element => {
       />
 
       <Section color="standard">
-        <figure className="figure mb-xs">
-          <Image
-            alt={image.alt}
-            className="figure-img img-fluid rounded"
-            height={image.dimensions.height}
-            width={image.dimensions.width}
-            src={image.url}
-          />
-          <figcaption className="figure-caption">{image.alt}</figcaption>
-        </figure>
+        {image.url && (
+          <figure className="figure mb-xs">
+            <Image
+              alt={image.alt}
+              className="figure-img img-fluid rounded"
+              height={image.dimensions.height}
+              width={image.dimensions.width}
+              src={image.url}
+            />
+            <figcaption className="figure-caption">{image.alt}</figcaption>
+          </figure>
+        )}
 
         <h1 className="mb-xs">{title}</h1>
         <BlogAuthor date={date} reading_stats={blogPost.reading_stats} />
