@@ -52,7 +52,7 @@ const Footer = (props: Props): JSX.Element => {
           <small>
             This site was built with{' '}
             <OutboundLink
-              className={styles.footerLink}
+              className="custom-link"
               eventLabel="Next.js website"
               rel="noopener noreferrer"
               target="_blank"
@@ -62,7 +62,7 @@ const Footer = (props: Props): JSX.Element => {
             </OutboundLink>{' '}
             and{' '}
             <OutboundLink
-              className={styles.footerLink}
+              className="custom-link"
               eventLabel="CMS website"
               rel="noopener noreferrer"
               target="_blank"
@@ -72,7 +72,7 @@ const Footer = (props: Props): JSX.Element => {
             </OutboundLink>
             , and deployed on{' '}
             <OutboundLink
-              className={styles.footerLink}
+              className="custom-link"
               eventLabel="Vercel website"
               rel="noopener noreferrer"
               target="_blank"

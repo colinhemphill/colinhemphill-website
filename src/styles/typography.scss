@@ -28,14 +28,33 @@ h6,
   font-weight: 700;
 }
 
+.btn {
+  transition: none;
+}
+
+.custom-link {
+  border-bottom: 2px solid $primary;
+  color: inherit;
+  font-variation-settings: 'wght' 700;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
 p {
   margin-bottom: $spacer-xxs;
+  a {
+    @extend .custom-link;
+  }
 }
 section {
-  a {
-    color: var(--color-text);
-  }
   p:last-child {
     margin-bottom: 0;
   }
+}
+.card-link {
+  @extend .custom-link;
 }
