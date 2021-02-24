@@ -23,7 +23,7 @@
     "@fortawesome/free-brands-svg-icons": "5.15.2",
     "@fortawesome/free-solid-svg-icons": "5.15.2",
     "@fortawesome/react-fontawesome": "0.1.14",
-    "@hookform/resolvers": "2.0.0-beta.3",
+    "@hookform/resolvers": "2.0.0-rc.1",
     "@prismicio/client": "4.0.0",
     "bootstrap": "5.0.0-beta1",
     "next": "10.0.7",
