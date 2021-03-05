@@ -25,7 +25,7 @@
     "@fortawesome/react-fontawesome": "0.1.14",
     "@hookform/resolvers": "2.0.0-beta.3",
     "@prismicio/client": "4.0.0",
-    "bootstrap": "5.0.0-beta1",
+    "bootstrap": "5.0.0-beta2",
     "next": "10.0.8",
     "next-compose-plugins": "2.2.1",
     "next-pwa": "5.0.5",
