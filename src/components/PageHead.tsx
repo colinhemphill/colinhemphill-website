@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { title } from 'process';
 import React from 'react';
 
 interface Props {
@@ -20,10 +19,11 @@ const PageHead = ({
       : 'https://colinhemphill.com';
   const url = baseURL + pathname;
   const imgPath = baseURL + '/img/ColinHemphill-Logo-SocialShare.png';
+  const title = `Colin Hemphill | ${pageTitle}`;
 
   return (
     <Head>
-      <title>Colin Hemphill | {pageTitle}</title>
+      <title>{title}</title>
       <meta name="description" content={description} />
 
       <meta property="og:url" content={url} />
