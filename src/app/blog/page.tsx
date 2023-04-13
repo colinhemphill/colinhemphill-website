@@ -4,11 +4,14 @@ import CardMock from '@/strum/Card/CardMock';
 import CardsGrid from '@/strum/Card/CardsGrid';
 import Heading from '@/strum/Heading';
 import Separator from '@/strum/Separator';
+import {
+  metadataOpenGraphDefaults,
+  metadataTwitterDefaults,
+} from '@/utils/metadata';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import PreviewSection from '../components/PreviewSection';
 import Section from '../components/Section';
-import { metadataOpenGraphDefaults, metadataTwitterDefaults } from '../layout';
 import BlogPostPreviews from './components/BlogPostPreviews';
 
 export const metadata: Metadata = {

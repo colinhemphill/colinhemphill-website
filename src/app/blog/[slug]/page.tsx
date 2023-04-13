@@ -4,16 +4,16 @@ import BreadcrumbItem from '@/strum/BreadcrumbItem';
 import Breadcrumbs from '@/strum/Breadcrumbs';
 import Separator from '@/strum/Separator';
 import { hygraphEndpoint, hygraphHeaders } from '@/utils/hygraph';
+import {
+  metadataOpenGraphDefaults,
+  metadataTwitterDefaults,
+} from '@/utils/metadata';
 import { MDXComponents } from 'mdx/types';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Suspense } from 'react';
 import rehypeHighlight from 'rehype-highlight/lib';
 import { useMDXComponents } from '../../../../mdx-components';
 import Section from '../../components/Section';
-import {
-  metadataOpenGraphDefaults,
-  metadataTwitterDefaults,
-} from '../../layout';
 import BlogPost, { BlogPostProps } from './components/BlogPost';
 
 export interface BlogPostParams {

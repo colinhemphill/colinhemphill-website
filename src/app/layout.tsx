@@ -5,6 +5,10 @@ import Header from './components/Header';
 
 // STYLES
 import Separator from '@/strum/Separator';
+import {
+  metadataOpenGraphDefaults,
+  metadataTwitterDefaults,
+} from '@/utils/metadata';
 import { Metadata } from 'next';
 import { PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
@@ -18,40 +22,6 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const revalidate = 60 * 5;
-
-export const metadataOpenGraphDefaults: Metadata['openGraph'] = {
-  description:
-    'Colin Hemphill is a front end software developer, musician, and podcaster in Austin, TX.',
-  images: {
-    alt: 'Colin Hemphill’s Logo',
-    height: 1080,
-    url: '/img/ColinHemphill-Logo-SocialShare.png',
-    width: 1920,
-  },
-  locale: 'en-US',
-  title: {
-    default: 'Web Developer and Noise-Maker | Colin Hemphill',
-    template: '%s | Colin Hemphill',
-  },
-  type: 'website',
-};
-
-export const metadataTwitterDefaults: Metadata['twitter'] = {
-  creator: '@colin_hemphill',
-  description:
-    'Colin Hemphill is a front end software developer, musician, and podcaster in Austin, TX.',
-  images: {
-    alt: 'Colin Hemphill’s Logo',
-    height: 1080,
-    url: '/img/ColinHemphill-Logo-SocialShare.png',
-    width: 1920,
-  },
-  site: 'Colin Hemphill',
-  title: {
-    default: 'Web Developer and Noise-Maker | Colin Hemphill',
-    template: '%s | Colin Hemphill',
-  },
-};
 
 export const metadata: Metadata = {
   // https://beta.nextjs.org/docs/api-reference/metadata#metadatabase
