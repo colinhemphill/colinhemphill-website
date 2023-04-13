@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .link,
+  p a {
+    @apply underline decoration-primary-6 decoration-2 underline-offset-2 transition-colors duration-300 hocus:decoration-current;
+  }
+  .link-solid {
+    @apply text-primary-8 transition-colors duration-300 hocus:text-neutral-10;
+  }
+  body[data-menu-open] {
+    @apply h-full overflow-hidden;
+  }
+  .blog-post ul {
+    @apply mt-4 list-disc pl-4 marker:text-primary-7;
+  }
+  .blog-post li {
+    @apply my-1 pl-2;
+  }
+  .blog-post li ul {
+    @apply mt-1;
+  }
+}

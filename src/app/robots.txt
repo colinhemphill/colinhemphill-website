@@ -1,0 +1,11 @@
+# Welcome, robot overlords!
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://colinhemphill.com
+
+# Sitemaps
+Sitemap: https://colinhemphill.com/sitemap.xml
