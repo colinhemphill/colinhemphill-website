@@ -12,11 +12,11 @@ const headingVariants = cva('font-bold', {
     },
     size: {
       1: 'text-4xl md:text-5xl md:leading-normal',
-      2: 'text-2xl md:text-3xl',
-      3: 'text-xl md:text-2xl',
-      4: 'text-lg md:text-xl',
-      5: 'text-base md:text-lg',
-      6: 'text-sm md:text-base',
+      2: 'text-3xl md:text-4xl',
+      3: 'text-2xl md:text-3xl',
+      4: 'text-xl md:text-2xl',
+      5: 'text-lg md:text-xl',
+      6: 'text-base md:text-lg',
     },
   },
   defaultVariants: {

@@ -28,10 +28,7 @@ export default function MeetColin() {
         id="meet-colin-illustration"
         src={Illustration}
       />
-      <Heading
-        className="meet-colin-item translate-y-8 text-4xl opacity-0 md:text-6xl"
-        level={2}
-      >
+      <Heading className="meet-colin-item translate-y-8 opacity-0" level={2}>
         Meet Colin
       </Heading>
     </div>
