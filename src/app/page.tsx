@@ -1,8 +1,9 @@
 import Separator from '@/strum/Separator';
 import { Metadata } from 'next';
+import Section from '../strum/Section';
+import CreateSoftware from './components/CreateSoftware';
 import Hero from './components/Hero';
 import MeetColin from './components/MeetColin';
-import Section from './components/Section';
 
 export const metadata: Metadata = {
   title: 'Web Developer and Noise-Maker',
@@ -16,6 +17,10 @@ export default function HomePage() {
 
       <Section>
         <MeetColin />
+      </Section>
+
+      <Section>
+        <CreateSoftware />
       </Section>
 
       {/* <Section>

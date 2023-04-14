@@ -8,7 +8,7 @@ import {
 } from '@/utils/metadata';
 import { Metadata } from 'next';
 import ContactForm from '../components/ContactForm';
-import Section from '../components/Section';
+import Section from '../../strum/Section';
 
 export const metadata: Metadata = {
   title: 'Contact',

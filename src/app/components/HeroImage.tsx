@@ -30,27 +30,21 @@ export default function ColinImage() {
       animate(
         illustrationRef.current as Element,
         {
-          transform: ['translateY(0)', 'translateY(-8px)', 'translateY(0)'],
+          y: [0.0, -8.0, 0.0, 8.0, 0.0],
         },
         {
-          delay: delay + 3.0,
-          duration: 3.0,
+          delay: delay + 1,
+          duration: 6.0,
           repeat: Infinity,
         },
       );
       animate(
         laptopRef.current as Element,
         {
-          transform: [
-            'translateY(0)',
-            'translateY(-5px)',
-            'translateY(0)',
-            'translateY(5px)',
-            'translateY(0)',
-          ],
+          y: [0.0, 4.0, 0.0, -4.0, 0.0],
         },
         {
-          delay: delay + 3.5,
+          delay: delay + 1,
           duration: 6.0,
           repeat: Infinity,
         },

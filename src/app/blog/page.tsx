@@ -10,8 +10,8 @@ import {
 } from '@/utils/metadata';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-import PreviewSection from '../components/PreviewSection';
-import Section from '../components/Section';
+import PreviewSection from '../../strum/PreviewSection';
+import Section from '../../strum/Section';
 import BlogPostPreviews from './components/BlogPostPreviews';
 
 export const metadata: Metadata = {

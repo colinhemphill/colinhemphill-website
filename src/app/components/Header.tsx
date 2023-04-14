@@ -1,8 +1,8 @@
+import NavLink from '@/strum/NavLink';
 import { navLinks } from '@/utils/nav-links';
 import { Github } from 'lucide-react';
 import Logo from './Logo';
 import MobileMenu from './MobileMenu';
-import NavLink from './NavLink';
 
 export default function Header() {
   return (

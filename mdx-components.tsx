@@ -1,12 +1,11 @@
 import Code from '@/app/blog/components/Code';
 import CodeBlock from '@/app/blog/components/CodeBlock';
 import CodeSnippetHeader from '@/app/blog/components/CodeSnippetHeader';
-import Hero from '@/app/components/Hero';
-import Lightbox from '@/app/components/Lightbox';
-import Section from '@/app/components/Section';
+import Section from '@/strum/Section';
 import CodeInline from '@/strum/CodeInline';
 import Heading from '@/strum/Heading';
 import HeadingWithIcon from '@/strum/HeadingWithIcon';
+import Lightbox from '@/strum/Lightbox';
 import Separator from '@/strum/Separator';
 import type { MDXComponents } from 'mdx/types';
 import { twMerge } from 'tailwind-merge';
@@ -51,7 +50,6 @@ export function useMDXComponents(components?: MDXComponents): MDXComponents {
     HeadingWithIcon: (props) => (
       <HeadingWithIcon className="mt-16" {...props} />
     ),
-    Hero,
     Lightbox,
     p: ({ children }) => <p className="mt-4">{children}</p>,
     pre: (props) => <pre {...props} className="whitespace-pre-wrap" />,

@@ -7,11 +7,11 @@ import { animate, inView, stagger } from 'motion';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import Illustration from '../../../public/illustrations/casual-life-3d-young-man-standing-with-bicycle-behind-his-back.png';
+import Illustration from '../../../public/illustrations/desk-chair-coffee.png';
 
 const staggerItem = 'stagger-item';
 
-export default function MeetColin() {
+export default function CreateSoftware() {
   const viewRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -30,14 +30,8 @@ export default function MeetColin() {
       className="flex flex-col items-center gap-10 lg:flex-row"
       ref={viewRef}
     >
-      <Image
-        alt="Animation of a cursor over a web interface with a profile avatar"
-        className={twMerge('h-auto w-[40%]', staggerItem)}
-        src={Illustration}
-      />
-
       <div className={staggerItem}>
-        <Heading level={2}>Hello, I’m Colin</Heading>
+        <Heading level={2}>Creating Quality Software</Heading>
 
         <div className="mt-4 flex items-center justify-start gap-4">
           <div className="text-3xl">
@@ -45,15 +39,23 @@ export default function MeetColin() {
               My goal is to make the web a friendly and enjoyable place for
               everyone.
             </p>
-
             <ul className="mt-4 list-disc pl-4 font-light text-neutral-6">
-              <li className="my-1 pl-2">Software engineering</li>
-              <li className="my-1 pl-2">Music & audio</li>
-              <li className="my-1 pl-2">Podcasting</li>
+              <li className="my-1 pl-2">
+                Design and build amazing front-end experiences.
+              </li>
+              <li className="my-1 pl-2">
+                Lead teams through technical expertise.
+              </li>
             </ul>
           </div>
         </div>
       </div>
+
+      <Image
+        alt="Animation of a cursor over a web interface with a profile avatar"
+        className={twMerge('h-auto w-[40%]', staggerItem)}
+        src={Illustration}
+      />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import Heading from '@/strum/Heading';
+import SocialLinks from '@/strum/SocialLinks';
 import Link from 'next/link';
-import SocialLinks from './SocialLinks';
 
 export default function Footer() {
   return (

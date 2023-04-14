@@ -1,5 +1,5 @@
 import Heading from '@/strum/Heading';
-import ColinImage from './ColinImage';
+import HeroImage from './HeroImage';
 
 export default function Hero() {
   return (
@@ -17,7 +17,7 @@ export default function Hero() {
         </Heading>
       </div>
       <div className="flex-initial">
-        <ColinImage />
+        <HeroImage />
       </div>
     </div>
   );

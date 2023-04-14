@@ -1,4 +1,4 @@
-import Loading from '@/app/components/Loading';
+import Loading from '@/strum/Loading';
 import { revalidate } from '@/app/layout';
 import BreadcrumbItem from '@/strum/BreadcrumbItem';
 import Breadcrumbs from '@/strum/Breadcrumbs';
@@ -13,7 +13,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { Suspense } from 'react';
 import rehypeHighlight from 'rehype-highlight/lib';
 import { useMDXComponents } from '../../../../mdx-components';
-import Section from '../../components/Section';
+import Section from '../../../strum/Section';
 import BlogPost, { BlogPostProps } from './components/BlogPost';
 
 export interface BlogPostParams {

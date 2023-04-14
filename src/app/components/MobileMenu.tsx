@@ -1,11 +1,11 @@
 'use client';
 
 import Button from '@/strum/Button';
+import NavLink from '@/strum/NavLink';
 import { githubLink, navLinks } from '@/utils/nav-links';
 import { Github, Home, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import NavLink from './NavLink';
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
