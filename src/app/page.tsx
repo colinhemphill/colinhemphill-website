@@ -1,17 +1,8 @@
-import CardMock from '@/strum/Card/CardMock';
-import CardsGrid from '@/strum/Card/CardsGrid';
-import HeadingWithIcon from '@/strum/HeadingWithIcon';
 import Separator from '@/strum/Separator';
-import { LayoutTemplate, Mail } from 'lucide-react';
 import { Metadata } from 'next';
-import { Suspense } from 'react';
-import BlogCallout from './components/BlogCallout';
-import ContactForm from './components/ContactForm';
 import Hero from './components/Hero';
-import PreviewSection from './components/PreviewSection';
-import ProjectsPreview from './components/ProjectsPreview';
+import MeetColin from './components/MeetColin';
 import Section from './components/Section';
-import PageContent from './page-content.mdx';
 
 export const metadata: Metadata = {
   title: 'Web Developer and Noise-Maker',
@@ -24,11 +15,15 @@ export default function HomePage() {
       <Separator direction="down" from={0} size="lg" to={1} />
 
       <Section>
-        <PageContent />
-        <BlogCallout />
+        <MeetColin />
       </Section>
 
-      <PreviewSection className="pb-24">
+      {/* <Section>
+        <PageContent />
+        <BlogCallout />
+      </Section> */}
+
+      {/* <PreviewSection className="pb-24">
         <HeadingWithIcon
           Icon={LayoutTemplate}
           level={2}
@@ -50,16 +45,16 @@ export default function HomePage() {
               </>
             }
           >
-            {/* @ts-expect-error Async Server Component */}
             <ProjectsPreview />
           </Suspense>
         </CardsGrid>
       </PreviewSection>
+    */}
 
-      <Section>
+      {/* <Section>
         <HeadingWithIcon Icon={Mail} level={2} text="Get In Touch" />
         <ContactForm />
-      </Section>
+      </Section> */}
     </>
   );
 }

@@ -15,7 +15,7 @@ export default function ColinImage() {
   return (
     <div
       className={twMerge(
-        'z-0 flex items-center justify-center transition-all delay-150 duration-700 ease-out [mask-image:linear-gradient(to_bottom,white_65%,transparent_95%)]',
+        'z-0 flex items-center justify-center transition-all delay-300 duration-700 ease-out [mask-image:linear-gradient(to_bottom,white_65%,transparent_95%)]',
         mounted ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
       )}
     >
