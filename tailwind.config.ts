@@ -11,7 +11,7 @@ export default {
   plugins: [
     autoColorMode({
       neutral: 'zinc',
-      primary: 'cyan',
+      primary: 'teal',
     }),
     plugin(function ({ addVariant }) {
       addVariant('hocus', ['&:hover', '&:focus']);
