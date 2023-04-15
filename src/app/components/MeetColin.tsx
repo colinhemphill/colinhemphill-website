@@ -1,29 +1,13 @@
 'use client';
 
 import Heading from '@/strum/Heading';
-import { delay, duration, easeOut, inViewAnimation } from '@/utils/animations';
-import usePrefersReducedMotion from '@/utils/usePrefersReducedMotion';
-import { animate, inView, stagger } from 'motion';
+import useInViewAnimate from '@/utils/useInViewAnimate';
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Illustration from '../../../public/illustrations/optimized/man-with-bicycle.png';
 
-const staggerItem = 'meet-colin-stagger-item';
-
 export default function MeetColin() {
-  const viewRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
-
-  useEffect(() => {
-    inView(viewRef.current as Element, () => {
-      animate(`.${staggerItem}`, inViewAnimation(prefersReducedMotion), {
-        duration,
-        easing: easeOut,
-        delay: stagger(delay, { start: delay }),
-      });
-    });
-  }, [prefersReducedMotion]);
+  const { staggerClassName, viewRef } = useInViewAnimate('meet-colin');
 
   return (
     <div
@@ -31,25 +15,27 @@ export default function MeetColin() {
       ref={viewRef}
     >
       <Image
-        alt="Animation of a cursor over a web interface with a profile avatar"
-        className={twMerge('h-auto w-[40%]', staggerItem)}
+        alt="Illustration of a man standing in front of a bicycle"
+        className={twMerge('h-auto max-w-[75%] lg:w-[500px]', staggerClassName)}
         src={Illustration}
       />
 
-      <div className={staggerItem}>
+      <div className={staggerClassName}>
         <Heading level={2}>Hello, I’m Colin</Heading>
 
         <div className="mt-4 flex items-center justify-start gap-4">
-          <div className="text-3xl">
+          <div className="text-xl md:text-2xl lg:text-3xl">
             <p>
               My goal is to make the web a friendly and enjoyable place for
               everyone.
             </p>
-
             <ul className="mt-4 list-disc pl-6 font-light text-neutral-6">
-              <li className="my-1 pl-2">Software engineering</li>
-              <li className="my-1 pl-2">Music & audio</li>
-              <li className="my-1 pl-2">Podcasting</li>
+              <li className="my-1 pl-2">
+                Design and build amazing front-end experiences.
+              </li>
+              <li className="my-1 pl-2">
+                Lead teams through technical expertise.
+              </li>
             </ul>
           </div>
         </div>

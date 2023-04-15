@@ -1,40 +1,24 @@
 'use client';
 
 import Heading from '@/strum/Heading';
-import { delay, duration, easeOut, inViewAnimation } from '@/utils/animations';
-import usePrefersReducedMotion from '@/utils/usePrefersReducedMotion';
-import { animate, inView, stagger } from 'motion';
+import useInViewAnimate from '@/utils/useInViewAnimate';
 import Image from 'next/image';
-import { useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Illustration from '../../../public/illustrations/optimized/man-chair-coffee.png';
 
-const staggerItem = 'create-software-stagger-item';
-
 export default function CreateSoftware() {
-  const viewRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
-
-  useEffect(() => {
-    inView(viewRef.current as Element, () => {
-      animate(`.${staggerItem}`, inViewAnimation(prefersReducedMotion), {
-        duration,
-        easing: easeOut,
-        delay: stagger(delay, { start: delay }),
-      });
-    });
-  }, [prefersReducedMotion]);
+  const { staggerClassName, viewRef } = useInViewAnimate('create-software');
 
   return (
     <div
       className="flex flex-col items-center gap-10 lg:flex-row"
       ref={viewRef}
     >
-      <div className={staggerItem}>
+      <div className={staggerClassName}>
         <Heading level={2}>Creating Quality Software</Heading>
 
         <div className="mt-4 flex items-center justify-start gap-4">
-          <div className="text-3xl">
+          <div className="text-xl md:text-2xl lg:text-3xl">
             <p>
               My goal is to make the web a friendly and enjoyable place for
               everyone.
@@ -52,8 +36,8 @@ export default function CreateSoftware() {
       </div>
 
       <Image
-        alt="Animation of a cursor over a web interface with a profile avatar"
-        className={twMerge('h-auto w-[40%]', staggerItem)}
+        alt="Illustration of a man in an office chair drinking a cup of coffee"
+        className={twMerge('h-auto max-w-[75%] lg:w-[500px]', staggerClassName)}
         src={Illustration}
       />
     </div>

@@ -1,6 +1,15 @@
+import CardMock from '@/strum/Card/CardMock';
+import CardsGrid from '@/strum/Card/CardsGrid';
+import HeadingWithIcon from '@/strum/HeadingWithIcon';
+import PreviewSection from '@/strum/PreviewSection';
+import ProjectsPreview from '@/strum/ProjectsPreview';
 import Separator from '@/strum/Separator';
+import { LayoutTemplate, Mail } from 'lucide-react';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import Section from '../strum/Section';
+import BlogCallout from './components/BlogCallout';
+import ContactForm from './components/ContactForm';
 import CreateSoftware from './components/CreateSoftware';
 import Hero from './components/Hero';
 import MeetColin from './components/MeetColin';
@@ -17,18 +26,12 @@ export default function HomePage() {
 
       <Section>
         <MeetColin />
-      </Section>
-
-      <Section>
+        <div className="py-10" />
         <CreateSoftware />
+        <BlogCallout />
       </Section>
 
-      {/* <Section>
-        <PageContent />
-        <BlogCallout />
-      </Section> */}
-
-      {/* <PreviewSection className="pb-24">
+      <PreviewSection className="pb-24">
         <HeadingWithIcon
           Icon={LayoutTemplate}
           level={2}
@@ -50,16 +53,16 @@ export default function HomePage() {
               </>
             }
           >
+            {/* @ts-expect-error Async Server Component */}
             <ProjectsPreview />
           </Suspense>
         </CardsGrid>
       </PreviewSection>
-    */}
 
-      {/* <Section>
+      <Section>
         <HeadingWithIcon Icon={Mail} level={2} text="Get In Touch" />
         <ContactForm />
-      </Section> */}
+      </Section>
     </>
   );
 }
