@@ -4,7 +4,7 @@ import Heading from '@/strum/Heading';
 import useInViewAnimate from '@/utils/useInViewAnimate';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
-import Illustration from '../../../public/illustrations/optimized/man-design-program.png';
+import Illustration from '../../../public/illustrations/man-design-program.png';
 
 export default function CreateSoftware() {
   const { staggerClassName, viewRef } = useInViewAnimate('create-software');

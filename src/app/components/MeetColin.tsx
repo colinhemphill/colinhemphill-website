@@ -4,7 +4,7 @@ import Heading from '@/strum/Heading';
 import useInViewAnimate from '@/utils/useInViewAnimate';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
-import Illustration from '../../../public/illustrations/optimized/man-chair-coffee-trimmed.png';
+import Illustration from '../../../public/illustrations/man-chair-coffee-trimmed.png';
 
 export default function MeetColin() {
   const { staggerClassName, viewRef } = useInViewAnimate('meet-colin');
