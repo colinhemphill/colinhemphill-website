@@ -19,13 +19,17 @@ export default function useInViewAnimate(
   const staggerDelay = speed === 'fast' ? delayShort : delay;
 
   useEffect(() => {
-    inView(viewRef.current as Element, () => {
-      animate(`.${staggerClassName}`, inViewAnimation(prefersReducedMotion), {
-        duration,
-        easing: easeOut,
-        delay: stagger(staggerDelay, { start: delay }),
-      });
-    });
+    inView(
+      viewRef.current as Element,
+      () => {
+        animate(`.${staggerClassName}`, inViewAnimation(prefersReducedMotion), {
+          duration,
+          easing: easeOut,
+          delay: stagger(staggerDelay, { start: delay }),
+        });
+      },
+      { margin: '-200px 0px' },
+    );
   }, [name, prefersReducedMotion, staggerClassName, staggerDelay]);
 
   return { staggerClassName: `${staggerClassName} opacity-0`, viewRef };

@@ -26,7 +26,7 @@ export default function HomePage() {
 
       <Section>
         <MeetColin />
-        <div className="py-10" />
+        <div className="py-16" />
         <CreateSoftware />
         <BlogCallout />
       </Section>
@@ -38,10 +38,10 @@ export default function HomePage() {
           size={1}
           text="Personal Projects"
         />
-        <p className="mt-4">
+        <p className="mt-4 text-xl">
           Each of the following is a website that I designed, built, and shipped
           from the ground up! In addition to maintaining the web presence, I am
-          involved in each as a hobbyist or as an indirect supporter.
+          involved in them as a hobbyist or as an indirect supporter.
         </p>
         <CardsGrid className="mt-8">
           <Suspense

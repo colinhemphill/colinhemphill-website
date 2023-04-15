@@ -13,7 +13,7 @@ export default function Hero() {
           level={2}
           size={1}
         >
-          A web developer and noise-maker in Austin, TX
+          A web developer and noise-maker in Austin
         </Heading>
       </div>
       <div className="flex-initial">
