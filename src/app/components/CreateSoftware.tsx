@@ -14,15 +14,6 @@ export default function CreateSoftware() {
       className="flex flex-col items-center gap-24 lg:flex-row"
       ref={viewRef}
     >
-      <Image
-        alt="Illustration of a man in an office chair drinking a cup of coffee"
-        className={twMerge(
-          'h-auto max-w-[75%] flex-initial lg:w-[300px]',
-          staggerClassName,
-        )}
-        src={Illustration}
-      />
-
       <div className={twMerge('flex-1', staggerClassName)}>
         <Heading level={2}>Creating Quality Software 🧑‍💻</Heading>
 
@@ -46,6 +37,15 @@ export default function CreateSoftware() {
           </div>
         </div>
       </div>
+
+      <Image
+        alt="Illustration of a man in an office chair drinking a cup of coffee"
+        className={twMerge(
+          'h-auto max-w-[75%] flex-initial lg:w-[300px]',
+          staggerClassName,
+        )}
+        src={Illustration}
+      />
     </div>
   );
 }
