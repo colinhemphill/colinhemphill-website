@@ -24,8 +24,8 @@ export default function MeetColin() {
               both computers and music.
             </p>
             <p className="mt-4 font-light text-neutral-6">
-              In my full-time career I make software, with an emphasis on
-              front-end technology like React.
+              In my full-time career I make software, with an emphasis on front
+              end technology like React.
             </p>
             <p className="mt-4 font-light text-neutral-6">
               With training in audio engineering and music, I spend much of my

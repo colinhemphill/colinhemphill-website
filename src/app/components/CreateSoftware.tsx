@@ -25,7 +25,7 @@ export default function CreateSoftware() {
             </p>
             <ul className="mt-4 list-disc pl-6 font-light text-neutral-6">
               <li className="my-1 pl-2">
-                Design and build amazing front-end experiences.
+                Design and build amazing front end experiences.
               </li>
               <li className="my-1 pl-2">
                 Lead teams through technical expertise.
