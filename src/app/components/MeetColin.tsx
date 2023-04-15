@@ -7,9 +7,9 @@ import { animate, inView, stagger } from 'motion';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import Illustration from '../../../public/illustrations/casual-life-3d-young-man-standing-with-bicycle-behind-his-back.png';
+import Illustration from '../../../public/illustrations/optimized/man-with-bicycle.png';
 
-const staggerItem = 'stagger-item';
+const staggerItem = 'meet-colin-stagger-item';
 
 export default function MeetColin() {
   const viewRef = useRef<HTMLDivElement>(null);
@@ -46,7 +46,7 @@ export default function MeetColin() {
               everyone.
             </p>
 
-            <ul className="mt-4 list-disc pl-4 font-light text-neutral-6">
+            <ul className="mt-4 list-disc pl-6 font-light text-neutral-6">
               <li className="my-1 pl-2">Software engineering</li>
               <li className="my-1 pl-2">Music & audio</li>
               <li className="my-1 pl-2">Podcasting</li>

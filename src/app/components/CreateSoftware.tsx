@@ -7,9 +7,9 @@ import { animate, inView, stagger } from 'motion';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import Illustration from '../../../public/illustrations/desk-chair-coffee.png';
+import Illustration from '../../../public/illustrations/optimized/man-chair-coffee.png';
 
-const staggerItem = 'stagger-item';
+const staggerItem = 'create-software-stagger-item';
 
 export default function CreateSoftware() {
   const viewRef = useRef<HTMLDivElement>(null);
@@ -39,7 +39,7 @@ export default function CreateSoftware() {
               My goal is to make the web a friendly and enjoyable place for
               everyone.
             </p>
-            <ul className="mt-4 list-disc pl-4 font-light text-neutral-6">
+            <ul className="mt-4 list-disc pl-6 font-light text-neutral-6">
               <li className="my-1 pl-2">
                 Design and build amazing front-end experiences.
               </li>

@@ -5,7 +5,7 @@ import usePrefersReducedMotion from '@/utils/usePrefersReducedMotion';
 import { animate } from 'motion';
 import Image from 'next/image';
 import Laptop from 'public/illustrations/optimized/laptop.png';
-import Illustration from 'public/illustrations/optimized/man-guitar.png';
+import Illustration from 'public/illustrations/optimized/man-with-guitar.png';
 import { useEffect, useRef } from 'react';
 
 export default function ColinImage() {
@@ -44,7 +44,7 @@ export default function ColinImage() {
           y: [0.0, 4.0, 0.0, -4.0, 0.0],
         },
         {
-          delay: delay + 1,
+          delay: delay + 1.5,
           duration: 6.0,
           repeat: Infinity,
         },
@@ -59,14 +59,14 @@ export default function ColinImage() {
     >
       <Image
         alt="A 3D illustration of a young man playing an acoustic guitar"
-        className="h-auto w-full pr-[10%]"
+        className="-scale-x-1 h-auto w-full pl-[10%]"
         priority
         ref={illustrationRef}
         src={Illustration}
       />
       <Image
         alt="A 3D illustration of a laptop"
-        className="absolute bottom-0 right-0 w-[45%] md:max-w-full"
+        className="absolute bottom-0 left-0 w-[45%] md:max-w-full"
         priority
         ref={laptopRef}
         src={Laptop}
