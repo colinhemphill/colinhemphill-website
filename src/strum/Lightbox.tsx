@@ -10,8 +10,14 @@ interface Lightbox extends ImageProps {
   rounded?: boolean;
 }
 
-const Lightbox: React.FC<Lightbox> = (props) => {
-  const { alt, className, height, rounded = false, src, width } = props;
+const Lightbox: React.FC<Lightbox> = ({
+  alt,
+  className,
+  height,
+  rounded = true,
+  src,
+  width,
+}) => {
   const [showLightbox, setShowLightbox] = useState(false);
 
   const toggleLightbox = () => {
@@ -59,14 +65,21 @@ const Lightbox: React.FC<Lightbox> = (props) => {
           </Button>
         </>
       )}
-      <Image
-        alt={alt}
-        className={twMerge('my-8', rounded && 'rounded-md', className)}
-        height={height}
-        onClick={toggleLightbox}
-        src={src}
-        width={width}
-      />
+
+      <div className="my-8 flex items-center justify-center">
+        <Image
+          alt={alt}
+          className={twMerge(
+            'cursor-pointer shadow-md',
+            rounded && 'rounded-md',
+            className,
+          )}
+          height={height}
+          onClick={toggleLightbox}
+          src={src}
+          width={width}
+        />
+      </div>
     </>
   );
 };
