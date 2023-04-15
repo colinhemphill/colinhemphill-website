@@ -1,6 +1,7 @@
 import Code from '@/app/blog/components/Code';
 import CodeBlock from '@/app/blog/components/CodeBlock';
 import CodeSnippetHeader from '@/app/blog/components/CodeSnippetHeader';
+import Alert from '@/strum/Alert';
 import CodeInline from '@/strum/CodeInline';
 import Heading from '@/strum/Heading';
 import HeadingWithIcon from '@/strum/HeadingWithIcon';
@@ -14,6 +15,7 @@ import { twMerge } from 'tailwind-merge';
 export function useMDXComponents(components?: MDXComponents): MDXComponents {
   return {
     a: (props) => <a className={twMerge(props.className, 'link')} {...props} />,
+    Alert,
     code: ({ className, children }) =>
       className?.includes('hljs') ? (
         <Code>{children}</Code>

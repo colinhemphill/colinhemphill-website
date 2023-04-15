@@ -13,6 +13,7 @@ import ContactForm from './components/ContactForm';
 import CreateSoftware from './components/CreateSoftware';
 import Hero from './components/Hero';
 import MeetColin from './components/MeetColin';
+import Alert from '@/strum/Alert';
 
 export const metadata: Metadata = {
   title: 'Web Developer and Noise-Maker',
@@ -25,6 +26,7 @@ export default function HomePage() {
       <Separator direction="down" from={0} size="lg" to={1} />
 
       <Section>
+        <Alert>Testing an alert on the home page</Alert>
         <MeetColin />
         <div className="py-16" />
         <CreateSoftware />

@@ -22,4 +22,7 @@
   .blog-post li ul {
     @apply mt-1;
   }
+  .alert a {
+    @apply underline;
+  }
 }

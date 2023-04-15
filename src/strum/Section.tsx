@@ -25,7 +25,6 @@ export type SectionProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof sectionVariants> & {
     as?: React.ElementType;
     bg?: 1 | 2 | 3;
-    className?: string;
     size?: 'sm' | 'md' | 'lg';
   };
 

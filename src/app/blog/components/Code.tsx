@@ -4,14 +4,10 @@ import { PropsWithChildren, useContext } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { CodeBlockContext } from './CodeBlock';
 
-interface CodeProps {
-  className?: string;
-}
-
 export default function Code({
   children,
   className,
-}: PropsWithChildren<CodeProps>) {
+}: PropsWithChildren<WithClassName>) {
   const { codeRef } = useContext(CodeBlockContext);
 
   return (
