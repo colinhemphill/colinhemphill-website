@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "1.8.1",
-    "@vercel/og": "0.5.2",
+    "@vercel/og": "0.5.3",
     "class-variance-authority": "0.5.2",
     "dayjs": "1.11.7",
     "hcaptcha": "0.1.1",
