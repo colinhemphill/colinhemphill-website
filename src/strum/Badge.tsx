@@ -2,7 +2,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-export const alertVariants = cva('alert border rounded-md', {
+export const badgeVariants = cva('inline-block rounded-md border font-bold', {
   variants: {
     color: {
       neutral: 'border-neutral-3 bg-neutral-0 text-neutral-6',
@@ -11,40 +11,33 @@ export const alertVariants = cva('alert border rounded-md', {
       warning: 'border-warning-3 bg-warning-0 text-warning-6',
       danger: 'border-danger-3 bg-danger-0 text-danger-6',
     },
-    margin: {
-      default: '',
-      lg: 'my-16',
-    },
     size: {
-      sm: 'text-sm p-2',
-      md: 'text-base p-4',
-      lg: 'text-lg border-2 p-6',
+      sm: 'text-xs p-1',
+      md: 'text-sm py-1 px-2',
+      lg: 'text-base py-2 px-3',
     },
   },
   defaultVariants: {
     color: 'neutral',
-    margin: 'default',
     size: 'md',
   },
 });
 
-export type AlertProps = React.HtmlHTMLAttributes<HTMLDivElement> &
-  VariantProps<typeof alertVariants>;
+export type BadgeProps = React.HtmlHTMLAttributes<HTMLDivElement> &
+  VariantProps<typeof badgeVariants>;
 
-export default function Alert({
+export default function Badge({
   children,
   className,
   color,
-  margin,
   size,
   ...props
-}: PropsWithChildren<AlertProps>) {
+}: PropsWithChildren<BadgeProps>) {
   return (
     <div
       className={twMerge(
-        alertVariants({
+        badgeVariants({
           color,
-          margin,
           size,
         }),
         className,

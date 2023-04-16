@@ -1,4 +1,6 @@
+import Badge from '@/strum/Badge';
 import Heading from '@/strum/Heading';
+import { sortAlphabetical } from '@/utils/sort';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import Image from 'next/image';
@@ -18,10 +20,12 @@ export default function BlogPost({
   date,
   image,
   imageAlt,
+  tags,
   title,
 }: BlogPostProps) {
   const formattedDate = dayjs(date, 'YYYY-MM-DD').format('ll');
   const stats = readingTime(content);
+  const sortedTags = sortAlphabetical(tags, 'text');
 
   return (
     <article className="blog-post">
@@ -65,6 +69,14 @@ export default function BlogPost({
       />
 
       <div className="mt-10">{compiledContent}</div>
+
+      <div className="mt-10 flex gap-2 border-t-2 border-neutral-3 pt-10">
+        {sortedTags.map((tag) => (
+          <Badge color="primary" key={tag.id}>
+            {tag.text}
+          </Badge>
+        ))}
+      </div>
     </article>
   );
 }

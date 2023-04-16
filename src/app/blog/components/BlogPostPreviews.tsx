@@ -19,6 +19,10 @@ async function getBlogPosts(): Promise<BlogPost[]> {
           }
           imageAlt
           slug
+          tags {
+            id
+            text
+          }
           title
         }
       }`,
