@@ -4,28 +4,25 @@ import { sortAlphabetical } from '@/utils/sort';
 import { Post } from '@content';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
+import { useMDXComponents } from 'mdx-components';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import Image from 'next/image';
 import ColinPhoto from 'public/img/Colin-Square-Small.jpg';
-import { ReactNode } from 'react';
 import readingTime from 'reading-time';
 
 dayjs.extend(localizedFormat);
 
-interface BlogPostProps extends Post {
-  compiledContent: ReactNode;
-}
-
 export default async function BlogPost({
   body,
-  compiledContent,
   date,
   image,
   tags,
   title,
-}: BlogPostProps) {
+}: Post) {
   const formattedDate = dayjs(date, 'YYYY-MM-DD').format('ll');
   const stats = readingTime(body.raw);
   const sortedTags = sortAlphabetical(tags, 'title');
+  const MDXContent = useMDXComponent(body.code);
 
   return (
     <article className="blog-post">
@@ -68,7 +65,9 @@ export default async function BlogPost({
         width={image.width}
       />
 
-      <div className="mt-10">{compiledContent}</div>
+      <div className="mt-10">
+        <MDXContent components={useMDXComponents()} />
+      </div>
 
       <div className="mt-10 flex gap-2 border-t-2 border-neutral-3 pt-10">
         {sortedTags.map((tag) => (

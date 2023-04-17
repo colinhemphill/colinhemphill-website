@@ -7,11 +7,7 @@ import {
   metadataTwitterDefaults,
 } from '@/utils/metadata';
 import { allPosts } from '@content';
-import { useMDXComponents } from 'mdx-components';
-import { MDXComponents } from 'mdx/types';
-import { compileMDX } from 'next-mdx-remote/rsc';
 import { Suspense } from 'react';
-import rehypeHighlight from 'rehype-highlight';
 import Section from '../../../strum/Section';
 import BlogPost from './components/BlogPost';
 
@@ -20,7 +16,7 @@ export interface BlogPostParams {
 }
 
 export async function generateMetadata({ params }: { params: BlogPostParams }) {
-  const { blogPost } = await getBlogPost(params);
+  const { blogPost } = getBlogPost(params);
 
   return {
     title: { absolute: `${blogPost.title} | Colin Hemphill’s Blog` },
@@ -37,29 +33,17 @@ export async function generateMetadata({ params }: { params: BlogPostParams }) {
   };
 }
 
-async function getBlogPost(params: BlogPostParams, components?: MDXComponents) {
+function getBlogPost(params: BlogPostParams) {
   const blogPost = allPosts.find((post) => post.slug === params.slug);
   if (!blogPost) {
     throw new Error(`Blog post ${params.slug} not found`);
   }
 
-  const { content } = await compileMDX({
-    components,
-    options: {
-      parseFrontmatter: false,
-      mdxOptions: {
-        rehypePlugins: [rehypeHighlight],
-      },
-    },
-    source: blogPost.body.raw,
-  });
-
-  return { blogPost, compiledContent: content };
+  return { blogPost };
 }
 
 export default async function BlogPage({ params }: { params: BlogPostParams }) {
-  const components = useMDXComponents();
-  const { blogPost, compiledContent } = await getBlogPost(params, components);
+  const { blogPost } = getBlogPost(params);
 
   return (
     <>
@@ -76,7 +60,7 @@ export default async function BlogPage({ params }: { params: BlogPostParams }) {
       <Section>
         <Suspense fallback={<Loading />}>
           {/* @ts-expect-error Async Server Component */}
-          <BlogPost compiledContent={compiledContent} {...blogPost} />
+          <BlogPost {...blogPost} />
         </Suspense>
       </Section>
     </>
