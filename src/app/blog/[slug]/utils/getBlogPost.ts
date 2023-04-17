@@ -5,7 +5,7 @@ import { allBlogPosts } from './allBlogPosts';
 export function getBlogPost(params: BlogPostParams) {
   const blogPost = allBlogPosts.find((post) => post.slug === params.slug);
   if (blogPost) {
-    const readingStats = readingTime(blogPost.body.raw, 150);
+    const readingStats = readingTime(blogPost.body.raw, 200);
     return { blogPost, readingStats };
   } else {
     throw new Error(`Blog post ${params.slug} not found`);
