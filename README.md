@@ -9,7 +9,7 @@
 - [Tailwind CSS](https://tailwindcss.com/)
   - With [Class Variance Authority](https://cva.style/docs)
 - [Lucide icons](https://lucide.dev/)
-- [Hygraph](https://hygraph.com/)
+- [Contentlayer](https://www.contentlayer.dev/)
 - [MDX](https://mdxjs.com/)
 - [Highlight.js](https://highlightjs.org/)
 - [Houseform](https://houseform.dev/)
