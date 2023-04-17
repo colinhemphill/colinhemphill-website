@@ -1,6 +1,7 @@
 import Badge from '@/strum/Badge';
 import Heading from '@/strum/Heading';
 import { sortAlphabetical } from '@/utils/sort';
+import { Post } from '@content';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import Image from 'next/image';
@@ -10,22 +11,21 @@ import readingTime from 'reading-time';
 
 dayjs.extend(localizedFormat);
 
-export interface BlogPostProps extends BlogPost {
+interface BlogPostProps extends Post {
   compiledContent: ReactNode;
 }
 
-export default function BlogPost({
+export default async function BlogPost({
+  body,
   compiledContent,
-  content,
   date,
   image,
-  imageAlt,
   tags,
   title,
 }: BlogPostProps) {
   const formattedDate = dayjs(date, 'YYYY-MM-DD').format('ll');
-  const stats = readingTime(content);
-  const sortedTags = sortAlphabetical(tags, 'text');
+  const stats = readingTime(body.raw);
+  const sortedTags = sortAlphabetical(tags, 'title');
 
   return (
     <article className="blog-post">
@@ -61,19 +61,19 @@ export default function BlogPost({
       </div>
 
       <Image
-        alt={imageAlt}
+        alt={image.alt}
         className="mt-10 rounded-2xl"
-        height={parseInt(image.height)}
-        src={image.url}
-        width={parseInt(image.width)}
+        height={image.height}
+        src={image.src}
+        width={image.width}
       />
 
       <div className="mt-10">{compiledContent}</div>
 
       <div className="mt-10 flex gap-2 border-t-2 border-neutral-3 pt-10">
         {sortedTags.map((tag) => (
-          <Badge color="primary" key={tag.id}>
-            {tag.text}
+          <Badge color="primary" key={tag.title}>
+            {tag.title}
           </Badge>
         ))}
       </div>

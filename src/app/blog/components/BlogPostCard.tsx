@@ -5,26 +5,26 @@ import CardFooter from '@/strum/Card/CardFooter';
 import CardTopImg from '@/strum/Card/CardTopImg';
 import Heading from '@/strum/Heading';
 import { sortAlphabetical } from '@/utils/sort';
+import { Post } from '@content';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function BlogPostCard({
   description,
   image,
-  imageAlt,
   slug,
   tags,
   title,
-}: BlogPost) {
-  const sortedTags = sortAlphabetical(tags, 'text');
+}: Post) {
+  const sortedTags = sortAlphabetical(tags, 'title');
 
   return (
     <Card>
       <CardTopImg
-        alt={imageAlt}
-        height={parseInt(image.height)}
-        src={image.url}
-        width={parseInt(image.width)}
+        alt={image.alt}
+        height={image.height}
+        src={image.src}
+        width={image.width}
       />
       <CardBody>
         <Heading className="line-clamp-2" level={3}>
@@ -33,8 +33,8 @@ export default function BlogPostCard({
         <p className="mt-2 line-clamp-3">{description}</p>
         <div className="mt-4 flex flex-wrap items-start gap-1">
           {sortedTags.map((tag) => (
-            <Badge key={tag.id} size="sm">
-              {tag.text}
+            <Badge key={tag.title} size="sm">
+              {tag.title}
             </Badge>
           ))}
         </div>

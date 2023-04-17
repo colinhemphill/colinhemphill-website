@@ -1,6 +1,5 @@
 import BreadcrumbItem from '@/strum/BreadcrumbItem';
 import Breadcrumbs from '@/strum/Breadcrumbs';
-import CardMock from '@/strum/Card/CardMock';
 import CardsGrid from '@/strum/Card/CardsGrid';
 import Heading from '@/strum/Heading';
 import Separator from '@/strum/Separator';
@@ -8,11 +7,11 @@ import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
 } from '@/utils/metadata';
+import { allPosts } from '@content';
 import { Metadata } from 'next';
-import { Suspense } from 'react';
 import PreviewSection from '../../strum/PreviewSection';
 import Section from '../../strum/Section';
-import BlogPostPreviews from './components/BlogPostPreviews';
+import BlogPostCard from './components/BlogPostCard';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -56,18 +55,9 @@ export default function BlogPage() {
 
       <PreviewSection className="pb-24">
         <CardsGrid>
-          <Suspense
-            fallback={
-              <>
-                <CardMock />
-                <CardMock />
-                <CardMock />
-              </>
-            }
-          >
-            {/* @ts-expect-error Async Server Component */}
-            <BlogPostPreviews />
-          </Suspense>
+          {allPosts.map((post) => (
+            <BlogPostCard key={post._id} {...post} />
+          ))}
         </CardsGrid>
       </PreviewSection>
     </>

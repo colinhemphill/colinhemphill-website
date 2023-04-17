@@ -70,7 +70,7 @@ const Lightbox: React.FC<Lightbox> = ({
         <Image
           alt={alt}
           className={twMerge(
-            'cursor-pointer shadow-md',
+            'cursor-pointer',
             rounded && 'rounded-md',
             className,
           )}

@@ -1,4 +1,4 @@
-const withMDX = require('@next/mdx')();
+import { withContentlayer } from 'next-contentlayer';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,7 +10,6 @@ const nextConfig = {
     domains: ['colinhemphill.com', 'media.graphassets.com'],
   },
   reactStrictMode: true,
-  swcMinify: true,
 };
 
-module.exports = withMDX(nextConfig);
+export default withContentlayer(nextConfig);

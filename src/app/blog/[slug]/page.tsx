@@ -1,27 +1,26 @@
-import Loading from '@/strum/Loading';
-import { revalidate } from '@/app/layout';
 import BreadcrumbItem from '@/strum/BreadcrumbItem';
 import Breadcrumbs from '@/strum/Breadcrumbs';
+import Loading from '@/strum/Loading';
 import Separator from '@/strum/Separator';
-import { hygraphEndpoint, hygraphHeaders } from '@/utils/hygraph';
 import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
 } from '@/utils/metadata';
+import { allPosts } from '@content';
+import { useMDXComponents } from 'mdx-components';
 import { MDXComponents } from 'mdx/types';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Suspense } from 'react';
-import rehypeHighlight from 'rehype-highlight/lib';
-import { useMDXComponents } from '../../../../mdx-components';
+import rehypeHighlight from 'rehype-highlight';
 import Section from '../../../strum/Section';
-import BlogPost, { BlogPostProps } from './components/BlogPost';
+import BlogPost from './components/BlogPost';
 
 export interface BlogPostParams {
   slug: string;
 }
 
 export async function generateMetadata({ params }: { params: BlogPostParams }) {
-  const blogPost = await getBlogPost(params);
+  const { blogPost } = await getBlogPost(params);
 
   return {
     title: { absolute: `${blogPost.title} | Colin Hemphill’s Blog` },
@@ -38,47 +37,11 @@ export async function generateMetadata({ params }: { params: BlogPostParams }) {
   };
 }
 
-async function getBlogPost(
-  params: BlogPostParams,
-  components?: MDXComponents,
-): Promise<BlogPostProps> {
-  const response = await fetch(hygraphEndpoint, {
-    cache: 'no-cache',
-    method: 'POST',
-    headers: hygraphHeaders,
-    body: JSON.stringify({
-      query: `{
-        blogPost(where: { slug: "${params.slug}" }) {
-          content
-          date
-          description
-          id
-          image {
-            height
-            url
-            width
-          }
-          imageAlt
-          tags {
-            id
-            text
-          }
-          title
-        }
-      }`,
-      variables: {
-        slug: params.slug,
-      },
-    }),
-    next: { revalidate },
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch blog post.');
+async function getBlogPost(params: BlogPostParams, components?: MDXComponents) {
+  const blogPost = allPosts.find((post) => post.slug === params.slug);
+  if (!blogPost) {
+    throw new Error(`Blog post ${params.slug} not found`);
   }
-
-  const { data } = await response.json();
-  const blogPost = data.blogPost;
 
   const { content } = await compileMDX({
     components,
@@ -88,15 +51,15 @@ async function getBlogPost(
         rehypePlugins: [rehypeHighlight],
       },
     },
-    source: blogPost.content,
+    source: blogPost.body.raw,
   });
 
-  return { ...blogPost, compiledContent: content };
+  return { blogPost, compiledContent: content };
 }
 
 export default async function BlogPage({ params }: { params: BlogPostParams }) {
   const components = useMDXComponents();
-  const blogPost = await getBlogPost(params, components);
+  const { blogPost, compiledContent } = await getBlogPost(params, components);
 
   return (
     <>
@@ -112,7 +75,8 @@ export default async function BlogPage({ params }: { params: BlogPostParams }) {
 
       <Section>
         <Suspense fallback={<Loading />}>
-          <BlogPost {...blogPost} />
+          {/* @ts-expect-error Async Server Component */}
+          <BlogPost compiledContent={compiledContent} {...blogPost} />
         </Suspense>
       </Section>
     </>
