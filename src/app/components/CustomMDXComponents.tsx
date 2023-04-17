@@ -9,11 +9,19 @@ import Lightbox from '@/strum/Lightbox';
 import Section from '@/strum/Section';
 import Separator from '@/strum/Separator';
 import { MDXComponents } from 'mdx/types';
+import { Url } from 'next/dist/shared/lib/router/router';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
 export const CustomMDXComponents: MDXComponents = {
-  a: (props) => <a className={twMerge(props.className, 'link')} {...props} />,
+  a: (props) =>
+    props.href?.includes('http') ? (
+      <a className={twMerge(props.className, 'link')} {...props} />
+    ) : (
+      <Link className={props.className} href={props.href as Url}>
+        {props.children}
+      </Link>
+    ),
   Alert,
   code: ({ className, children }) =>
     className?.includes('hljs') ? (

@@ -23,6 +23,9 @@
     @apply mt-1;
   }
   .alert a {
-    @apply underline;
+    @apply underline decoration-current;
+  }
+  .alert p {
+    @apply mt-0;
   }
 }

@@ -1,0 +1,81 @@
+---
+title: Creating a Résumé Website and PDF Generator With Next.js
+description: Professional front end developers can take their résumé to the next level with a Next.js site using Contentlayer and React Server Components.
+status: Published
+date: 2023-04-16
+image:
+  alt: A photo of a resume or CV on a table next to a laptop
+  src: https://media.graphassets.com/9Y1gguzEQDCOJxapNO0h
+  height: 1080
+  width: 1920
+tags:
+  - title: Next.js
+  - title: React
+  - title: Professional Development
+  - title: App Router
+  - title: Server Components
+  - title: Tailwind CSS
+  - title: Contentlayer
+  - title: Markdown
+---
+
+## The Importance of a Beautiful Résumé
+
+If you're a developer with a focus on the front end, your professional résumé is an opportunity to display your skills to a potential employer from the moment they receive your application. Since a role you are applying for is likely to involve the implementation of beautiful, accessible, and user-friendly designs, it's important that your résumé reflects these skills.
+
+Many front end devs might choose a tool like Photoshop or InDesign to generate great looking résumés, but maintaining these documents and modifying content often requires complete reorganization when layouts no longer fit the way they did before. There are also plenty of ways to manage a portfolio website, but these services rarely include features for interacting with a recruiter or hiring manager.
+
+## A Modern Approach to Developer Résumés
+
+When your strengths lie in front end web development, what‘s stopping you from generating your résumé using a web app? Today we‘ll look at a Next.js project template that I created to help you get started with a digital résumé. This résumé will feature:
+
+- Static generation using Next.js to minimize load times, maximize Lighthouse scores, and optimize core web vitals
+- A deployment on Vercel for continuous deployment, a high-performance edge network, and a free HTTPS domain
+- TypeScript for an excellent developer experience
+- Integration with a CMS to modify your résumé anytime and anywhere
+- PDF export to create a lovely printable version of your résumé—perfect for sending to recruiters
+- A secret link that will reveal private information not visible on the public résumé
+
+This tutorial and the application you will be deploying is based off my [Next.js Static Generated Résumés project on GitHub](https://github.com/colinhemphill/nextjs-resume). You can see an example of the final product at [https://resume.colinhemphill.com](https://resume.colinhemphill.com).
+
+## Creating Your Own Static Résumé
+
+### Set Up Your Prismic CMS
+
+The bulk of the work in creating your résumé will come from setting up a CMS. Unfortunately there is not much of a shortcut for this. In the future, certain headless CMS services may provide templates which will initiate an example repository in one step, but for now you will need to create your models and documents manually.
+
+Start by creating an account on [Prismic](https://prismic.io/), which is one of my favorite headless CMS options. Once you have an account, create a repository and name it "Résumé" or whatever makes sense to you.
+
+From the left nav, go to the "Custom Types" page and then click the "Create new" button. Name the new repeatable type "Personal Information", which will automatically assign an API ID of `personal_information`. Next, you will create fields for the schema as listed in the [CMS Setup Documents](https://github.com/colinhemphill/nextjs-resume/blob/main/README-CMS.md) for the résumé generator. Once you have completed "Personal Information", continue setting up the remaining schemas and then create at least one document for each.
+
+### Deploy the Application
+
+Next, you will need an account with [Vercel](https://vercel.com/), which links with either a GitHub, GitLab, or Bitbucket account. Go ahead and create a Vercel account using one of those services if you haven't already done so. Vercel is an incredible service with a generous hobby tier, so I think you will definitely find yourself using it for a long time to come!
+
+Once that‘s done, you can instantly deploy your own résumé site! [This link](https://vercel.com/) will guide you through creating a repository with your connected GitHub, GitLab, or Bitbucket account, clone the résumé app to the repo, and then collect the required environment variables. There are three required environment variables which will tie your Prismic repo to your Vercel deployment. To find these, go to your Prismic dashboard, then click Settings > API & Security.
+
+- `NEXT_PUBLIC_CMS_INTEGRATION` set this to "prismic" to tell the app that you‘re using a Prismic integration
+- `CMS_ENDPOINT` copy the "API Endpoint" from your Prismic settings
+- `CMS_KEY` generate a new access token in the Prismic settings page and copy the "Client Secret"
+
+Once these values are entered into the Vercel deployment wizard, your application will be created and deployed! If all goes according to plan, you can now visit the provided Vercel link and see your résumé in action.
+
+### Setting Up a Deploy Webhook
+
+Since your website is statically generated at build time, Vercel needs to know when you make a change to the CMS so that it can generate a new deployment. To do this, go to your Vercel project, then click Settings > Git. Scroll down to "Deploy Hooks" and create a new hook named "Prismic Updates". Copy the provided URL.
+
+Now go back to your Prismic settings and click "Webhooks" in the left nav. Click the "Create a webhook" button and enter the URL you copied from Vercel. This will tell Prismic that any time you make an update to the CMS, it should fire off a request to Vercel to create a new deployment.
+
+### Modifying Your Résumé
+
+The application features a beautiful layout, WCAG AA accessible colors, and a proven content layout that has everything you should need. However, no two developers are the same, and you should feel free to adjust the application to suit your needs and to show off your personal skillset! When you went through the deploy wizard, you had to clone the project to a personal repository. You can now clone that project locally and modify it as required.
+
+For further details on how to work with the local project, check out the [documentation](https://github.com/colinhemphill/nextjs-resume#customize-your-r%C3%A9sum%C3%A9).
+
+Finally, you have the option to generate a secret link which will display the résumé with additional private information that is not accessible to the public. See the [private link documentation](https://github.com/colinhemphill/nextjs-resume#private-link) to learn how to set that up.
+
+## Wrapping Up
+
+With only a few clicks you can deploy a new statically generated résumé on Vercel, and modifying the content of your résumé through a headless CMS service is incredibly simple. By completing this guide, you should have your own HTTPS web application that loads incredibly fast on any device, scales well across devices, follows best practices for SEO and accessibility, and generates a PDF that you can send to a potential employer.
+
+If you have any suggestions for improving the résumé generator, please feel free to open an issue on the GitHub repo.
