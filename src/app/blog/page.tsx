@@ -7,10 +7,10 @@ import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
 } from '@/utils/metadata';
-import { allPosts } from '@content';
 import { Metadata } from 'next';
 import PreviewSection from '../../strum/PreviewSection';
 import Section from '../../strum/Section';
+import { allBlogPosts } from './[slug]/utils/allBlogPosts';
 import BlogPostCard from './components/BlogPostCard';
 
 export const metadata: Metadata = {
@@ -55,7 +55,7 @@ export default function BlogPage() {
 
       <PreviewSection className="pb-24">
         <CardsGrid>
-          {allPosts.map((post) => (
+          {allBlogPosts.map((post) => (
             <BlogPostCard key={post._id} {...post} />
           ))}
         </CardsGrid>

@@ -1,5 +1,5 @@
-import { allPosts } from '@content';
 import { MetadataRoute } from 'next';
+import { allBlogPosts } from './blog/[slug]/utils/allBlogPosts';
 
 const baseUrl = 'https://colinhemphill.com';
 
@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]);
 
-  const blogRoutes: MetadataRoute.Sitemap = allPosts.map((blogPost) => ({
+  const blogRoutes: MetadataRoute.Sitemap = allBlogPosts.map((blogPost) => ({
     lastModified: new Date(blogPost.date),
     url: `${baseUrl}/blog/${blogPost.slug}`,
   }));
