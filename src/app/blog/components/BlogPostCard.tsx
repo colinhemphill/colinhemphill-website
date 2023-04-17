@@ -4,12 +4,14 @@ import CardBody from '@/strum/Card/CardBody';
 import CardFooter from '@/strum/Card/CardFooter';
 import CardTopImg from '@/strum/Card/CardTopImg';
 import Heading from '@/strum/Heading';
+import { formatDateString } from '@/utils/date';
 import { sortAlphabetical } from '@/utils/sort';
 import { Post } from '@content';
 import { ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function BlogPostCard({
+  date,
   description,
   image,
   slug,
@@ -17,6 +19,7 @@ export default function BlogPostCard({
   title,
 }: Post) {
   const sortedTags = sortAlphabetical(tags, 'title');
+  const formattedDate = formatDateString(date);
 
   return (
     <Card>
@@ -30,6 +33,7 @@ export default function BlogPostCard({
         <Heading className="line-clamp-2" level={3}>
           {title}
         </Heading>
+        <div className="mt-1 text-sm text-neutral-6">{formattedDate}</div>
         <p className="mt-2 line-clamp-3">{description}</p>
         <div className="mt-4 flex flex-wrap items-start gap-1">
           {sortedTags.map((tag) => (

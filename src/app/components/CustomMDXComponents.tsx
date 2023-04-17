@@ -10,6 +10,7 @@ import Section from '@/strum/Section';
 import Separator from '@/strum/Separator';
 import { MDXComponents } from 'mdx/types';
 import { Url } from 'next/dist/shared/lib/router/router';
+import Image from 'next/image';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
@@ -58,6 +59,7 @@ export const CustomMDXComponents: MDXComponents = {
     </Heading>
   ),
   HeadingWithIcon: (props) => <HeadingWithIcon className="mt-16" {...props} />,
+  Image,
   Lightbox,
   Link,
   p: ({ children }) => <p className="mt-4">{children}</p>,

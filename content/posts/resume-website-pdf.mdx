@@ -2,7 +2,7 @@
 title: Creating a Résumé Website and PDF Generator With Next.js
 description: Professional front end developers can take their résumé to the next level with a Next.js site using Contentlayer and React Server Components.
 status: Published
-date: 2023-04-16
+date: April 17 2023
 image:
   alt: A photo of a resume or CV on a table next to a laptop
   src: https://media.graphassets.com/9Y1gguzEQDCOJxapNO0h
@@ -27,55 +27,113 @@ Many front end devs might choose a tool like Photoshop or InDesign to generate g
 
 ## A Modern Approach to Developer Résumés
 
-When your strengths lie in front end web development, what‘s stopping you from generating your résumé using a web app? Today we‘ll look at a Next.js project template that I created to help you get started with a digital résumé. This résumé will feature:
+When your strengths lie in front end web development, what‘s stopping you from generating your résumé using a web app? Today we‘ll look at a Next.js project that I created to help you get started with a digital résumé.
 
-- Static generation using Next.js to minimize load times, maximize Lighthouse scores, and optimize core web vitals
-- A deployment on Vercel for continuous deployment, a high-performance edge network, and a free HTTPS domain
-- TypeScript for an excellent developer experience
-- Integration with a CMS to modify your résumé anytime and anywhere
-- PDF export to create a lovely printable version of your résumé—perfect for sending to recruiters
-- A secret link that will reveal private information not visible on the public résumé
+- A modern tech stack including the Next.js App Router and server components, deploys on Vercel, TypeScript, Tailwind CSS, and Radix Colors
+- Type safe content management using Markdown files and Contentlayer
+- Beautiful and accessible web app to view your résumé, link on social media, and send to potential employers
+- Use a secret link to generate the résumé with additional private information
+- Generate a PDF on demand to view, download, or print in light or dark mode
+- Easily customizable
+  - 19 accent color palettes out-of-the-box
+  - 6 neutral color palettes out-of-the-box
+  - Automatic light and dark modes for each palette
+- Tailwind classes to modify app and generated images
+- Dynamic OG share images in light or dark mode
 
-This tutorial and the application you will be deploying is based off my [Next.js Static Generated Résumés project on GitHub](https://github.com/colinhemphill/nextjs-resume). You can see an example of the final product at [https://resume.colinhemphill.com](https://resume.colinhemphill.com).
+This tutorial and the application you will be deploying is based off my [Next.js and Tailwind Résumé on GitHub](https://github.com/colinhemphill/nextjs-resume). You can see an example of the final product at [https://resume.colinhemphill.com](https://resume.colinhemphill.com).
 
 ## Creating Your Own Static Résumé
 
-### Set Up Your Prismic CMS
+### Clone and Deploy
 
-The bulk of the work in creating your résumé will come from setting up a CMS. Unfortunately there is not much of a shortcut for this. In the future, certain headless CMS services may provide templates which will initiate an example repository in one step, but for now you will need to create your models and documents manually.
+The simplest way to start is to clone and deploy the starter project. The walkthrough will ask you to create a private Git repo to link the project to, and will be deployed to Vercel in minutes.
 
-Start by creating an account on [Prismic](https://prismic.io/), which is one of my favorite headless CMS options. Once you have an account, create a repository and name it "Résumé" or whatever makes sense to you.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcolinhemphill%2Fnextjs-resume&env=PRIVATE_KEY&envDescription=A%20private%20key%20is%20only%20required%20if%20you%20want%20to%20store%20sensitive%20information%20behind%20a%20secret%20link&envLink=https%3A%2F%2Fgithub.com%2Fcolinhemphill%2Fnextjs-resume%23environment-variables&project-name=nextjs-resume&repository-name=nextjs-resume&demo-title=Next.js%20and%20Tailwind%20R%C3%A9sum%C3%A9&demo-description=Create%20your%20own%20developer%20r%C3%A9sum%C3%A9%20with%20Next.js%2C%20Tailwind%2C%20Contentlayer%2C%20and%20React%20PDF&demo-url=https%3A%2F%2Fnextjs-resume-generator.vercel.app%2F&demo-image=https%3A%2F%2Fnextjs-resume-generator.vercel.app%2Fopengraph-image)
 
-From the left nav, go to the "Custom Types" page and then click the "Create new" button. Name the new repeatable type "Personal Information", which will automatically assign an API ID of `personal_information`. Next, you will create fields for the schema as listed in the [CMS Setup Documents](https://github.com/colinhemphill/nextjs-resume/blob/main/README-CMS.md) for the résumé generator. Once you have completed "Personal Information", continue setting up the remaining schemas and then create at least one document for each.
+In this deploy step you can provide an optional `PRIVATE_KEY` environment variable if you wish to include sensitive information behind a secret link. We recommend just generating this key as a UUID or with a password manager.
 
-### Deploy the Application
+### Local Development
 
-Next, you will need an account with [Vercel](https://vercel.com/), which links with either a GitHub, GitLab, or Bitbucket account. Go ahead and create a Vercel account using one of those services if you haven't already done so. Vercel is an incredible service with a generous hobby tier, so I think you will definitely find yourself using it for a long time to come!
+To run the project locally, simply clone the Git repo you just created, install dependencies, and start dev mode.
 
-Once that‘s done, you can instantly deploy your own résumé site! [This link](https://vercel.com/) will guide you through creating a repository with your connected GitHub, GitLab, or Bitbucket account, clone the résumé app to the repo, and then collect the required environment variables. There are three required environment variables which will tie your Prismic repo to your Vercel deployment. To find these, go to your Prismic dashboard, then click Settings > API & Security.
+<CodeBlock enableCopy={false}>
 
-- `NEXT_PUBLIC_CMS_INTEGRATION` set this to "prismic" to tell the app that you‘re using a Prismic integration
-- `CMS_ENDPOINT` copy the "API Endpoint" from your Prismic settings
-- `CMS_KEY` generate a new access token in the Prismic settings page and copy the "Client Secret"
+```bash
+git clone https://github.com/myuser/nextjs-resume.git
+cd nextjs-resume
+npm i
+npm run dev
+```
 
-Once these values are entered into the Vercel deployment wizard, your application will be created and deployed! If all goes according to plan, you can now visit the provided Vercel link and see your résumé in action.
+</CodeBlock>
 
-### Setting Up a Deploy Webhook
+You should now see the starter project at [localhost:3000](http://localhost:3000).
 
-Since your website is statically generated at build time, Vercel needs to know when you make a change to the CMS so that it can generate a new deployment. To do this, go to your Vercel project, then click Settings > Git. Scroll down to "Deploy Hooks" and create a new hook named "Prismic Updates". Copy the provided URL.
+### Modifying the Content
 
-Now go back to your Prismic settings and click "Webhooks" in the left nav. Click the "Create a webhook" button and enter the URL you copied from Vercel. This will tell Prismic that any time you make an update to the CMS, it should fire off a request to Vercel to create a new deployment.
+All files that you may want to edit live in the `edit-me` folder at the project root, and the majority of text content lives in Markdown files at `edit-me/content`.
 
-### Modifying Your Résumé
+[Contentlayer](https://www.contentlayer.dev/) is the content SDK that we use to provide type-safe schemas for the content and convert it to JSX that is usable in the application. The schemas are described in `contentlayer.config.ts` at the app root if you want to see their details or modify the schemas to meet your needs. If a Markdown file doesn't match the schema requirements, the content will fail to build and an error will be visible in the console.
 
-The application features a beautiful layout, WCAG AA accessible colors, and a proven content layout that has everything you should need. However, no two developers are the same, and you should feel free to adjust the application to suit your needs and to show off your personal skillset! When you went through the deploy wizard, you had to clone the project to a personal repository. You can now clone that project locally and modify it as required.
+For content that is repeatable such as your list of achievements or past professional experience, the Markdown files live in a folder where you can create as many as you'd like (`edit-me/content/achievements` for example). Other files like `additionalInfo.md` and `personal.md` are designated as Singletons in the schema.
 
-For further details on how to work with the local project, check out the [documentation](https://github.com/colinhemphill/nextjs-resume#customize-your-r%C3%A9sum%C3%A9).
+### Customizing
 
-Finally, you have the option to generate a secret link which will display the résumé with additional private information that is not accessible to the public. See the [private link documentation](https://github.com/colinhemphill/nextjs-resume#private-link) to learn how to set that up.
+Once you're happy with the content of your résumé, you can customize the look and feel or layouts as desired.
+
+1. Start with `edit-me/config/resumeConfig.ts` and try out some different accent and neutral colors to choose the look and feel that best represents you. All color palettes are created with [Radix Colors](https://www.radix-ui.com/colors) and are WCAG accessible in both light and dark modes.
+2. Modify `edit-me/config/links.ts` to choose social media or any other external link you'd like to display. You can select any free or brand icon from [Fontawesome](https://fontawesome.com/search?o=r&m=free&f=brands) to represent each link.
+
+<div className="my-10 grid grid-cols-1 gap-8 md:grid-cols-2">
+  <Image
+    alt="Screenshot of a resume in dark mode with blue accents"
+    src="/posts/resume-website-pdf/Blue-DarkMode.png"
+    height={388}
+    width={600}
+  />
+  <Image
+    alt="Screenshot of a resume in light mode with blue accents"
+    src="/posts/resume-website-pdf/Blue-LightMode.png"
+    height={388}
+    width={600}
+  />
+  <Image
+    alt="Screenshot of a resume in dark mode with mint accents"
+    src="/posts/resume-website-pdf/Mint-DarkMode.png"
+    height={388}
+    width={600}
+  />
+  <Image
+    alt="Screenshot of a resume in light mode with mint accents"
+    src="/posts/resume-website-pdf/Mint-LightMode.png"
+    height={388}
+    width={600}
+  />
+  <Image
+    alt="Screenshot of a resume in dark mode with tomato accents"
+    src="/posts/resume-website-pdf/Tomato-DarkMode.png"
+    height={388}
+    width={600}
+  />
+  <Image
+    alt="Screenshot of a resume in light mode with tomato accents"
+    src="/posts/resume-website-pdf/Tomato-LightMode.png"
+    height={388}
+    width={600}
+  />
+</div>
+
+You of course have full control of the source code for your project, so these base customizations only scratch the surface. You can use Tailwind classes to modify styles throughout the application, modify Tailwind config in `tailwind.config.ts`, or update layouts and components in `/src/app`.
+
+Always check the [starter docs](https://github.com/colinhemphill/nextjs-resume/blob/main/README.md), as this blog post may not represent the latest changes. Follow the [Next.js beta docs](https://beta.nextjs.org/docs) for any details on how the App Router is implemented, and the [Contentlayer docs](https://www.contentlayer.dev/docs) for details about content modeling, sources, and rendering.
+
+### A Note on the PDF Generator
+
+Generating a PDF is not so easy compared to plain React. The project uses [React-PDF](https://react-pdf.org/) to stream the content from a serverless endpoint. The layout of the PDF content is located at `src/components/PDF/PDF.tsx`, and while tt shares content and general configuration such as accent colors, the layouts and styles are handcrafted. So if you make changes in the web app version, you don't get the PDF changes for free. However, we've built this PDF layout in such a way that makes saving and printing possible, and it can be challenging to customize the layout while keeping it usable.
 
 ## Wrapping Up
 
-With only a few clicks you can deploy a new statically generated résumé on Vercel, and modifying the content of your résumé through a headless CMS service is incredibly simple. By completing this guide, you should have your own HTTPS web application that loads incredibly fast on any device, scales well across devices, follows best practices for SEO and accessibility, and generates a PDF that you can send to a potential employer.
+With only a few clicks you can deploy a fast React Server Component résumé on Vercel, and modifying the content of your résumé through type-safe Markdown is incredibly simple. By completing this guide, you should have your own HTTPS web application that loads fast on any device, scales well across devices, follows best practices for SEO and accessibility, and generates a PDF that you can send to a potential employer.
 
 If you have any suggestions for improving the résumé generator, please feel free to open an issue on the GitHub repo.

@@ -6,8 +6,6 @@ import {
 import highlight from 'rehype-highlight';
 import slug from 'slug';
 
-const dev = process.env.NODE_ENV === 'development';
-
 const Image = defineNestedType(() => ({
   name: 'Image',
   fields: {

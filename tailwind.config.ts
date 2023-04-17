@@ -6,7 +6,11 @@ import autoColorMode from './colors/autoColorMode';
 import tailwindHighlight from 'tailwind-highlightjs';
 
 export default {
-  content: ['./src/**/*.{js,ts,jsx,tsx}', './mdx-components.tsx'],
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}',
+    './mdx-components.tsx',
+    './content/**/*.{md,mdx}',
+  ],
   darkMode: 'media',
   plugins: [
     autoColorMode({

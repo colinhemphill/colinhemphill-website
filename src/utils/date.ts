@@ -3,5 +3,6 @@ export function formatDateString(dateString: string) {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    timeZone: 'America/Chicago',
   });
 }

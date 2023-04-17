@@ -16,8 +16,11 @@
   .blog-post ul {
     @apply mt-4 list-outside list-disc pl-4 marker:text-primary-7;
   }
+  .blog-post ol {
+    @apply mt-4 list-outside list-decimal pl-4 marker:text-primary-7;
+  }
   .blog-post li {
-    @apply my-1 pl-2;
+    @apply mt-1 pl-2;
   }
   .blog-post li ul {
     @apply mt-1;

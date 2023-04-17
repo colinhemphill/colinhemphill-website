@@ -25,7 +25,7 @@ export default async function BlogPost({
   const MDXContent = useMDXComponent(body.code);
 
   return (
-    <div className="blog-post">
+    <div className="blog-post leading-relaxed">
       <div className="flex flex-col gap-4">
         <Heading
           className="bg-gradient-to-r from-primary-10 to-primary-6 bg-clip-text text-transparent"
