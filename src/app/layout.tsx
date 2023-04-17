@@ -78,7 +78,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       </body>
 
       <Script
-        data-domain="resume.colinhemphill.com"
+        data-domain="colinhemphill.com"
         src="https://plausible.io/js/plausible.js"
         strategy="afterInteractive"
       />
