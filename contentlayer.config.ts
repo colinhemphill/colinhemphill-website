@@ -6,13 +6,6 @@ import {
 import highlight from 'rehype-highlight';
 import slug from 'slug';
 
-const Tag = defineNestedType(() => ({
-  name: 'Tag',
-  fields: {
-    title: { type: 'string', required: true },
-  },
-}));
-
 const Image = defineNestedType(() => ({
   name: 'Image',
   fields: {
@@ -20,6 +13,46 @@ const Image = defineNestedType(() => ({
     alt: { type: 'string', required: true },
     height: { type: 'number' },
     width: { type: 'number' },
+  },
+}));
+
+export const Project = defineDocumentType(() => ({
+  name: 'Project',
+  filePathPattern: 'projects/*.md',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the project',
+      required: true,
+    },
+    subtitle: {
+      type: 'string',
+      description: 'A subtitle to describe the project',
+    },
+    url: {
+      type: 'string',
+      description: 'An external URL to link to the project',
+      required: true,
+    },
+    image: {
+      type: 'nested',
+      of: Image,
+      description: 'An image to represent the project',
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (post) => slug(post.title),
+    },
+  },
+}));
+
+const Tag = defineNestedType(() => ({
+  name: 'Tag',
+  fields: {
+    title: { type: 'string', required: true },
   },
 }));
 
@@ -78,7 +111,7 @@ export const Post = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post],
+  documentTypes: [Project, Post],
   mdx: {
     rehypePlugins: [highlight],
   },

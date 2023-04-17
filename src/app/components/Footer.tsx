@@ -49,8 +49,9 @@ export default function Footer() {
       <div className="container flex flex-col gap-1 py-8 text-center">
         <div>Copyright ©{new Date().getFullYear()} Colin Hemphill</div>
         <p className="text-sm text-neutral-7">
-          This site was built with <a href="https://nextjs.org/">Next.js</a> and
-          deployed on <a href="https://vercel.com/">Vercel</a>.
+          This site was built with <a href="https://nextjs.org/">Next.js</a> and{' '}
+          <a href="https://www.contentlayer.dev/">Contentlayer</a>, and deployed
+          on <a href="https://vercel.com/">Vercel</a>.
         </p>
       </div>
     </footer>

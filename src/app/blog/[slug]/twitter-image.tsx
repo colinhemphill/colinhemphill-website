@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { revalidate } from '@/app/layout';
-import { hygraphEndpoint, hygraphHeaders } from '@/utils/hygraph';
-import dayjs from 'dayjs';
+import { formatDateString } from '@/utils/date';
 import { ImageResponse } from 'next/server';
 import { BlogPostParams } from './page';
+import { getBlogPost } from './utils/getBlogPost';
 
 export const alt = 'Colin Hemphill’s Blog';
 export const contentType = 'image/png';
@@ -14,33 +13,8 @@ export const size = {
 };
 
 export default async function twitter({ params }: { params: BlogPostParams }) {
-  const response = await fetch(hygraphEndpoint, {
-    method: 'POST',
-    headers: hygraphHeaders,
-    body: JSON.stringify({
-      query: `{
-        blogPost(where: { slug: "${params.slug}" }) {
-          content
-          image {
-            height
-            url
-            width
-          }
-          imageAlt
-          title
-        }
-      }`,
-      variables: {
-        slug: params.slug,
-      },
-    }),
-    next: { revalidate },
-  });
-  const { data } = await response.json();
-  const blogPost: BlogPost = data.blogPost;
-  const formattedDate = dayjs(blogPost.date, 'YYYY-MM-DD').format(
-    'MMMM D, YYYY',
-  );
+  const { blogPost } = getBlogPost(params);
+  const formattedDate = formatDateString(blogPost.date);
 
   return new ImageResponse(
     (
@@ -66,8 +40,8 @@ export default async function twitter({ params }: { params: BlogPostParams }) {
         <div tw="flex w-4/12">
           <div tw="flex">
             <img
-              alt={blogPost.imageAlt}
-              src={blogPost.image.url}
+              alt={blogPost.image.alt}
+              src={blogPost.image.src}
               style={{
                 objectFit: 'cover',
               }}

@@ -1,31 +1,31 @@
+import { CustomMDXComponents } from '@/app/components/CustomMDXComponents';
 import Badge from '@/strum/Badge';
 import Heading from '@/strum/Heading';
+import { formatDateString } from '@/utils/date';
 import { sortAlphabetical } from '@/utils/sort';
 import { Post } from '@content';
-import dayjs from 'dayjs';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
-import { useMDXComponents } from 'mdx-components';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Image from 'next/image';
 import ColinPhoto from 'public/img/Colin-Square-Small.jpg';
-import readingTime from 'reading-time';
 
-dayjs.extend(localizedFormat);
+interface BlogPostProps extends Post {
+  readingStats: ReadingTime;
+}
 
 export default async function BlogPost({
   body,
   date,
   image,
+  readingStats,
   tags,
   title,
-}: Post) {
-  const formattedDate = dayjs(date, 'YYYY-MM-DD').format('ll');
-  const stats = readingTime(body.raw);
+}: BlogPostProps) {
+  const formattedDate = formatDateString(date);
   const sortedTags = sortAlphabetical(tags, 'title');
   const MDXContent = useMDXComponent(body.code);
 
   return (
-    <article className="blog-post">
+    <div className="blog-post">
       <div className="flex flex-col gap-4">
         <Heading
           className="bg-gradient-to-r from-primary-10 to-primary-6 bg-clip-text text-transparent"
@@ -39,14 +39,13 @@ export default async function BlogPost({
             <Image
               alt="A headshot of Colin Hemphill"
               className="rounded-full"
-              priority
               src={ColinPhoto}
             />
           </div>
           <div className="text-lg">
             <div>Written by Colin Hemphill</div>
             <div>
-              {formattedDate} • <em>{stats.text}</em>
+              {formattedDate} • <em>{readingStats.text}</em>
             </div>
           </div>
         </div>
@@ -61,13 +60,14 @@ export default async function BlogPost({
         alt={image.alt}
         className="mt-10 rounded-2xl"
         height={image.height}
+        priority
         src={image.src}
         width={image.width}
       />
 
-      <div className="mt-10">
-        <MDXContent components={useMDXComponents()} />
-      </div>
+      <article className="mt-10">
+        <MDXContent components={CustomMDXComponents} />
+      </article>
 
       <div className="mt-10 flex gap-2 border-t-2 border-neutral-3 pt-10">
         {sortedTags.map((tag) => (
@@ -76,6 +76,6 @@ export default async function BlogPost({
           </Badge>
         ))}
       </div>
-    </article>
+    </div>
   );
 }

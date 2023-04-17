@@ -6,10 +6,10 @@ import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
 } from '@/utils/metadata';
-import { allPosts } from '@content';
 import { Suspense } from 'react';
 import Section from '../../../strum/Section';
 import BlogPost from './components/BlogPost';
+import { getBlogPost } from './utils/getBlogPost';
 
 export interface BlogPostParams {
   slug: string;
@@ -33,17 +33,8 @@ export async function generateMetadata({ params }: { params: BlogPostParams }) {
   };
 }
 
-function getBlogPost(params: BlogPostParams) {
-  const blogPost = allPosts.find((post) => post.slug === params.slug);
-  if (!blogPost) {
-    throw new Error(`Blog post ${params.slug} not found`);
-  }
-
-  return { blogPost };
-}
-
 export default async function BlogPage({ params }: { params: BlogPostParams }) {
-  const { blogPost } = getBlogPost(params);
+  const { blogPost, readingStats } = getBlogPost(params);
 
   return (
     <>
@@ -60,7 +51,7 @@ export default async function BlogPage({ params }: { params: BlogPostParams }) {
       <Section>
         <Suspense fallback={<Loading />}>
           {/* @ts-expect-error Async Server Component */}
-          <BlogPost {...blogPost} />
+          <BlogPost readingStats={readingStats} {...blogPost} />
         </Suspense>
       </Section>
     </>

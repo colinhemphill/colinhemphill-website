@@ -3,26 +3,27 @@ import CardBody from '@/strum/Card/CardBody';
 import CardFooter from '@/strum/Card/CardFooter';
 import CardTopImg from '@/strum/Card/CardTopImg';
 import Heading from '@/strum/Heading';
+import { Project } from '@content';
 
 export default function ProjectCard({
-  description,
+  body,
   image,
   subtitle,
   title,
   url,
-}: PersonalProject) {
+}: Project) {
   return (
     <Card>
       <CardTopImg
         alt={`${title} logo`}
-        height={parseInt(image.height)}
-        src={image.url}
-        width={parseInt(image.width)}
+        height={image.height}
+        src={image.src}
+        width={image.width}
       />
       <CardBody>
         <Heading level={3}>{title}</Heading>
         <div className="text-lg text-neutral-6">{subtitle}</div>
-        <p className="mt-2">{description}</p>
+        <div className="mt-2" dangerouslySetInnerHTML={{ __html: body.html }} />
       </CardBody>
       <CardFooter className="text-center">
         <a className="link-solid" href={url}>

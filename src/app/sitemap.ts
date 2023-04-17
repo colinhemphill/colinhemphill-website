@@ -1,6 +1,4 @@
-import { revalidate } from '@/app/layout';
-import { hygraphEndpoint, hygraphHeaders } from '@/utils/hygraph';
-import dayjs from 'dayjs';
+import { allPosts } from '@content';
 import { MetadataRoute } from 'next';
 
 const baseUrl = 'https://colinhemphill.com';
@@ -23,30 +21,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]);
 
-  const response = await fetch(hygraphEndpoint, {
-    method: 'POST',
-    headers: hygraphHeaders,
-    body: JSON.stringify({
-      query: `{
-        blogPosts(orderBy: date_DESC) {
-          date
-          id
-          slug
-        }
-      }`,
-    }),
-    next: { revalidate },
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to fetch blog posts.');
-  }
-
-  const { data } = await response.json();
-  const blogPosts: Array<BlogPost> = data.blogPosts;
-
-  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((blogPost) => ({
-    lastModified: dayjs(blogPost.date, 'YYYY-MM-DD').toDate(),
+  const blogRoutes: MetadataRoute.Sitemap = allPosts.map((blogPost) => ({
+    lastModified: new Date(blogPost.date),
     url: `${baseUrl}/blog/${blogPost.slug}`,
   }));
 

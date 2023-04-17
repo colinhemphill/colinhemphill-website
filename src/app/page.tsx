@@ -1,12 +1,11 @@
-import CardMock from '@/strum/Card/CardMock';
 import CardsGrid from '@/strum/Card/CardsGrid';
 import HeadingWithIcon from '@/strum/HeadingWithIcon';
 import PreviewSection from '@/strum/PreviewSection';
-import ProjectsPreview from '@/strum/ProjectsPreview';
+import ProjectCard from '@/strum/ProjectCard';
 import Separator from '@/strum/Separator';
+import { allProjects } from '@content';
 import { LayoutTemplate, Mail } from 'lucide-react';
 import { Metadata } from 'next';
-import { Suspense } from 'react';
 import Section from '../strum/Section';
 import BlogCallout from './components/BlogCallout';
 import ContactForm from './components/ContactForm';
@@ -44,18 +43,9 @@ export default function HomePage() {
           involved in them as a hobbyist or as an indirect supporter.
         </p>
         <CardsGrid className="mt-8">
-          <Suspense
-            fallback={
-              <>
-                <CardMock />
-                <CardMock />
-                <CardMock />
-              </>
-            }
-          >
-            {/* @ts-expect-error Async Server Component */}
-            <ProjectsPreview />
-          </Suspense>
+          {allProjects.map((project) => (
+            <ProjectCard key={project._id} {...project} />
+          ))}
         </CardsGrid>
       </PreviewSection>
 
