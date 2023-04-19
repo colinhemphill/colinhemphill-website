@@ -17,11 +17,11 @@ dependencies:
     specifier: 11.7.0
     version: 11.7.0
   houseform:
-    specifier: 1.10.3
-    version: 1.10.3(react@18.2.0)(zod@3.21.4)
+    specifier: 1.10.4
+    version: 1.10.4(react@18.2.0)(zod@3.21.4)
   lucide-react:
-    specifier: 0.161.0
-    version: 0.161.0(react@18.2.0)
+    specifier: 0.162.0
+    version: 0.162.0(react@18.2.0)
   motion:
     specifier: 10.15.5
     version: 10.15.5
@@ -2665,8 +2665,8 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: false
 
-  /houseform@1.10.3(react@18.2.0)(zod@3.21.4):
-    resolution: {integrity: sha512-+Lgic0DZEEUtYrpunU1e5wwcDJbJECgwYY/Lq61Y8nf3eXSd81TlX1wfp9ksh6PXcKpDx5a2PgBd620jIBgxsA==}
+  /houseform@1.10.4(react@18.2.0)(zod@3.21.4):
+    resolution: {integrity: sha512-L4Qb22rjzWN2LVaVTrVrZNHFaUj6G4NssnzRZAvtd+aeq1UjcfPj95QYyMCFkxf0Ah2UvI16bbcpnDOBy3zLNA==}
     peerDependencies:
       react: '>=16.8.0'
       zod: '>=3.9.0'
@@ -3083,8 +3083,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.161.0(react@18.2.0):
-    resolution: {integrity: sha512-Yr0VR0l6r+t65JCE9q+rTMItWqbhF4Wn3l73PHMwxves2wDhEPH7V2JqxvqS0In/brIwiyBV90++r/rHxNK9ug==}
+  /lucide-react@0.162.0(react@18.2.0):
+    resolution: {integrity: sha512-bKUvG2OTerGVt2GdbYK+VE4cdZS2DNUspY1CrqFnlvOkMPHjWzbydsJVtmFjtdExsII34JpthHUml2zWP4R9iw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:

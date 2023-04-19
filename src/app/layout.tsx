@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 });
 
-export const revalidate = 5;
+export const revalidate = 60 * 10;
 
 export const metadata: Metadata = {
   // https://beta.nextjs.org/docs/api-reference/metadata#metadatabase
