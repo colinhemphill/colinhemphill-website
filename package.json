@@ -39,7 +39,7 @@
     "contentlayer": "0.3.1",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
-    "postcss": "8.4.22",
+    "postcss": "8.4.23",
     "prettier": "2.8.7",
     "prettier-plugin-tailwindcss": "0.2.7",
     "sharp": "0.32.0",
