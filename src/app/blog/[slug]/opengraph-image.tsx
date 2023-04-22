@@ -15,6 +15,12 @@ export const size = {
 export default async function og({ params }: { params: BlogPostParams }) {
   const { blogPost } = getBlogPost(params);
   const formattedDate = formatDateString(blogPost.date);
+  const { image } = blogPost;
+
+  let imageSrc = image.src;
+  if (!image.src.includes('http')) {
+    imageSrc = `https://colinhemphill.com${image.src}`;
+  }
 
   return new ImageResponse(
     (
@@ -41,11 +47,13 @@ export default async function og({ params }: { params: BlogPostParams }) {
           <div tw="flex">
             <img
               alt={blogPost.image.alt}
-              src={blogPost.image.src}
+              src={imageSrc}
+              height={blogPost.image.height}
               style={{
                 objectFit: 'cover',
               }}
               tw="rounded-2xl max-w-full max-h-full"
+              width={blogPost.image.width}
             />
           </div>
         </div>
