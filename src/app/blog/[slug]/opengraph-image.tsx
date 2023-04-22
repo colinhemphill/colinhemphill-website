@@ -15,11 +15,12 @@ export const size = {
 export default async function og({ params }: { params: BlogPostParams }) {
   const { blogPost } = getBlogPost(params);
   const formattedDate = formatDateString(blogPost.date);
-  const { image } = blogPost;
+  const { image, ogImage } = blogPost;
 
-  let imageSrc = image.src;
-  if (!image.src.includes('http')) {
-    imageSrc = `https://colinhemphill.com${image.src}`;
+  const shareImage = ogImage ?? image;
+  let imageSrc = shareImage.src;
+  if (!shareImage.src.includes('http')) {
+    imageSrc = `https://colinhemphill.com${shareImage.src}`;
   }
 
   return new ImageResponse(

@@ -87,6 +87,13 @@ export const Post = defineDocumentType(() => ({
       description: 'An image to represent the post',
       required: true,
     },
+    ogImage: {
+      type: 'nested',
+      of: Image,
+      description:
+        'A portrait image which will be used within the OG share image if present',
+      required: false,
+    },
     tags: {
       type: 'list',
       of: Tag,
