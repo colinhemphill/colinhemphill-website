@@ -6,7 +6,6 @@ import {
 import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
-import Script from 'next/script';
 import { PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
 import colors from 'tailwindcss/colors';

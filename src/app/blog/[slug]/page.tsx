@@ -6,6 +6,7 @@ import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
 } from '@/utils/metadata';
+import Script from 'next/script';
 import { Suspense } from 'react';
 import Section from '../../../strum/Section';
 import BlogPost from './components/BlogPost';
@@ -54,6 +55,11 @@ export default async function BlogPage({ params }: { params: BlogPostParams }) {
           <BlogPost readingStats={readingStats} {...blogPost} />
         </Suspense>
       </Section>
+
+      <Script
+        src="https://www.tiktok.com/embed.js"
+        strategy="afterInteractive"
+      />
     </>
   );
 }

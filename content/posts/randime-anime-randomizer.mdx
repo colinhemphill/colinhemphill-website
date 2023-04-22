@@ -1,0 +1,98 @@
+---
+title: >
+  Randime: The Anime Randomizer
+description: After Crunchyroll shut down its randomizer feature, how can The AniMonday Podcast continue watching random anime? Colin built his own anime randomizer to solve this simple problem.
+status: Published
+date: April 22 2023
+image:
+  alt: A gloomy photo of a PlayStation 4 controller with strong shadows and subtle orange and green lighting
+  src: /posts/randime-anime-randomizer/randime-logo.png
+  height: 1080
+  width: 1920
+tags:
+  - title: Anime
+  - title: Crunchyroll
+  - title: Next.js
+  - title: App Router
+  - title: React
+  - title: Server Component
+  - title: Tailwind CSS
+  - title: Podcasting
+---
+
+## RIP: The Crunchyroll Random Button
+
+Many years ago, anime streaming service Crunchyroll introduced a great and terrible new feature. At the top of the page was a button that would take you immediately to the first episode of a _randomly selected anime_. If you know anything about anime and the types of TV series that might appear after clicking this button, you know that it is a dangerous proposition.
+
+The button appeared sometime in 2014 or 2015, but when Crunchyroll launched its new interface as a beta in 2021, the ominous dice icon was gone. While the back end API still exists and you can redirect to a random anime by [entering the link directly](https://www.crunchyroll.com/random/anime), the random button is no longer a prominent feature on the site.
+
+### Who Really Wants a Randomizer?
+
+The people have spoken.
+
+<blockquote
+  className="tiktok-embed rounded-md"
+  cite="https://www.tiktok.com/@kazadasama/video/7203809839653408042"
+  data-video-id="7203809839653408042"
+  style={{ maxWidth: '605px', minWidth: '325px' }}
+>
+  <section>
+    <a
+      target="_blank"
+      title="@kazadasama"
+      href="https://www.tiktok.com/@kazadasama?refer=embed"
+    >
+      @kazadasama
+    </a>
+  </section>
+</blockquote>
+
+## The AniMonday Podcast
+
+My friends and I rolled the dice on the Crunchyroll random button for a few years, and in 2018 my wife and I started [The AniMonday Podcast](https://animonday.moe). The entire premise for our show was to subject ourselves to a randomly selected anime, and the Crunchyroll random button was the star.
+
+When I discovered that the button would be phased out, I set out to see if I could develop my own solution to randomly select an anime. Outside the bounds of the Crunchyroll catalog, I knew could generate even more outlandish suggestions.
+
+## Building an Anime Randomizer
+
+My solution was [randime.moe](https://randime.moe).
+
+### The Kitsu API
+
+[Kitsu](https://kitsu.io/) is a popular discovery platform to search for anime by genre, content, target audience, themes, and more. At its core, Kitsu is a database that draws connections between different elements of its content, pulls in viewer ratings, and allows you to manage a personal library. For developers, they offer a full-featured [JSON API](https://kitsu.docs.apiary.io/) to perform searches and manage a user’s library.
+
+Kitsu offered the most flexible API to accomplish my task.
+
+### The Randomizer Interface
+
+I built Randime a couple years ago, but recently rebuilt it from scratch using the Next.js App Router and Tailwind CSS. It now exists as a standalone website rather than one tied to the podcast.
+
+The interface is meant to be simple and repeatable, with a handful of checkboxes to allow you to select what streaming services you have access to. You can then jam the "Randomize" button as much as you want until something looks interesting. This instant feedback and repeatability sets it apart from other randomizer services, including Crunchyroll’s own feature.
+
+<Lightbox
+  alt="A screenshot of the Randime randomizer. It displays the randomizer settings alongside a randomly generated title and its details. The anime chosen is Kiznaiver."
+  height={1243}
+  src="/posts/randime-anime-randomizer/screenshot-randomizer.png"
+  width={1920}
+/>
+
+In addition to the randomizer, Randime keeps track of previous rolls in a "History" page so that you can always go back to a permalink for something you came across recently. If something really stands out, you can add it to a watchlist that is saved to `localStorage`.
+
+<Lightbox
+  alt="A screenshot of the Randime history page. It displays posters and titles of numerous anime series in a grid."
+  height={1243}
+  src="/posts/randime-anime-randomizer/screenshot-history.png"
+  width={1920}
+/>
+
+### The Back End
+
+The randomizer API is a two-part integration with Kitsu. The first request simply reaches out to determine how many total entries match a user’s randomizer settings. With this number in mind, we randomly generate a number within that range and return details on that entry.
+
+To fulfill a permalink, we simply use the anime ID in URL params to grab details for that particular anime series or movie.
+
+## Next Steps
+
+The `localStorage` solution for keeping a watchlist is simple to implement and requires no authentication from the user. This is a great way to keep track of things for users who just want to quickly generate some ideas, but some users might prefer to sync random selections to a centralized account. I plan to add integrations with Kitsu and MyAnimeList to add randomly generated titles to users who are authenticated with those accounts.
+
+Aside from that I’m just hoping to generate some buzz around the idea, and maybe draw new listeners to the AniMonday backlog!
