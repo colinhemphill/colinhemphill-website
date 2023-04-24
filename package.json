@@ -22,7 +22,7 @@
     "markdown-wasm": "1.2.0",
     "motion": "10.15.5",
     "next": "13.3.1",
-    "next-contentlayer": "0.3.1",
+    "next-contentlayer": "0.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reading-time-estimator": "1.8.1",
