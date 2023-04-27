@@ -14,7 +14,7 @@
     "@hcaptcha/react-hcaptcha": "1.8.1",
     "@vercel/analytics": "1.0.0",
     "@vercel/og": "0.5.3",
-    "class-variance-authority": "0.5.3",
+    "class-variance-authority": "0.6.0",
     "hcaptcha": "0.1.1",
     "highlight.js": "11.7.0",
     "houseform": "1.10.5",
