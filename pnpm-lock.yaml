@@ -97,8 +97,8 @@ devDependencies:
     specifier: 0.2.7
     version: 0.2.7(prettier@2.8.8)
   sharp:
-    specifier: 0.32.0
-    version: 0.32.0
+    specifier: 0.32.1
+    version: 0.32.1
   slug:
     specifier: 8.2.2
     version: 8.2.2
@@ -4360,8 +4360,8 @@ packages:
     dependencies:
       lru-cache: 6.0.0
 
-  /sharp@0.32.0:
-    resolution: {integrity: sha512-yLAypVcqj1toSAqRSwbs86nEzfyZVDYqjuUX8grhFpeij0DDNagKJXELS/auegDBRDg1XBtELdOGfo2X1cCpeA==}
+  /sharp@0.32.1:
+    resolution: {integrity: sha512-kQTFtj7ldpUqSe8kDxoGLZc1rnMFU0AO2pqbX6pLy3b7Oj8ivJIdoKNwxHVQG2HN6XpHPJqCSM2nsma2gOXvOg==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
