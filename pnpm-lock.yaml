@@ -8,11 +8,11 @@ dependencies:
     specifier: 1.0.0
     version: 1.0.0(react@18.2.0)
   '@vercel/og':
-    specifier: 0.5.3
-    version: 0.5.3
+    specifier: 0.5.4
+    version: 0.5.4
   class-variance-authority:
-    specifier: 0.5.3
-    version: 0.5.3(typescript@5.0.4)
+    specifier: 0.6.0
+    version: 0.6.0(typescript@5.0.4)
   hcaptcha:
     specifier: 0.1.1
     version: 0.1.1
@@ -23,8 +23,8 @@ dependencies:
     specifier: 1.10.5
     version: 1.10.5(react@18.2.0)(zod@3.21.4)
   lucide-react:
-    specifier: 0.181.0
-    version: 0.181.0(react@18.2.0)
+    specifier: 0.187.0
+    version: 0.187.0(react@18.2.0)
   markdown-wasm:
     specifier: 1.2.0
     version: 1.2.0
@@ -64,8 +64,8 @@ devDependencies:
     specifier: 2.0.5
     version: 2.0.5
   '@types/node':
-    specifier: 18.16.1
-    version: 18.16.1
+    specifier: 18.16.2
+    version: 18.16.2
   '@types/react':
     specifier: 18.2.0
     version: 18.2.0
@@ -528,7 +528,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.6
-      '@types/node': 18.16.1
+      '@types/node': 18.16.2
 
   /@grpc/proto-loader@0.6.13:
     resolution: {integrity: sha512-FjxPYDRTn6Ec3V0arm1FtSpmP6V50wuph2yILpyvTKzjc76oDdoihXqM1DzOW5ubvCC8GivfCnNtfaRE8myJ7g==}
@@ -1114,8 +1114,8 @@ packages:
   /@types/ms@0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
 
-  /@types/node@18.16.1:
-    resolution: {integrity: sha512-DZxSZWXxFfOlx7k7Rv4LAyiMroaxa3Ly/7OOzZO8cBNho0YzAi4qlbrx8W27JGqG57IgR/6J7r+nOJWw6kcvZA==}
+  /@types/node@18.16.2:
+    resolution: {integrity: sha512-GQW/JL/5Fz/0I8RpeBG9lKp0+aNcXEaVL71c0D2Q0QHDTFvlYKT7an0onCUXj85anv7b4/WesqdfchLc0jtsCg==}
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -1222,12 +1222,12 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@vercel/og@0.5.3:
-    resolution: {integrity: sha512-7hKSUEzhUhK62Naaf1jD8d+AVLnLU6LGdakTTqucD1AP/CHqmsm5dvdE1z9QJNPyiCAyyihhXIoUdhCqKHZWBQ==}
+  /@vercel/og@0.5.4:
+    resolution: {integrity: sha512-o4Zjgw66HPtfGFYG4CFcKfnCcK6qCY+3FC6g22Z1SdAN5jN8XjbHCh3hRVHH5IGBQp8mxH941EcH53KimAm+wg==}
     engines: {node: '>=16'}
     dependencies:
       '@resvg/resvg-wasm': 2.4.1
-      satori: 0.4.9
+      satori: 0.7.2
       yoga-wasm-web: 0.3.3
     dev: false
 
@@ -1531,14 +1531,15 @@ packages:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
     dev: true
 
-  /class-variance-authority@0.5.3(typescript@5.0.4):
-    resolution: {integrity: sha512-vcMxnya/xxQSvTuXO9FWAOnmLihbzX82fPkQpMUwPHZ4tdopmFlM4X818fMgCPt2L6CirOIbN91vybifdScUVw==}
+  /class-variance-authority@0.6.0(typescript@5.0.4):
+    resolution: {integrity: sha512-qdRDgfjx3GRb9fpwpSvn+YaidnT7IUJNe4wt5/SWwM+PmUwJUhQRk/8zAyNro0PmVfmen2635UboTjIBXXxy5A==}
     peerDependencies:
       typescript: '>= 4.5.5 < 6'
     peerDependenciesMeta:
       typescript:
         optional: true
     dependencies:
+      clsx: 1.2.1
       typescript: 5.0.4
     dev: false
 
@@ -1560,6 +1561,11 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
+
+  /clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
@@ -2709,6 +2715,11 @@ packages:
     resolution: {integrity: sha512-iMrDmH2VpIEKOrcKWidVjI89FdDKTEdZ7PfPWkP27sTazIIkob8YfdY2ezaufAnWBiUUcvzsn0qF+dyXtBH2Vw==}
     dev: false
 
+  /hex-rgb@4.3.0:
+    resolution: {integrity: sha512-Ox1pJVrDCyGHMG9CFg1tmrRUMRPRsAWYc/PinY0XzJU4K7y7vjNoLKIQ7BR5UJMCxNN8EM1MNDmHWA/B3aZUuw==}
+    engines: {node: '>=6'}
+    dev: false
+
   /hey-listen@1.0.8:
     resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
     dev: false
@@ -3136,8 +3147,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.181.0(react@18.2.0):
-    resolution: {integrity: sha512-hSbhNqSrkFSRK/1WjvqadeWklFMsN/JFFajUV1pu7yETLzFNgi/TEa+vIxY9mGjoo4oKl06JDMkubipInmL5sw==}
+  /lucide-react@0.187.0(react@18.2.0):
+    resolution: {integrity: sha512-+k/2djo5opeq22Bb68sA0rjQbI3ToC3nNmsHmaahJ+/6EF2dbWcJ4eWzQZe/97dxndUQ6F2/VqvVXmKHACFnfw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -3846,6 +3857,13 @@ packages:
       callsites: 3.1.0
     dev: true
 
+  /parse-css-color@0.2.1:
+    resolution: {integrity: sha512-bwS/GGIFV3b6KS4uwpzCFj4w297Yl3uqnSgIPsoQkx7GMLROXfMnWvxfNkL0oh8HVhZA4hvJoEoEIqonfJ3BWg==}
+    dependencies:
+      color-name: 1.1.4
+      hex-rgb: 4.3.0
+    dev: false
+
   /parse-entities@4.0.1:
     resolution: {integrity: sha512-SWzvYcSJh4d/SGLIOQfZ/CoNv6BTlI6YEQ7Nj82oDVnRpwe/Z/F1EMx42x3JAOwGBlCjeCH0BRJQbQ/opHL17w==}
     dependencies:
@@ -4095,7 +4113,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 18.16.1
+      '@types/node': 18.16.2
       long: 4.0.0
 
   /protobufjs@7.2.3:
@@ -4113,7 +4131,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 18.16.1
+      '@types/node': 18.16.2
       long: 5.2.3
 
   /pump@3.0.0:
@@ -4321,8 +4339,8 @@ packages:
       is-regex: 1.1.4
     dev: true
 
-  /satori@0.4.9:
-    resolution: {integrity: sha512-vV1h8GNCqMGD4Z/cbmCNLsUUkmfMVIV5TWwkxdSCocssz3cU2qiATHZqtZkUfEazGeSB2frvTC4xQ/+fQ4topg==}
+  /satori@0.7.2:
+    resolution: {integrity: sha512-Eltg0/i3OEbBLaveCnYi2j+p0J9Bb5rmDMXddq4Zy0/NYHbpTkPIlPYGgb+DKamhmvXhiGvWGiFdqHVjJCaCpA==}
     engines: {node: '>=16'}
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0
@@ -4331,6 +4349,7 @@ packages:
       css-to-react-native: 3.2.0
       emoji-regex: 10.2.1
       linebreak: 1.1.0
+      parse-css-color: 0.2.1
       postcss-value-parser: 4.2.0
       yoga-wasm-web: 0.3.3
     dev: false
