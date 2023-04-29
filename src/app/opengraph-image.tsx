@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { inter400, inter700 } from '@/utils/fonts';
 import { ImageResponse } from 'next/server';
 
 export const alt = 'Colin Hemphill';
@@ -12,9 +13,12 @@ export const size = {
 export default async function og() {
   return new ImageResponse(
     (
-      <div tw="bg-zinc-900 w-full h-full items-center justify-between flex py-8 px-16 text-zinc-50">
+      <div
+        style={{ fontFamily: 'Inter 400' }}
+        tw="bg-zinc-900 w-full h-full items-center justify-between flex py-8 px-16 text-zinc-50"
+      >
         <div tw="flex flex-col w-8/12">
-          <div tw="font-black text-8xl flex">
+          <div style={{ fontFamily: 'Inter 700' }} tw="text-8xl flex">
             <div tw="border-b-8 border-transparent pr-4">Colin</div>
             <div tw="border-b-8 border-cyan-300">Hemphill</div>
           </div>
@@ -31,6 +35,16 @@ export default async function og() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: 'Inter 400',
+          data: await inter400,
+        },
+        {
+          name: 'Inter 700',
+          data: await inter700,
+        },
+      ],
     },
   );
 }

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { formatDateString } from '@/utils/date';
+import { inter400, inter700 } from '@/utils/fonts';
 import { ImageResponse } from 'next/server';
 import { BlogPostParams } from './page';
 import { getBlogPost } from './utils/getBlogPost';
@@ -29,15 +30,15 @@ export default async function og({ params }: { params: BlogPostParams }) {
         <div tw="flex flex-col w-8/12 pr-12">
           <div
             style={{
-              fontFamily: 'Inter Bold',
+              fontFamily: 'Inter 700',
             }}
-            tw="text-white text-6xl uppercase font-bold"
+            tw="text-white text-6xl uppercase"
           >
             {blogPost.title}
           </div>
           <div
             style={{
-              fontFamily: 'Inter Regular',
+              fontFamily: 'Inter 400',
             }}
             tw="text-cyan-300 text-4xl mt-4"
           >
@@ -62,6 +63,16 @@ export default async function og({ params }: { params: BlogPostParams }) {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: 'Inter 400',
+          data: await inter400,
+        },
+        {
+          name: 'Inter 700',
+          data: await inter700,
+        },
+      ],
     },
   );
 }
