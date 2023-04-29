@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { formatDateString } from '@/utils/date';
-import { inter400, inter700 } from '@/utils/fonts';
 import { ImageResponse } from 'next/server';
 import { BlogPostParams } from './page';
 import { getBlogPost } from './utils/getBlogPost';
@@ -14,6 +13,19 @@ export const size = {
 };
 
 export default async function og({ params }: { params: BlogPostParams }) {
+  const inter400 = fetch(
+    new URL(
+      '../../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+  const inter700 = fetch(
+    new URL(
+      '../../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+
   const { blogPost } = getBlogPost(params);
   const formattedDate = formatDateString(blogPost.date);
   const { image, ogImage } = blogPost;

@@ -1,4 +1,3 @@
-import { inter400, inter700 } from '@/utils/fonts';
 import { ImageResponse } from 'next/server';
 
 export const alt = 'Contact Colin Hemphill’s';
@@ -10,6 +9,19 @@ export const size = {
 };
 
 export default async function og() {
+  const inter400 = fetch(
+    new URL(
+      '../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+  const inter700 = fetch(
+    new URL(
+      '../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
+      import.meta.url,
+    ),
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
