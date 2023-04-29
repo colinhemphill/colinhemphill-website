@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { appUrl } from '@/utils/env';
 import { ImageResponse } from 'next/server';
 
 export const alt = 'Colin Hemphill';
@@ -41,7 +42,7 @@ export default async function og() {
         <img
           alt="A man sitting down and strumming an acoustic guitar"
           tw="w-4/12"
-          src="https://colinhemphill.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fman-with-guitar.abc2a4a0.png&w=2048&q=75"
+          src={`${appUrl}/illustrations/man-with-guitar.png`}
         />
       </div>
     ),

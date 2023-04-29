@@ -2,10 +2,7 @@ import BreadcrumbItem from '@/strum/BreadcrumbItem';
 import Breadcrumbs from '@/strum/Breadcrumbs';
 import Loading from '@/strum/Loading';
 import Separator from '@/strum/Separator';
-import {
-  metadataOpenGraphDefaults,
-  metadataTwitterDefaults,
-} from '@/utils/metadata';
+import { Metadata } from 'next';
 import { Suspense } from 'react';
 import Section from '../../../strum/Section';
 import BlogPost from './components/BlogPost';
@@ -15,18 +12,22 @@ export interface BlogPostParams {
   slug: string;
 }
 
-export async function generateMetadata({ params }: { params: BlogPostParams }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: BlogPostParams;
+}): Promise<Metadata> {
   const { blogPost } = getBlogPost(params);
 
   return {
     title: { absolute: `${blogPost.title} | Colin Hemphill’s Blog` },
     openGraph: {
-      ...metadataOpenGraphDefaults,
       description: blogPost.description,
       title: { absolute: `${blogPost.title} | Colin Hemphill’s Blog` },
+      type: 'article',
+      url: `https://colinhemphill.com/blog/${blogPost.slug}`,
     },
     twitter: {
-      ...metadataTwitterDefaults,
       description: blogPost.description,
       title: { absolute: `${blogPost.title} | Colin Hemphill’s Blog` },
     },
