@@ -26,8 +26,8 @@ dependencies:
     specifier: 1.10.5
     version: 1.10.5(react@18.2.0)(zod@3.21.4)
   lucide-react:
-    specifier: 0.196.0
-    version: 0.196.0(react@18.2.0)
+    specifier: 0.201.0
+    version: 0.201.0(react@18.2.0)
   markdown-wasm:
     specifier: 1.2.0
     version: 1.2.0
@@ -3155,8 +3155,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.196.0(react@18.2.0):
-    resolution: {integrity: sha512-C1NS3pLxghrxZgKF5+a4lEOn6EOZTsL1Gbd8ShS2ph0GA1cnRVvOoT5IT/NleNoOEtStD5X7pAkzSm665iVDpg==}
+  /lucide-react@0.201.0(react@18.2.0):
+    resolution: {integrity: sha512-MY5OTEm6T4p93UJPxtVfuy5vFNer3SUc8vdT7RgTKMJWeO83/hVOnjdZjfMFfgf3wwCaNoyPlyZNQ+Rbi9lWCw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
