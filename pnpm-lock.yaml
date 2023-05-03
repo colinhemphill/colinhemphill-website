@@ -20,8 +20,8 @@ dependencies:
     specifier: 0.1.1
     version: 0.1.1
   highlight.js:
-    specifier: 11.7.0
-    version: 11.7.0
+    specifier: 11.8.0
+    version: 11.8.0
   houseform:
     specifier: 1.10.5
     version: 1.10.5(react@18.2.0)(zod@3.21.4)
@@ -54,7 +54,7 @@ dependencies:
     version: 6.0.0
   tailwind-highlightjs:
     specifier: 2.0.1
-    version: 2.0.1(highlight.js@11.7.0)(tailwindcss@3.3.2)
+    version: 2.0.1(highlight.js@11.8.0)(tailwindcss@3.3.2)
   tailwind-merge:
     specifier: 1.12.0
     version: 1.12.0
@@ -2732,6 +2732,11 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: false
 
+  /highlight.js@11.8.0:
+    resolution: {integrity: sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==}
+    engines: {node: '>=12.0.0'}
+    dev: false
+
   /houseform@1.10.5(react@18.2.0)(zod@3.21.4):
     resolution: {integrity: sha512-PeT2MOguJybHJe1bV3+MlJq3vEEfFF22dBErtT5A8lnLr4IYGBaTK4pbnoXdyVIwl6aGyj1gGpFZqDEeFf10bg==}
     peerDependencies:
@@ -4642,7 +4647,7 @@ packages:
       tslib: 2.5.0
     dev: true
 
-  /tailwind-highlightjs@2.0.1(highlight.js@11.7.0)(tailwindcss@3.3.2):
+  /tailwind-highlightjs@2.0.1(highlight.js@11.8.0)(tailwindcss@3.3.2):
     resolution: {integrity: sha512-kh9e/WEi9EkP4h9keWlwBAsDeSZ3YGyQJ7XexIw98mVIVUm418OTNPqvYouoTeByPPVvu7TH2sMEFKt1A04VcA==}
     peerDependencies:
       highlight.js: ^10.7.2
@@ -4650,7 +4655,7 @@ packages:
     dependencies:
       app-root-path: 3.1.0
       css: 3.0.0
-      highlight.js: 11.7.0
+      highlight.js: 11.8.0
       lodash.merge: 4.6.2
       sync-fetch: 0.3.1
       tailwindcss: 3.3.2
