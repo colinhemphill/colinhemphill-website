@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/mdx": "2.0.5",
-    "@types/node": "18.16.3",
+    "@types/node": "18.16.5",
     "@types/react": "18.2.5",
     "@types/react-dom": "18.2.3",
     "@types/slug": "5.0.3",
