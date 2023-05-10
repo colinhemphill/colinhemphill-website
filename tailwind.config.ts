@@ -41,11 +41,9 @@ export default {
       },
     },
     extend: {
-      extend: {
-        fontFamily: {
-          mono: ['var(--font-jetbrains-mono)'],
-          sans: ['var(--font-inter)'],
-        },
+      fontFamily: {
+        mono: ['var(--font-jetbrains-mono)'],
+        sans: ['var(--font-inter)'],
       },
       container: {
         center: true,

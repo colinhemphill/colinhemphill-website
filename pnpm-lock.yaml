@@ -26,8 +26,8 @@ dependencies:
     specifier: 1.10.5
     version: 1.10.5(react@18.2.0)(zod@3.21.4)
   lucide-react:
-    specifier: 0.211.0
-    version: 0.211.0(react@18.2.0)
+    specifier: 0.215.0
+    version: 0.215.0(react@18.2.0)
   markdown-wasm:
     specifier: 1.2.0
     version: 1.2.0
@@ -67,8 +67,8 @@ devDependencies:
     specifier: 2.0.5
     version: 2.0.5
   '@types/node':
-    specifier: 20.1.0
-    version: 20.1.0
+    specifier: 20.1.2
+    version: 20.1.2
   '@types/react':
     specifier: 18.2.6
     version: 18.2.6
@@ -542,7 +542,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.6
-      '@types/node': 20.1.0
+      '@types/node': 20.1.2
 
   /@grpc/proto-loader@0.6.13:
     resolution: {integrity: sha512-FjxPYDRTn6Ec3V0arm1FtSpmP6V50wuph2yILpyvTKzjc76oDdoihXqM1DzOW5ubvCC8GivfCnNtfaRE8myJ7g==}
@@ -1128,8 +1128,8 @@ packages:
   /@types/ms@0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
 
-  /@types/node@20.1.0:
-    resolution: {integrity: sha512-O+z53uwx64xY7D6roOi4+jApDGFg0qn6WHcxe5QeqjMaTezBO/mxdfFXIVAVVyNWKx84OmPB3L8kbVYOTeN34A==}
+  /@types/node@20.1.2:
+    resolution: {integrity: sha512-CTO/wa8x+rZU626cL2BlbCDzydgnFNgc19h4YvizpTO88MFQxab8wqisxaofQJ/9bLGugRdWIuX/TbIs6VVF6g==}
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -3266,8 +3266,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.211.0(react@18.2.0):
-    resolution: {integrity: sha512-YRXK55KqWWcT1zPg89MWl2L6/dAFjaAcx5QQCdn1LS/DqHkZ83ibYu94CxYJpeq+/ZQrNMYhh/JF2BNKPDQo1g==}
+  /lucide-react@0.215.0(react@18.2.0):
+    resolution: {integrity: sha512-1ka+bR/WDw5dzkzj9UJbDat9cg/bMNOxWpVnsAlZGPW6+6QJlEJxgCgOp7umO7ihLLFBm0Pm5M/qK57FCoz/gA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -4278,7 +4278,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 20.1.0
+      '@types/node': 20.1.2
       long: 4.0.0
 
   /protobufjs@7.2.3:
@@ -4296,7 +4296,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.1.0
+      '@types/node': 20.1.2
       long: 5.2.3
 
   /pump@3.0.0:
