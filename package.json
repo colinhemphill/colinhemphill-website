@@ -19,7 +19,7 @@
     "hcaptcha": "0.1.1",
     "highlight.js": "11.8.0",
     "houseform": "1.10.5",
-    "lucide-react": "0.216.0",
+    "lucide-react": "0.219.0",
     "markdown-wasm": "1.2.0",
     "motion": "10.16.2",
     "next": "13.4.2",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/mdx": "2.0.5",
-    "@types/node": "20.1.2",
+    "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@types/slug": "5.0.3",
