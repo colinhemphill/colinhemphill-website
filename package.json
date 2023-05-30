@@ -11,7 +11,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fontsource/inter": "4.5.15",
+    "@fontsource/inter": "5.0.2",
     "@hcaptcha/react-hcaptcha": "1.8.1",
     "@vercel/analytics": "1.0.1",
     "@vercel/og": "0.5.4",
