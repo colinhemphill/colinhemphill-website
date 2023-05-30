@@ -54,7 +54,7 @@ export default function ColinImage() {
 
   return (
     <div
-      className="relative mx-auto max-w-[90%] opacity-0 md:w-[500px] md:max-w-full"
+      className="relative mx-auto max-w-[90%] opacity-0 md:w-[450px] md:max-w-full"
       ref={viewRef}
     >
       <Image
