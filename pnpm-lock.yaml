@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
   '@fontsource/inter':
@@ -26,8 +30,8 @@ dependencies:
     specifier: 1.10.5
     version: 1.10.5(react@18.2.0)(zod@3.21.4)
   lucide-react:
-    specifier: 0.225.0
-    version: 0.225.0(react@18.2.0)
+    specifier: 0.230.0
+    version: 0.230.0(react@18.2.0)
   markdown-wasm:
     specifier: 1.2.0
     version: 1.2.0
@@ -3271,8 +3275,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /lucide-react@0.225.0(react@18.2.0):
-    resolution: {integrity: sha512-ZdXmq8N2w5pIPja3J8D4uGQOOg9ojZ99Njbc+/O/ZnmB175NK+xBjrsW1VcWtf8SkK4KA6iSoTrOFQmItZhD2w==}
+  /lucide-react@0.230.0(react@18.2.0):
+    resolution: {integrity: sha512-/Cbul7Jfq6aZ2RIsYZXH1jWkUVEP3lK8d5uBcggxf0u1oSkPcfKo/PIXhya5HEpmuA/RO6NmuNp3moOVloQEdA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
