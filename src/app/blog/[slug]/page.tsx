@@ -51,6 +51,7 @@ export default async function BlogPage({ params }: { params: BlogPostParams }) {
 
       <Section>
         <Suspense fallback={<Loading />}>
+          {/* @ts-expect-error Async Server Component */}
           <BlogPost readingStats={readingStats} {...blogPost} />
         </Suspense>
       </Section>
