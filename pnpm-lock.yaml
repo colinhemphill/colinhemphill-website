@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -60,8 +60,8 @@ dependencies:
     specifier: 2.0.1
     version: 2.0.1(highlight.js@11.8.0)(tailwindcss@3.3.2)
   tailwind-merge:
-    specifier: 1.13.1
-    version: 1.13.1
+    specifier: 1.13.2
+    version: 1.13.2
   zod:
     specifier: 3.21.4
     version: 3.21.4
@@ -4807,8 +4807,8 @@ packages:
       - encoding
     dev: false
 
-  /tailwind-merge@1.13.1:
-    resolution: {integrity: sha512-tRtRN22TDokGi2TuYSvuHQuuW6BJ/zlUEG+iYpAQ9i66msc/0eU/+HPccbPnNNH0mCPp0Ob8thaC8Uy9CxHitQ==}
+  /tailwind-merge@1.13.2:
+    resolution: {integrity: sha512-R2/nULkdg1VR/EL4RXg4dEohdoxNUJGLMnWIQnPKL+O9Twu7Cn3Rxi4dlXkDzZrEGtR+G+psSXFouWlpTyLhCQ==}
     dev: false
 
   /tailwindcss@3.3.2:
