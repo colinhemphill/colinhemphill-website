@@ -59,8 +59,11 @@ export const CustomMDXComponents: MDXComponents = {
     </Heading>
   ),
   HeadingWithIcon: (props) => <HeadingWithIcon className="mt-16" {...props} />,
+  // @ts-expect-error
   Image,
+  // @ts-expect-error
   Lightbox,
+  // @ts-expect-error
   Link,
   p: ({ children }) => <p className="mt-4">{children}</p>,
   pre: (props) => <pre {...props} className="whitespace-pre-wrap" />,
