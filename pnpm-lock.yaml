@@ -27,8 +27,8 @@ dependencies:
     specifier: 11.8.0
     version: 11.8.0
   houseform:
-    specifier: 1.10.6
-    version: 1.10.6(react@18.2.0)(zod@3.21.4)
+    specifier: 1.11.0
+    version: 1.11.0(react@18.2.0)(zod@3.21.4)
   lucide-react:
     specifier: 0.252.0
     version: 0.252.0(react@18.2.0)
@@ -2776,8 +2776,8 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: false
 
-  /houseform@1.10.6(react@18.2.0)(zod@3.21.4):
-    resolution: {integrity: sha512-wyqIdet+besHB1ifFJ4EU01CSvH8g2OBaYfkcvPc65Woh8Ic6Gy4yFyPeyWP1SirN4XnzYnwGBNGFmuUq1Bmxg==}
+  /houseform@1.11.0(react@18.2.0)(zod@3.21.4):
+    resolution: {integrity: sha512-rh0mKDHtKKtygqrT/BnmBkGavYk+hqiVtogdqxStDcP+d0a2WmABZ4v7fHk/x1YpmCmnHKjd0GBr6KR7HmFsyA==}
     peerDependencies:
       react: '>=16.8.0'
       zod: '>=3.9.0'
