@@ -22,6 +22,7 @@ export default async function BlogPost({
 }: BlogPostProps) {
   const formattedDate = formatDateString(date);
   const sortedTags = sortAlphabetical(tags, 'title');
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const MDXContent = useMDXComponent(body.code);
 
   return (
