@@ -1,5 +1,5 @@
 ---
-title: The AniMonday Podcast
+title: AniMonday Podcast
 subtitle: A Randomized Anime Experience
 url: https://animonday.moe
 image:

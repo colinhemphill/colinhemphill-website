@@ -3,6 +3,7 @@ import HeadingWithIcon from '@/strum/HeadingWithIcon';
 import PreviewSection from '@/strum/PreviewSection';
 import ProjectCard from '@/strum/ProjectCard';
 import Separator from '@/strum/Separator';
+import { sortAlphabetical } from '@/utils/sort';
 import { allProjects } from '@content';
 import { LayoutTemplate, Mail } from 'lucide-react';
 import { Metadata } from 'next';
@@ -43,7 +44,7 @@ export default function HomePage() {
           involved in them as a hobbyist or as an indirect supporter.
         </p>
         <CardsGrid className="mt-8">
-          {allProjects.map((project) => (
+          {sortAlphabetical(allProjects, 'title').map((project) => (
             <ProjectCard key={project._id} {...project} />
           ))}
         </CardsGrid>
