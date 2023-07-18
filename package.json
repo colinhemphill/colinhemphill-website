@@ -48,7 +48,7 @@
     "prettier": "3.0.0",
     "prettier-plugin-tailwindcss": "0.4.1",
     "sharp": "0.32.3",
-    "slug": "8.2.2",
+    "slug": "8.2.3",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
   },

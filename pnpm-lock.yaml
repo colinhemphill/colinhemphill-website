@@ -116,8 +116,8 @@ devDependencies:
     specifier: 0.32.3
     version: 0.32.3
   slug:
-    specifier: 8.2.2
-    version: 8.2.2
+    specifier: 8.2.3
+    version: 8.2.3
   tailwindcss:
     specifier: 3.3.3
     version: 3.3.3
@@ -4505,8 +4505,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /slug@8.2.2:
-    resolution: {integrity: sha512-5ByW6qXqPeG0Tmlkh24JhdXhvQsbaJSjVr3GgGxUV0BSskZKKBZZfFWxezap8+fh1vxBN9GVbqI1V6nqAFxlBg==}
+  /slug@8.2.3:
+    resolution: {integrity: sha512-fXjhAZszNecz855GUNIwW0+sFPi9WV4bMiEKDOCA4wcq1ts1UnUVNy/F78B0Aat7/W3rA+se//33ILKNMrbeYQ==}
     hasBin: true
     dev: true
 
