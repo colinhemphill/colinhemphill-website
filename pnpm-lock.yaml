@@ -60,8 +60,8 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   reading-time-estimator:
-    specifier: 1.8.1
-    version: 1.8.1
+    specifier: 1.9.0
+    version: 1.9.0
   rehype-highlight:
     specifier: 6.0.0
     version: 6.0.0
@@ -4247,8 +4247,8 @@ packages:
     dependencies:
       picomatch: 2.3.1
 
-  /reading-time-estimator@1.8.1:
-    resolution: {integrity: sha512-uE95PZDOPVfLsnI/D08s3/heS+s9SgkQwtOH8TtAEsF28qfvnPI8J58iW7XW1OOgw5UAjAZEUr+PLrkTJmvGyg==}
+  /reading-time-estimator@1.9.0:
+    resolution: {integrity: sha512-fVuTlAfcYXE9A4KrTOq0Ao4vn9vJxYVFpATjS6KFA5xCK5RTmq6q74ICrO7ykF3Mg2XTgL9mBrwADgXQgEolIw==}
     dev: false
 
   /regenerator-runtime@0.13.11:
