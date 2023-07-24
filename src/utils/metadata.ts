@@ -9,7 +9,6 @@ export const metadataOpenGraphDefaults: Metadata['openGraph'] = {
     template: '%s | Colin Hemphill',
   },
   type: 'website',
-  url: 'https://colinhemphill.com',
 };
 
 export const metadataTwitterDefaults: Metadata['twitter'] = {
