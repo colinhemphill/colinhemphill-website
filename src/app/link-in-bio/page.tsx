@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 export default function LinkInBioPage() {
   return (
     <>
-      <header className="py-16 md:py-24">
+      <header className="py-8 text-center md:py-16 md:text-left">
         <div className="container flex flex-col items-center justify-between gap-8 md:flex-row">
           <div>
             <Heading level={1}>Colin Hemphill</Heading>
