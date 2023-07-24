@@ -1,4 +1,3 @@
-import Separator from '@/strum/Separator';
 import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
@@ -9,8 +8,6 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import { PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
 import colors from 'tailwindcss/colors';
-import Footer from './components/Footer';
-import Header from './components/Header';
 
 // STYLES
 import './globals.css';
@@ -21,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 });
 
-export const revalidate = 60 * 10;
+export const revalidate = 600;
 
 export const metadata: Metadata = {
   // https://beta.nextjs.org/docs/api-reference/metadata#metadatabase
@@ -70,11 +67,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html className={twMerge(inter.variable, jetbrainsMono.variable)} lang="en">
       <body className="bg-neutral-0 text-neutral-10 selection:bg-primary-9 selection:text-neutral-0">
-        <Header />
-        <main>{children}</main>
-
-        <Separator direction="down" from={1} to={0} />
-        <Footer />
+        {children}
       </body>
 
       <Analytics />

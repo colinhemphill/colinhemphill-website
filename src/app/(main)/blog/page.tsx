@@ -2,14 +2,14 @@ import BreadcrumbItem from '@/strum/BreadcrumbItem';
 import Breadcrumbs from '@/strum/Breadcrumbs';
 import CardsGrid from '@/strum/Card/CardsGrid';
 import Heading from '@/strum/Heading';
+import PreviewSection from '@/strum/PreviewSection';
+import Section from '@/strum/Section';
 import Separator from '@/strum/Separator';
 import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
 } from '@/utils/metadata';
 import { Metadata } from 'next';
-import PreviewSection from '../../strum/PreviewSection';
-import Section from '../../strum/Section';
 import { allBlogPosts } from './[slug]/utils/allBlogPosts';
 import BlogPostCard from './components/BlogPostCard';
 

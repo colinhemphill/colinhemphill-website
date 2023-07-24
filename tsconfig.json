@@ -30,6 +30,9 @@
       ],
       "@content": [
         "./.contentlayer/generated"
+      ],
+      "@public/*": [
+        "./public/*"
       ]
     }
   },

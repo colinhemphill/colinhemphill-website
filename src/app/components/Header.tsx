@@ -1,5 +1,5 @@
 import NavLink from '@/strum/NavLink';
-import { navLinks } from '@/utils/nav-links';
+import { githubLink, navLinks } from '@/utils/nav-links';
 import { Github } from 'lucide-react';
 import Logo from './Logo';
 import MobileMenu from './MobileMenu';
@@ -19,7 +19,7 @@ export default function Header() {
         </ul>
 
         <ul className="hidden md:flex">
-          <NavLink href="https://github.com/colinhemphill/colinhemphill-website">
+          <NavLink href={githubLink}>
             <Github name="GitHub logo" />
             <span className="sr-only">GitHub</span>
           </NavLink>

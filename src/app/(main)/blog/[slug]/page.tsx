@@ -1,10 +1,10 @@
 import BreadcrumbItem from '@/strum/BreadcrumbItem';
 import Breadcrumbs from '@/strum/Breadcrumbs';
 import Loading from '@/strum/Loading';
+import Section from '@/strum/Section';
 import Separator from '@/strum/Separator';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-import Section from '../../../strum/Section';
 import BlogPost from './components/BlogPost';
 import { getBlogPost } from './utils/getBlogPost';
 

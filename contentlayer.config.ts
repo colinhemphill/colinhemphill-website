@@ -108,9 +108,41 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+export const Link = defineDocumentType(() => ({
+  name: 'Link',
+  filePathPattern: 'links/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    name: {
+      type: 'string',
+      description: 'The name of the external website',
+      required: true,
+    },
+    description: {
+      type: 'string',
+      description: 'Text to describe where the link will take the reader',
+      required: true,
+    },
+    url: {
+      type: 'string',
+      required: true,
+    },
+    source: {
+      type: 'enum',
+      options: ['internal', 'external'],
+      required: true,
+    },
+    destinationType: {
+      type: 'enum',
+      options: ['social', 'code'],
+      required: true,
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Project, Post],
+  documentTypes: [Project, Post, Link],
   mdx: {
     rehypePlugins: [highlight],
   },

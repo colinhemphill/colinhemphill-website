@@ -1,13 +1,15 @@
 import ButtonLink from '@/strum/ButtonLink';
-import { LucideIcon } from 'lucide-react';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
 interface SocialLinkProps {
   href: string;
-  Icon: LucideIcon;
+  icon: string;
   name: string;
 }
 
-export default function SocialLink({ href, Icon, name }: SocialLinkProps) {
+export default function SocialLink({ href, icon, name }: SocialLinkProps) {
+  const Icon = useMDXComponent(icon);
+
   return (
     <ButtonLink
       className="flex h-14 w-14 items-center justify-center rounded-full p-0"

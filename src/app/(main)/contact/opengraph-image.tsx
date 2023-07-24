@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/server';
 
-export const alt = 'Colin Hemphill’s Blog';
+export const alt = 'Contact Colin Hemphill’s';
 export const contentType = 'image/png';
 export const runtime = 'edge';
 export const size = {
@@ -11,13 +11,13 @@ export const size = {
 export default async function og() {
   const inter400 = fetch(
     new URL(
-      '../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
+      '../../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
   const inter700 = fetch(
     new URL(
-      '../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
+      '../../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
@@ -32,9 +32,7 @@ export default async function og() {
           <div tw="border-b-8 border-transparent pr-4">Colin</div>
           <div tw="border-b-8 border-cyan-300">Hemphill</div>
         </div>
-        <div tw="text-6xl mt-10 text-zinc-400">
-          Blog posts about web, music, audio, and podcasting
-        </div>
+        <div tw="text-6xl mt-10 text-zinc-400">Get in touch with Colin</div>
       </div>
     ),
     {

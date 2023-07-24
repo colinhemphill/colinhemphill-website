@@ -1,18 +1,17 @@
+import BlogCallout from '@/app/components/BlogCallout';
+import ContactForm from '@/app/components/ContactForm';
+import CreateSoftware from '@/app/components/CreateSoftware';
+import Hero from '@/app/components/Hero';
+import MeetColin from '@/app/components/MeetColin';
 import CardsGrid from '@/strum/Card/CardsGrid';
 import HeadingWithIcon from '@/strum/HeadingWithIcon';
 import PreviewSection from '@/strum/PreviewSection';
 import ProjectCard from '@/strum/ProjectCard';
+import Section from '@/strum/Section';
 import Separator from '@/strum/Separator';
-import { sortAlphabetical } from '@/utils/sort';
-import { allProjects } from '@content';
+import { getProjects } from '@/utils/fetchers/projects';
 import { LayoutTemplate, Mail } from 'lucide-react';
 import { Metadata } from 'next';
-import Section from '../strum/Section';
-import BlogCallout from './components/BlogCallout';
-import ContactForm from './components/ContactForm';
-import CreateSoftware from './components/CreateSoftware';
-import Hero from './components/Hero';
-import MeetColin from './components/MeetColin';
 
 export const metadata: Metadata = {
   title: 'Web Developer and Noise-Maker',
@@ -44,7 +43,7 @@ export default function HomePage() {
           involved in them as a hobbyist or as an indirect supporter.
         </p>
         <CardsGrid className="mt-8">
-          {sortAlphabetical(allProjects, 'title').map((project) => (
+          {getProjects().map((project) => (
             <ProjectCard key={project._id} {...project} />
           ))}
         </CardsGrid>

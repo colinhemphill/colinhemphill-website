@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { allBlogPosts } from './blog/[slug]/utils/allBlogPosts';
+import { allBlogPosts } from './(main)/blog/[slug]/utils/allBlogPosts';
 
 const baseUrl = 'https://colinhemphill.com';
 

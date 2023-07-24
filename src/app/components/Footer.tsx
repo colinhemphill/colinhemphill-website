@@ -1,5 +1,7 @@
 import Heading from '@/strum/Heading';
 import SocialLinks from '@/strum/SocialLinks';
+import { getCodingLinks } from '@/utils/fetchers/coding';
+import { getProjects } from '@/utils/fetchers/projects';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -23,24 +25,19 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-2">
           <Heading level={3}>My Projects</Heading>
-          <a className="link-solid" href="https://dotdotdarknessmusic.com/">
-            dot.darkness
-          </a>
-          <a className="link-solid" href="https://animonday.moe/">
-            The AniMonday Podcast
-          </a>
-          <a className="link-solid" href="https://randime.moe/">
-            Randime
-          </a>
+          {getProjects().map((project) => (
+            <a className="link-solid" href={project.url} key={project._id}>
+              {project.title}
+            </a>
+          ))}
         </div>
         <div className="flex flex-col gap-2">
           <Heading level={3}>Open Source</Heading>
-          <a className="link-solid" href="https://github.com/colinhemphill">
-            GitHub
-          </a>
-          <a className="link-solid" href="https://www.npmjs.com/~hemphillcc">
-            NPM
-          </a>
+          {getCodingLinks().map((link) => (
+            <a className="link-solid" href={link.url} key={link._id}>
+              {link.name}
+            </a>
+          ))}
         </div>
       </div>
 
