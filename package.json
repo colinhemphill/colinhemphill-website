@@ -13,7 +13,7 @@
     "types": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@fontsource/inter": "5.0.7",
+    "@fontsource/inter": "5.0.8",
     "@hcaptcha/react-hcaptcha": "1.8.1",
     "@radix-ui/react-accordion": "1.1.2",
     "@vercel/analytics": "1.0.1",
