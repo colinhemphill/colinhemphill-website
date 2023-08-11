@@ -3,7 +3,8 @@
 import Button from '@/strum/Button';
 import NavLink from '@/strum/NavLink';
 import { githubLink, navLinks } from '@/utils/nav-links';
-import { Github, Home, Menu, X } from 'lucide-react';
+import { SiGithub } from '@icons-pack/react-simple-icons';
+import { Home, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -75,7 +76,7 @@ export default function MobileMenu() {
             tabIndex={isOpen ? 0 : -1}
           >
             <div className="flex items-center gap-2">
-              <Github name="GitHub" />
+              <SiGithub name="GitHub" />
               GitHub
             </div>
           </NavLink>
