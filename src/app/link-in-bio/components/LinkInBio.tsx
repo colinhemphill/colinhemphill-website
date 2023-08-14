@@ -1,12 +1,9 @@
-'use client';
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/strum/Accordion';
-import Alert from '@/strum/Alert';
 import Card from '@/strum/Card/Card';
 import CardBody from '@/strum/Card/CardBody';
 import CardFooter from '@/strum/Card/CardFooter';
@@ -18,22 +15,16 @@ import { getProjects } from '@/utils/fetchers/projects';
 import { getSocialLinks } from '@/utils/fetchers/social';
 import { githubLink } from '@/utils/nav-links';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import LinkInBioButton from './LinkInBioButton';
+import LinkInBioEvent from './LinkInBioEvent';
 
 export default function LinkInBio() {
-  const searchParams = useSearchParams();
-  const event = searchParams.get('event');
-
   return (
     <Section>
-      {event && (
-        <Alert className="mb-8" color="primary">
-          Hi there, it was nice to meet you at <strong>{event}</strong>! Here
-          you’ll find links to my personal projects and to other places you can
-          find me on the internet.
-        </Alert>
-      )}
+      <Suspense>
+        <LinkInBioEvent />
+      </Suspense>
 
       <Accordion defaultValue={['social']} type="multiple">
         <AccordionItem value="social">
