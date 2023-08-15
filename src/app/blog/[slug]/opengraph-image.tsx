@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import { BlogPostParams } from '@/app/(main)/blog/[slug]/page';
+import { getBlogPost } from '@/app/(main)/blog/[slug]/utils/getBlogPost';
 import { formatDateString } from '@/utils/date';
 import { ImageResponse } from 'next/server';
-import { BlogPostParams } from './page';
-import { getBlogPost } from './utils/getBlogPost';
 
 export const alt = 'Colin Hemphill’s Blog';
 export const contentType = 'image/png';
@@ -15,13 +15,13 @@ export const size = {
 export default async function og({ params }: { params: BlogPostParams }) {
   const inter400 = fetch(
     new URL(
-      '../../../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
+      '../../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
   const inter700 = fetch(
     new URL(
-      '../../../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
+      '../../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());

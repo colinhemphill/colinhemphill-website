@@ -11,13 +11,13 @@ export const size = {
 export default async function og() {
   const inter400 = fetch(
     new URL(
-      '../../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
+      '../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
   const inter700 = fetch(
     new URL(
-      '../../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
+      '../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
       import.meta.url,
     ),
   ).then((res) => res.arrayBuffer());
