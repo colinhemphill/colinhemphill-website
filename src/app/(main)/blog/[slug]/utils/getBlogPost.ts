@@ -11,3 +11,13 @@ export function getBlogPost(params: BlogPostParams) {
     throw new Error(`Blog post ${params.slug} not found`);
   }
 }
+
+export function getBlogPostShareData(params: BlogPostParams) {
+  const blogPost = allBlogPosts.find((post) => post.slug === params.slug);
+  if (blogPost) {
+    const { date, image, ogImage, title } = blogPost;
+    return { date, image, ogImage, title };
+  } else {
+    throw new Error(`Blog post ${params.slug} not found`);
+  }
+}

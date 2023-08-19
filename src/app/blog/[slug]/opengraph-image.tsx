@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { BlogPostParams } from '@/app/(main)/blog/[slug]/page';
-import { getBlogPost } from '@/app/(main)/blog/[slug]/utils/getBlogPost';
+import { getBlogPostShareData } from '@/app/(main)/blog/[slug]/utils/getBlogPost';
 import { formatDateString } from '@/utils/date';
 import { ImageResponse } from 'next/server';
 
@@ -13,78 +13,83 @@ export const size = {
 };
 
 export default async function og({ params }: { params: BlogPostParams }) {
-  const inter400 = fetch(
-    new URL(
-      '../../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
-      import.meta.url,
-    ),
-  ).then((res) => res.arrayBuffer());
-  const inter700 = fetch(
-    new URL(
-      '../../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
-      import.meta.url,
-    ),
-  ).then((res) => res.arrayBuffer());
+  try {
+    const inter400 = await fetch(
+      new URL(
+        '../../../../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff',
+        import.meta.url,
+      ),
+    ).then((res) => res.arrayBuffer());
+    const inter700 = await fetch(
+      new URL(
+        '../../../../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff',
+        import.meta.url,
+      ),
+    ).then((res) => res.arrayBuffer());
+    const { date, image, ogImage, title } = getBlogPostShareData(params);
+    const formattedDate = formatDateString(date);
 
-  const { blogPost } = getBlogPost(params);
-  const formattedDate = formatDateString(blogPost.date);
-  const { image, ogImage } = blogPost;
+    const shareImage = ogImage ?? image;
+    let imageSrc = shareImage.src;
+    if (!shareImage.src.includes('http')) {
+      imageSrc = `https://colinhemphill.com${shareImage.src}`;
+    }
 
-  const shareImage = ogImage ?? image;
-  let imageSrc = shareImage.src;
-  if (!shareImage.src.includes('http')) {
-    imageSrc = `https://colinhemphill.com${shareImage.src}`;
-  }
-
-  return new ImageResponse(
-    (
-      <div tw="bg-zinc-900 flex items-center p-12">
-        <div tw="flex flex-col w-8/12 pr-12">
-          <div
-            style={{
-              fontFamily: 'Inter 700',
-            }}
-            tw="text-white text-6xl uppercase"
-          >
-            {blogPost.title}
-          </div>
-          <div
-            style={{
-              fontFamily: 'Inter 400',
-            }}
-            tw="text-cyan-300 text-4xl mt-4"
-          >
-            {formattedDate}
-          </div>
-        </div>
-        <div tw="flex w-4/12">
-          <div tw="flex">
-            <img
-              alt={blogPost.image.alt}
-              src={imageSrc}
-              height={blogPost.image.height}
+    return new ImageResponse(
+      (
+        <div tw="bg-zinc-900 flex items-center p-12">
+          <div tw="flex flex-col w-8/12 pr-12">
+            <div
               style={{
-                objectFit: 'cover',
+                fontFamily: 'Inter 700',
               }}
-              tw="rounded-2xl max-w-full max-h-full"
-              width={blogPost.image.width}
-            />
+              tw="text-white text-6xl uppercase"
+            >
+              {title}
+            </div>
+            <div
+              style={{
+                fontFamily: 'Inter 400',
+              }}
+              tw="text-cyan-300 text-4xl mt-4"
+            >
+              {formattedDate}
+            </div>
+          </div>
+          <div tw="flex w-4/12">
+            <div tw="flex">
+              <img
+                alt={shareImage.alt}
+                src={imageSrc}
+                height={shareImage.height}
+                style={{
+                  objectFit: 'cover',
+                }}
+                tw="rounded-2xl max-w-full max-h-full"
+                width={shareImage.width}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: 'Inter 400',
-          data: await inter400,
-        },
-        {
-          name: 'Inter 700',
-          data: await inter700,
-        },
-      ],
-    },
-  );
+      ),
+      {
+        ...size,
+        fonts: [
+          {
+            name: 'Inter 400',
+            data: inter400,
+          },
+          {
+            name: 'Inter 700',
+            data: inter700,
+          },
+        ],
+      },
+    );
+  } catch (err: any) {
+    console.error(`${err.message}`);
+    return new Response(`Failed to generate the image`, {
+      status: 500,
+    });
+  }
 }
