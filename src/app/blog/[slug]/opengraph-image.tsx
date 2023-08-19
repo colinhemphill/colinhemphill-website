@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { BlogPostParams } from '@/app/(main)/blog/[slug]/page';
-import { getBlogPostShareData } from '@/app/(main)/blog/[slug]/utils/getBlogPost';
-import { formatDateString } from '@/utils/date';
 import { loadOpengraphImageFonts } from '@/utils/openGraphResource';
 import { ImageResponse } from 'next/server';
 
@@ -16,8 +14,7 @@ export const size = {
 export default async function og({ params }: { params: BlogPostParams }) {
   try {
     const { inter400, inter700 } = await loadOpengraphImageFonts();
-    const { date, title } = getBlogPostShareData(params);
-    const formattedDate = formatDateString(date);
+    const formattedDate = 'Test Date';
 
     return new ImageResponse(
       (
@@ -29,7 +26,7 @@ export default async function og({ params }: { params: BlogPostParams }) {
               }}
               tw="text-white text-6xl uppercase"
             >
-              {title}
+              Test Title
             </div>
             <div
               style={{
