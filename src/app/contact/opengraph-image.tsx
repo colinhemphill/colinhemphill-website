@@ -1,4 +1,4 @@
-import { loadOpengraphImageFonts } from '@/utils/loadOpengraphImageFonts';
+import { loadOpengraphImageFonts } from '@/utils/openGraphResource';
 import { ImageResponse } from 'next/server';
 
 export const alt = 'Contact Colin Hemphill’s';

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { appUrl } from '@/utils/env';
-import { loadOpengraphImageFonts } from '@/utils/loadOpengraphImageFonts';
+import { loadOpengraphImageFonts } from '@/utils/openGraphResource';
 import { ImageResponse } from 'next/server';
 
 export const alt = 'Colin Hemphill';
