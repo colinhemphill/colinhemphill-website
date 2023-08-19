@@ -18,7 +18,6 @@
     "@icons-pack/react-simple-icons": "8.0.1",
     "@radix-ui/react-accordion": "1.1.2",
     "@vercel/analytics": "1.0.2",
-    "@vercel/og": "0.5.10",
     "class-variance-authority": "0.7.0",
     "hcaptcha": "0.1.1",
     "highlight.js": "11.8.0",
