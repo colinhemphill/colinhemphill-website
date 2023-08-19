@@ -7,7 +7,7 @@ const nextConfig = {
     mdxRs: true,
   },
   images: {
-    domains: ['colinhemphill.com', 'media.graphassets.com'],
+    domains: ['colinhemphill.com'],
   },
   reactStrictMode: true,
 };
