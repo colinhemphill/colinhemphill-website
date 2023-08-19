@@ -26,7 +26,7 @@ export default async function og({ params }: { params: BlogPostParams }) {
               }}
               tw="text-white text-6xl uppercase"
             >
-              Test Title
+              {params.slug}
             </div>
             <div
               style={{
