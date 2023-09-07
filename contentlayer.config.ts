@@ -144,6 +144,7 @@ export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Project, Post, Link],
   mdx: {
+    // @ts-ignore
     rehypePlugins: [highlight],
   },
 });
