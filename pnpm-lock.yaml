@@ -21,8 +21,8 @@ dependencies:
     specifier: 1.8.1
     version: 1.8.1(react-dom@18.2.0)(react@18.2.0)
   '@icons-pack/react-simple-icons':
-    specifier: 9.0.0
-    version: 9.0.0(react@18.2.0)
+    specifier: 9.0.1
+    version: 9.0.1(react@18.2.0)
   '@radix-ui/react-accordion':
     specifier: 1.1.2
     version: 1.1.2(@types/react-dom@18.2.7)(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)
@@ -595,8 +595,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@icons-pack/react-simple-icons@9.0.0(react@18.2.0):
-    resolution: {integrity: sha512-2ZLcJKCmz0VESaKbuiJ8ks4Qd8fldTdK63JkO3bLgD0GVXQi994jy7/1Kd+mIrMmrSMGPe23+DGGx5g9aAsc2w==}
+  /@icons-pack/react-simple-icons@9.0.1(react@18.2.0):
+    resolution: {integrity: sha512-sEgXYkZ07V/9vKwchoCdhec2Nm1zjpxsOrpa7gXbpE3KVeoptCgwHoJvmtJffAgjWl13JOakjfHCVJvB4rR3PQ==}
     peerDependencies:
       react: ^16.13 || ^17 || ^18
     dependencies:
