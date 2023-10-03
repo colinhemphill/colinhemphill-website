@@ -40,7 +40,7 @@ dependencies:
     version: 11.8.0
   houseform:
     specifier: 1.11.1
-    version: 1.11.1(react@18.2.0)(zod@3.22.2)
+    version: 1.11.1(react@18.2.0)(zod@3.22.3)
   lucide-react:
     specifier: 0.279.0
     version: 0.279.0(react@18.2.0)
@@ -75,8 +75,8 @@ dependencies:
     specifier: 1.14.0
     version: 1.14.0
   zod:
-    specifier: 3.22.2
-    version: 3.22.2
+    specifier: 3.22.3
+    version: 3.22.3
 
 devDependencies:
   '@types/mdx':
@@ -217,7 +217,7 @@ packages:
       ts-pattern: 4.3.0
       unified: 10.1.2
       yaml: 2.3.2
-      zod: 3.22.2
+      zod: 3.22.3
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
       - esbuild
@@ -2915,14 +2915,14 @@ packages:
     engines: {node: '>=12.0.0'}
     dev: false
 
-  /houseform@1.11.1(react@18.2.0)(zod@3.22.2):
+  /houseform@1.11.1(react@18.2.0)(zod@3.22.3):
     resolution: {integrity: sha512-PiiiHEapwMgamfroePYTRNO2loPqkGS6VH+ZJx4aBw9uJf4/a9qn10tpuhdpl1RtS9O1m7cp7T+D72bbpaVyiw==}
     peerDependencies:
       react: '>=16.8.0'
       zod: '>=3.9.0'
     dependencies:
       react: 18.2.0
-      zod: 3.22.2
+      zod: 3.22.3
     dev: false
 
   /html-void-elements@2.0.1:
@@ -5316,8 +5316,8 @@ packages:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: false
 
-  /zod@3.22.2:
-    resolution: {integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==}
+  /zod@3.22.3:
+    resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
