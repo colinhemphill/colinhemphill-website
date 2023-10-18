@@ -92,8 +92,8 @@ devDependencies:
     specifier: 18.2.13
     version: 18.2.13
   '@types/slug':
-    specifier: 5.0.5
-    version: 5.0.5
+    specifier: 5.0.6
+    version: 5.0.6
   autoprefixer:
     specifier: 10.4.16
     version: 10.4.16(postcss@8.4.31)
@@ -1364,8 +1364,8 @@ packages:
   /@types/scheduler@0.16.4:
     resolution: {integrity: sha512-2L9ifAGl7wmXwP4v3pN4p2FLhD0O1qsJpvKmNin5VA8+UvNVb447UDaAEV6UdrkA+m/Xs58U1RFps44x6TFsVQ==}
 
-  /@types/slug@5.0.5:
-    resolution: {integrity: sha512-vcHM79Xu5ALOC90kf5S1B4XGbRl8VW6f1+6jpBmK/FLHi4AyWKAVENgMOyHFyjHV5vDbNRPtjsNJuPRqrLBOxw==}
+  /@types/slug@5.0.6:
+    resolution: {integrity: sha512-7z9pKAJRwVN/aJnDm8CHgq+0qizT3OuunI4M8IlZ0UcsWYbG3EW2ob7qbaeB+qk1wygoi88/i1/KvUDpHX5zRA==}
     dev: true
 
   /@types/unist@2.0.8:
