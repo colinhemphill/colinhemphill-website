@@ -15,8 +15,8 @@ overrides:
 
 dependencies:
   '@fontsource/inter':
-    specifier: 5.0.13
-    version: 5.0.13
+    specifier: 5.0.15
+    version: 5.0.15
   '@hcaptcha/react-hcaptcha':
     specifier: 1.8.1
     version: 1.8.1(react-dom@18.2.0)(react@18.2.0)
@@ -550,8 +550,8 @@ packages:
   /@fal-works/esbuild-plugin-global-externals@2.1.2:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
 
-  /@fontsource/inter@5.0.13:
-    resolution: {integrity: sha512-FVIBhP9X/x02blF2VQl2Pji/c3jUjkWEQ9bom4vIrGwO1MlHRDXhXx9iA1hhjpcCIfH3oX68ihIBdYcFnOXhsg==}
+  /@fontsource/inter@5.0.15:
+    resolution: {integrity: sha512-/IoWYEXl8lqJEx50JqNPT+bI4VNwxb/bg2oOfvG8PiEsDsmHRFvWBVHlohBNn1+QdBf+KbAjU/gb4vlGOSsVWw==}
     dev: false
 
   /@grpc/grpc-js@1.9.3:
