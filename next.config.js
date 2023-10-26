@@ -6,7 +6,11 @@ const nextConfig = {
     mdxRs: true,
   },
   images: {
-    domains: ['colinhemphill.com'],
+    remotePatterns: [
+      {
+        hostname: 'colinhemphill.com',
+      },
+    ],
   },
   reactStrictMode: true,
 };

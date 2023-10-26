@@ -3,7 +3,7 @@ import {
   metadataTwitterDefaults,
 } from '@/utils/metadata';
 import { Analytics } from '@vercel/analytics/react';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
@@ -51,16 +51,21 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: colors.cyan[300] },
-    { media: '(prefers-color-scheme: light)', color: colors.cyan[700] },
-  ],
+
   title: {
     default: 'Web Developer and Noise-Maker | Colin Hemphill',
     template: '%s | Colin Hemphill',
   },
   twitter: metadataTwitterDefaults,
-  viewport: { width: 'device-width', initialScale: 1 },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: colors.cyan[300] },
+    { media: '(prefers-color-scheme: light)', color: colors.cyan[700] },
+  ],
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

@@ -1,5 +1,5 @@
 import { loadOpengraphImageFonts } from '@/utils/loadOpengraphImageFonts';
-import { ImageResponse } from 'next/server';
+import { ImageResponse } from 'next/og';
 
 export const alt = 'Colin Hemphill’s Blog';
 export const contentType = 'image/png';
