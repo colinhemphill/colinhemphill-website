@@ -13,7 +13,7 @@
     "types": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@fontsource/inter": "5.0.15",
+    "@fontsource/inter": "5.0.16",
     "@hcaptcha/react-hcaptcha": "1.9.2",
     "@icons-pack/react-simple-icons": "9.1.0",
     "@radix-ui/react-accordion": "1.1.2",
@@ -25,7 +25,7 @@
     "lucide-react": "0.294.0",
     "markdown-wasm": "1.2.0",
     "motion": "10.16.4",
-    "next": "14.0.3",
+    "next": "14.0.4",
     "next-contentlayer": "0.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -37,21 +37,21 @@
   },
   "devDependencies": {
     "@types/mdx": "2.0.10",
-    "@types/node": "20.10.3",
+    "@types/node": "20.10.4",
     "@types/react": "18.2.42",
     "@types/react-dom": "18.2.17",
     "@types/slug": "5.0.7",
     "autoprefixer": "10.4.16",
     "contentlayer": "0.3.4",
     "eslint": "8.55.0",
-    "eslint-config-next": "14.0.3",
+    "eslint-config-next": "14.0.4",
     "postcss": "8.4.32",
     "prettier": "3.1.0",
     "prettier-plugin-tailwindcss": "0.5.9",
     "sharp": "0.33.0",
     "slug": "8.2.3",
     "tailwindcss": "3.3.6",
-    "typescript": "5.3.2"
+    "typescript": "5.3.3"
   },
   "pnpm": {
     "overrides": {
