@@ -10,7 +10,8 @@
     "format": "prettier --write src",
     "lint": "next lint",
     "start": "next start",
-    "types": "tsc -p tsconfig.json --noEmit"
+    "types": "tsc -p tsconfig.json --noEmit",
+    "prepare": "husky"
   },
   "dependencies": {
     "@fontsource/inter": "5.0.16",
@@ -22,6 +23,8 @@
     "hcaptcha": "0.1.1",
     "highlight.js": "11.9.0",
     "houseform": "1.11.1",
+    "husky": "9.0.10",
+    "lint-staged": "15.2.1",
     "lucide-react": "0.321.0",
     "markdown-wasm": "1.2.0",
     "motion": "10.17.0",
