@@ -20,7 +20,11 @@ export default function Header() {
 
         <ul className="hidden md:flex">
           <NavLink href={githubLink}>
-            <SiGithub name="GitHub logo" />
+            <SiGithub
+              name="GitHub logo"
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
+            />
             <span className="sr-only">GitHub</span>
           </NavLink>
         </ul>

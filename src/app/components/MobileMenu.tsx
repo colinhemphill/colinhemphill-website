@@ -76,7 +76,11 @@ export default function MobileMenu() {
             tabIndex={isOpen ? 0 : -1}
           >
             <div className="flex items-center gap-2">
-              <SiGithub name="GitHub" />
+              <SiGithub
+                name="GitHub"
+                onPointerEnterCapture={undefined}
+                onPointerLeaveCapture={undefined}
+              />
               GitHub
             </div>
           </NavLink>
