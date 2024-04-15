@@ -16,7 +16,7 @@
   "dependencies": {
     "@fontsource/inter": "5.0.17",
     "@hcaptcha/react-hcaptcha": "1.10.1",
-    "@icons-pack/react-simple-icons": "9.4.0",
+    "@icons-pack/react-simple-icons": "9.4.1",
     "@radix-ui/react-accordion": "1.1.2",
     "@vercel/analytics": "1.2.2",
     "class-variance-authority": "0.7.0",
@@ -25,10 +25,10 @@
     "houseform": "1.13.0",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
-    "lucide-react": "0.365.0",
+    "lucide-react": "0.368.0",
     "markdown-wasm": "1.2.0",
     "motion": "10.17.0",
-    "next": "14.1.4",
+    "next": "14.2.1",
     "next-contentlayer": "0.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -39,22 +39,22 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@types/mdx": "2.0.12",
-    "@types/node": "20.12.4",
-    "@types/react": "18.2.74",
-    "@types/react-dom": "18.2.24",
+    "@types/mdx": "2.0.13",
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.78",
+    "@types/react-dom": "18.2.25",
     "@types/slug": "5.0.8",
     "autoprefixer": "10.4.19",
     "contentlayer": "0.3.4",
     "eslint": "8.57.0",
-    "eslint-config-next": "14.1.4",
+    "eslint-config-next": "14.2.1",
     "postcss": "8.4.38",
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "0.5.13",
     "sharp": "0.33.3",
     "slug": "9.0.0",
     "tailwindcss": "3.4.3",
-    "typescript": "5.4.4"
+    "typescript": "5.4.5"
   },
   "pnpm": {
     "overrides": {
