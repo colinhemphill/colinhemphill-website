@@ -22,7 +22,6 @@ export default async function BlogPost({
 }: BlogPostProps) {
   const formattedDate = formatDateString(date);
   const sortedTags = sortAlphabetical(tags, 'title');
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const MDXContent = useMDXComponent(body.code);
 
   return (
@@ -70,7 +69,7 @@ export default async function BlogPost({
         <MDXContent components={CustomMDXComponents} />
       </article>
 
-      <div className="mt-10 flex gap-2 border-t-2 border-neutral-3 pt-10">
+      <div className="mt-10 flex flex-wrap gap-2 border-t-2 border-neutral-3 pt-10">
         {sortedTags.map((tag) => (
           <Badge color="primary" key={tag.title}>
             {tag.title}
