@@ -28,7 +28,7 @@
     "lucide-react": "0.439.0",
     "markdown-wasm": "1.2.0",
     "motion": "10.18.0",
-    "next": "14.2.8",
+    "next": "14.2.9",
     "next-contentlayer": "0.3.4",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -47,14 +47,14 @@
     "autoprefixer": "10.4.20",
     "contentlayer": "0.3.4",
     "eslint": "8.57.0",
-    "eslint-config-next": "14.2.8",
+    "eslint-config-next": "14.2.9",
     "postcss": "8.4.45",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "0.6.6",
     "sharp": "0.33.5",
     "slug": "9.1.0",
     "tailwindcss": "3.4.10",
-    "typescript": "5.5.4"
+    "typescript": "5.6.2"
   },
   "pnpm": {
     "overrides": {
