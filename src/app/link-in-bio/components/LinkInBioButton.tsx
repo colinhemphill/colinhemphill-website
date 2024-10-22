@@ -1,6 +1,6 @@
 import ButtonLink from '@/strum/ButtonLink';
 import { Link } from '@content';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 
 export default function LinkInBioButton({ body, name, url }: Link) {
   const Icon = useMDXComponent(body.code);
