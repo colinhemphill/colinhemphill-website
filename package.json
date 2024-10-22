@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "build:content": "contentlayer2 build",
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "format": "prettier --write .",
     "lint": "next lint",
     "start": "next start",
