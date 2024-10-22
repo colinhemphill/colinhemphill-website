@@ -1,5 +1,5 @@
 import ButtonLink from '@/strum/ButtonLink';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 
 interface SocialLinkProps {
   href: string;

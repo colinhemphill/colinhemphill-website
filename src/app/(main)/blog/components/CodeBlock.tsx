@@ -16,7 +16,7 @@ interface CodeBlockProps {
 }
 
 export const CodeBlockContext = createContext<{
-  codeRef?: RefObject<HTMLDivElement>;
+  codeRef?: RefObject<HTMLDivElement | null>;
   copySuccess?: boolean;
 }>({});
 

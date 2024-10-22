@@ -4,7 +4,7 @@ import Heading from '@/strum/Heading';
 import { formatDateString } from '@/utils/date';
 import { sortAlphabetical } from '@/utils/sort';
 import { Post } from '@content';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 import Image from 'next/image';
 import ColinPhoto from 'public/img/Colin-Square-Small.jpg';
 
@@ -12,7 +12,7 @@ interface BlogPostProps extends Post {
   readingStats: ReadingTime;
 }
 
-export default async function BlogPost({
+export default function BlogPost({
   body,
   date,
   image,
