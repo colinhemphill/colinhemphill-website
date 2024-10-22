@@ -12,7 +12,7 @@ interface BlogPostProps extends Post {
   readingStats: ReadingTime;
 }
 
-export default async function BlogPost({
+export default function BlogPost({
   body,
   date,
   image,

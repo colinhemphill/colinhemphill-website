@@ -12,11 +12,10 @@ export interface BlogPostParams {
   slug: string;
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: BlogPostParams;
+export async function generateMetadata(props: {
+  params: Promise<BlogPostParams>;
 }): Promise<Metadata> {
+  const params = await props.params;
   const { blogPost } = getBlogPost(params);
 
   return {
@@ -34,7 +33,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPage({ params }: { params: BlogPostParams }) {
+export default async function BlogPage(props: {
+  params: Promise<BlogPostParams>;
+}) {
+  const params = await props.params;
   const { blogPost, readingStats } = getBlogPost(params);
 
   return (
