@@ -4,6 +4,7 @@ import Heading from '@/strum/Heading';
 import { formatDateString } from '@/utils/date';
 import { sortAlphabetical } from '@/utils/sort';
 import { Post } from '@content';
+import { MDXComponents } from 'mdx/types';
 import { useMDXComponent } from 'next-contentlayer2/hooks';
 import Image from 'next/image';
 import ColinPhoto from 'public/img/Colin-Square-Small.jpg';
@@ -66,7 +67,7 @@ export default function BlogPost({
       />
 
       <article className="mt-10">
-        <MDXContent components={CustomMDXComponents} />
+        <MDXContent components={CustomMDXComponents as MDXComponents} />
       </article>
 
       <div className="mt-10 flex flex-wrap gap-2 border-t-2 border-neutral-3 pt-10">
