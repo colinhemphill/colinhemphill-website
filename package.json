@@ -29,8 +29,8 @@
     "motion": "10.18.0",
     "next": "15.0.3",
     "next-contentlayer2": "0.5.3",
-    "react": "19.0.0-rc-65a56d0e-20241020",
-    "react-dom": "19.0.0-rc-65a56d0e-20241020",
+    "react": "19.0.0-rc-5c56b873-20241107",
+    "react-dom": "19.0.0-rc-5c56b873-20241107",
     "reading-time-estimator": "1.11.0",
     "rehype-highlight": "7.0.1",
     "tailwind-highlightjs": "2.0.1",
@@ -40,8 +40,8 @@
   "devDependencies": {
     "@types/mdx": "2.0.13",
     "@types/node": "22.9.0",
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc",
     "@types/slug": "5.0.9",
     "autoprefixer": "10.4.20",
     "contentlayer2": "0.5.3",
@@ -63,7 +63,7 @@
     "protobufjs"
   ],
   "overrides": {
-    "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    "@types/react": "npm:types-react@rc",
+    "@types/react-dom": "npm:types-react-dom@rc"
   }
 }
