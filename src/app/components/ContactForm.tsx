@@ -57,7 +57,6 @@ export default function ContactForm() {
         aria-errormessage={error ? 'error' : undefined}
         className="mt-8 flex flex-col gap-6"
         data-netlify="true"
-        data-netlify-recaptcha="true"
         name="contact"
         onSubmit={onSubmit}
         ref={formRef}
@@ -107,8 +106,6 @@ export default function ContactForm() {
             {message}
           </Alert>
         )}
-
-        <div data-netlify-recaptcha="true" />
 
         <Button className="self-end" disabled={submitting} type="submit">
           Submit
