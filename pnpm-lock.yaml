@@ -11,9 +11,6 @@ importers:
       '@fontsource/inter':
         specifier: 5.1.0
         version: 5.1.0
-      '@hcaptcha/react-hcaptcha':
-        specifier: 1.11.0
-        version: 1.11.0(react-dom@19.0.0-rc-5c56b873-20241107(react@19.0.0-rc-5c56b873-20241107))(react@19.0.0-rc-5c56b873-20241107)
       '@icons-pack/react-simple-icons':
         specifier: 10.1.0
         version: 10.1.0(react@19.0.0-rc-5c56b873-20241107)
@@ -26,9 +23,6 @@ importers:
       class-variance-authority:
         specifier: 0.7.0
         version: 0.7.0
-      hcaptcha:
-        specifier: 0.2.0
-        version: 0.2.0
       highlight.js:
         specifier: 11.10.0
         version: 11.10.0
@@ -394,15 +388,6 @@ packages:
     resolution: {integrity: sha512-AiXO/bfe9bmxBjxxtYxFAXGZvMaN5s8kO+jBHAJCON8rJoB5YS/D6X7ZNc6XQkuHNmyl4CYaMI1fJ/Gn27RGGw==}
     engines: {node: '>=6'}
     hasBin: true
-
-  '@hcaptcha/loader@1.2.4':
-    resolution: {integrity: sha512-3MNrIy/nWBfyVVvMPBKdKrX7BeadgiimW0AL/a/8TohNtJqxoySKgTJEXOQvYwlHemQpUzFrIsK74ody7JiMYw==}
-
-  '@hcaptcha/react-hcaptcha@1.11.0':
-    resolution: {integrity: sha512-UKHtzzVMHLTGwab5pgV96UbcXdyh5Qyq8E0G5DTyXq8txMvuDx7rSyC+BneOjWVW0a7O9VuZmkg/EznVLRE45g==}
-    peerDependencies:
-      react: '>= 16.3.0'
-      react-dom: '>= 16.3.0'
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1888,9 +1873,6 @@ packages:
 
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
-
-  hcaptcha@0.2.0:
-    resolution: {integrity: sha512-x25z3RoEa9oqfyuQsgk2olc+LCNVDAJaGKUP1qFhpAybB6qjqOf4qB2y1E3LJpXDvM229JWEywc6iWnzWvGjNw==}
 
   hey-listen@1.0.8:
     resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
@@ -3530,15 +3512,6 @@ snapshots:
       long: 5.2.3
       protobufjs: 7.4.0
       yargs: 17.7.2
-
-  '@hcaptcha/loader@1.2.4': {}
-
-  '@hcaptcha/react-hcaptcha@1.11.0(react-dom@19.0.0-rc-5c56b873-20241107(react@19.0.0-rc-5c56b873-20241107))(react@19.0.0-rc-5c56b873-20241107)':
-    dependencies:
-      '@babel/runtime': 7.26.0
-      '@hcaptcha/loader': 1.2.4
-      react: 19.0.0-rc-5c56b873-20241107
-      react-dom: 19.0.0-rc-5c56b873-20241107(react@19.0.0-rc-5c56b873-20241107)
 
   '@humanfs/core@0.19.1': {}
 
@@ -5253,8 +5226,6 @@ snapshots:
   hast-util-whitespace@3.0.0:
     dependencies:
       '@types/hast': 3.0.4
-
-  hcaptcha@0.2.0: {}
 
   hey-listen@1.0.8: {}
 

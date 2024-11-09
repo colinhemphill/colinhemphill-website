@@ -4,11 +4,8 @@ import Button from '@/strum/Button';
 import Input from '@/strum/Input';
 import Textarea from '@/strum/Textarea';
 import { Field, Form, FormInstance } from 'houseform';
-import dynamic from 'next/dynamic';
 import { useRef, useState } from 'react';
 import { z } from 'zod';
-
-const HCaptcha = dynamic(() => import('@hcaptcha/react-hcaptcha'));
 
 interface ContactFormFields {
   botcheck: boolean;
@@ -20,42 +17,10 @@ interface ContactFormFields {
 export default function ContactForm() {
   const formRef = useRef<FormInstance<ContactFormFields>>(null);
   const formDataRef = useRef<HTMLFormElement>(null);
-  const [token, setToken] = useState<string>('');
-  const [captchaLoaded, setCaptchaLoaded] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const loadCaptcha = () => {
-    setCaptchaLoaded(true);
-  };
-
   const onSubmit = async (data: ContactFormFields) => {
-    const messageData = {
-      access_key: 'c7a8e7ae-d70b-406a-a921-a922cc5c8122',
-      from_name: 'colinhemphill.com',
-      subject: `${data.name} sent a message from colinhemphill.com`,
-      ...data,
-    };
-
-    if (!token) {
-      return alert('Please complete the captcha verification.');
-    }
-
     setSubmitting(true);
-    try {
-      const response = await fetch('/api/captcha', {
-        body: JSON.stringify({ token }),
-        method: 'POST',
-      });
-      const captchaResult = await response.json();
-      if (captchaResult.valid === false) {
-        return alert('Error verifying captcha. Please try again!');
-      }
-    } catch (err) {
-      const error = err as Error;
-      return alert(error.message);
-    } finally {
-      setSubmitting(false);
-    }
 
     const formData = new FormData(formDataRef.current as HTMLFormElement);
 
@@ -123,7 +88,6 @@ export default function ContactForm() {
                     label="Name"
                     name={props.name}
                     onBlur={onBlur}
-                    onFocus={loadCaptcha}
                     onChange={(e) => setValue(e.target.value)}
                     placeholder="Your full name"
                     type="text"
@@ -145,7 +109,6 @@ export default function ContactForm() {
                     label="Email"
                     name={props.name}
                     onBlur={onBlur}
-                    onFocus={loadCaptcha}
                     onChange={(e) => setValue(e.target.value)}
                     placeholder="Your email"
                     type="email"
@@ -167,7 +130,6 @@ export default function ContactForm() {
                     label="Message"
                     name={props.name}
                     onBlur={onBlur}
-                    onFocus={loadCaptcha}
                     onChange={(e) => setValue(e.target.value)}
                     placeholder="Your message"
                     value={value}
@@ -175,16 +137,6 @@ export default function ContactForm() {
                 );
               }}
             </Field>
-
-            {captchaLoaded && (
-              <div className="flex justify-end">
-                <HCaptcha
-                  onVerify={setToken}
-                  reCaptchaCompat={false}
-                  sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY as string}
-                />
-              </div>
-            )}
 
             <Button
               className="self-end"
