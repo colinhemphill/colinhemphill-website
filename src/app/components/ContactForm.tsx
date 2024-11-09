@@ -19,6 +19,7 @@ interface ContactFormFields {
 
 export default function ContactForm() {
   const formRef = useRef<FormInstance<ContactFormFields>>(null);
+  const formDataRef = useRef<HTMLFormElement>(null);
   const [token, setToken] = useState<string>('');
   const [captchaLoaded, setCaptchaLoaded] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -56,22 +57,17 @@ export default function ContactForm() {
       setSubmitting(false);
     }
 
+    const formData = new FormData(formDataRef.current as HTMLFormElement);
+
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(messageData, null, 2),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
       });
-      const json = await response.json();
-      if (json.success) {
-        alert(json.message);
-        formRef.current?.reset();
-      } else {
-        alert(json.message);
-      }
+      await response.json();
+      alert('Thanks, your message was submitted!');
+      formRef.current?.reset();
     } catch (err) {
       const error = err as Error;
       alert(error.message);
@@ -92,12 +88,16 @@ export default function ContactForm() {
         {({ isValidating, submit }) => (
           <form
             className="mt-8 flex flex-col gap-6"
+            data-netlify="true"
+            name="contact"
             noValidate
             onSubmit={(e) => {
               e.preventDefault();
               submit();
             }}
+            ref={formDataRef}
           >
+            <input type="hidden" name="form-name" value="contact" />
             <Field<ContactFormFields['botcheck']> name="botcheck">
               {({ value, setValue, onBlur, props }) => {
                 return (
