@@ -2,7 +2,6 @@ import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
 } from '@/utils/metadata';
-import { Analytics } from '@vercel/analytics/react';
 import { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { PropsWithChildren } from 'react';
@@ -74,8 +73,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className="bg-neutral-0 text-neutral-10 selection:bg-primary-9 selection:text-neutral-0">
         {children}
       </body>
-
-      <Analytics />
     </html>
   );
 }
