@@ -57,20 +57,18 @@ export default function ContactForm() {
         aria-errormessage={error ? 'error' : undefined}
         className="mt-8 flex flex-col gap-6"
         data-netlify="true"
+        data-netlify-recaptcha="true"
         name="contact"
         onSubmit={onSubmit}
         ref={formRef}
       >
         <input type="hidden" name="form-name" value="contact" />
 
-        {/* <input
-                    checked={value}
-                    className="hidden"
-                    name={props.name}
-                    onBlur={onBlur}
-                    onChange={(e) => setValue(e.target.checked)}
-                    type="checkbox"
-                  /> */}
+        <p className="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
 
         <Input
           errors={[]}
@@ -109,6 +107,8 @@ export default function ContactForm() {
             {message}
           </Alert>
         )}
+
+        <div data-netlify-recaptcha="true" />
 
         <Button className="self-end" disabled={submitting} type="submit">
           Submit
