@@ -12,4 +12,3 @@
 - [Contentlayer](https://www.contentlayer.dev/)
 - [MDX](https://mdxjs.com/)
 - [Highlight.js](https://highlightjs.org/)
-- [Houseform](https://houseform.dev/)

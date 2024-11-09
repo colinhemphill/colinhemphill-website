@@ -26,9 +26,6 @@ importers:
       highlight.js:
         specifier: 11.10.0
         version: 11.10.0
-      houseform:
-        specifier: 1.13.0
-        version: 1.13.0(react@19.0.0-rc-5c56b873-20241107)(zod@3.23.8)
       husky:
         specifier: 9.1.6
         version: 9.1.6
@@ -1884,12 +1881,6 @@ packages:
   highlight.js@11.9.0:
     resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
     engines: {node: '>=12.0.0'}
-
-  houseform@1.13.0:
-    resolution: {integrity: sha512-n3C7krxwO4uNmmp7hi4sd6+7ZiTv7DJ/WHpVhOHfxTgA4tdRqJq2k1ybLMNDv9/S1kXEYAvKn6yuQLyv0Vzq2Q==}
-    peerDependencies:
-      react: '>=16.8.0'
-      zod: '>=3.9.0'
 
   html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
@@ -5232,11 +5223,6 @@ snapshots:
   highlight.js@11.10.0: {}
 
   highlight.js@11.9.0: {}
-
-  houseform@1.13.0(react@19.0.0-rc-5c56b873-20241107)(zod@3.23.8):
-    dependencies:
-      react: 19.0.0-rc-5c56b873-20241107
-      zod: 3.23.8
 
   html-void-elements@3.0.0: {}
 

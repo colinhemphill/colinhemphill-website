@@ -1,11 +1,10 @@
 'use client';
 
+import Alert from '@/strum/Alert';
 import Button from '@/strum/Button';
 import Input from '@/strum/Input';
 import Textarea from '@/strum/Textarea';
-import { Field, Form, FormInstance } from 'houseform';
-import { useRef, useState } from 'react';
-import { z } from 'zod';
+import { FormEventHandler, useRef, useState } from 'react';
 
 interface ContactFormFields {
   botcheck: boolean;
@@ -15,27 +14,31 @@ interface ContactFormFields {
 }
 
 export default function ContactForm() {
-  const formRef = useRef<FormInstance<ContactFormFields>>(null);
-  const formDataRef = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = async (data: ContactFormFields) => {
+  const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    setError('');
+    setMessage('');
+
+    e.preventDefault();
     setSubmitting(true);
 
-    const formData = new FormData(formDataRef.current as HTMLFormElement);
+    const formData = new FormData(formRef.current as HTMLFormElement);
 
     try {
-      const response = await fetch('/__forms.html', {
+      await fetch('/sdf.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData as any).toString(),
       });
-      await response.json();
-      alert('Thanks, your message was submitted!');
+      setMessage('Thanks, your message was submitted!');
       formRef.current?.reset();
     } catch (err) {
       const error = err as Error;
-      alert(error.message);
+      setError(error.message);
     } finally {
       setSubmitting(false);
     }
@@ -49,105 +52,68 @@ export default function ContactForm() {
         opportunities in Web3, crypto, AI/ML, or finances.
       </p>
 
-      <Form<ContactFormFields> onSubmit={onSubmit} ref={formRef}>
-        {({ isValidating, submit }) => (
-          <form
-            className="mt-8 flex flex-col gap-6"
-            data-netlify="true"
-            name="contact"
-            noValidate
-            onSubmit={(e) => {
-              e.preventDefault();
-              submit();
-            }}
-            ref={formDataRef}
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <Field<ContactFormFields['botcheck']> name="botcheck">
-              {({ value, setValue, onBlur, props }) => {
-                return (
-                  <input
+      <form
+        aria-describedby={message ? 'message' : undefined}
+        aria-errormessage={error ? 'error' : undefined}
+        className="mt-8 flex flex-col gap-6"
+        data-netlify="true"
+        name="contact"
+        onSubmit={onSubmit}
+        ref={formRef}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+
+        {/* <input
                     checked={value}
                     className="hidden"
                     name={props.name}
                     onBlur={onBlur}
                     onChange={(e) => setValue(e.target.checked)}
                     type="checkbox"
-                  />
-                );
-              }}
-            </Field>
-            <Field<ContactFormFields['name']>
-              name="name"
-              onSubmitValidate={z.string().min(1, 'Name is required')}
-            >
-              {({ value, setValue, onBlur, props, errors }) => {
-                return (
-                  <Input
-                    errors={errors}
-                    label="Name"
-                    name={props.name}
-                    onBlur={onBlur}
-                    onChange={(e) => setValue(e.target.value)}
-                    placeholder="Your full name"
-                    type="text"
-                    value={value}
-                  />
-                );
-              }}
-            </Field>
-            <Field<ContactFormFields['email']>
-              name="email"
-              onSubmitValidate={z
-                .string()
-                .email('A valid email address is required')}
-            >
-              {({ value, setValue, props, onBlur, errors }) => {
-                return (
-                  <Input
-                    errors={errors}
-                    label="Email"
-                    name={props.name}
-                    onBlur={onBlur}
-                    onChange={(e) => setValue(e.target.value)}
-                    placeholder="Your email"
-                    type="email"
-                    value={value}
-                  />
-                );
-              }}
-            </Field>
-            <Field<ContactFormFields['message']>
-              name="message"
-              onSubmitValidate={z
-                .string()
-                .min(140, 'Message must be at least 140 characters')}
-            >
-              {({ value, setValue, onBlur, props, errors, isTouched }) => {
-                return (
-                  <Textarea
-                    errors={errors}
-                    label="Message"
-                    name={props.name}
-                    onBlur={onBlur}
-                    onChange={(e) => setValue(e.target.value)}
-                    placeholder="Your message"
-                    value={value}
-                  />
-                );
-              }}
-            </Field>
+                  /> */}
 
-            <Button
-              className="self-end"
-              disabled={isValidating || submitting}
-              type="submit"
-            >
-              Submit
-            </Button>
-          </form>
+        <Input
+          errors={[]}
+          label="Name"
+          name="name"
+          placeholder="Your full name"
+          required
+          type="text"
+        />
+
+        <Input
+          errors={[]}
+          label="Email"
+          name="email"
+          placeholder="Your email"
+          required
+          type="email"
+        />
+
+        <Textarea
+          errors={[]}
+          label="Message"
+          minLength={140}
+          name="message"
+          placeholder="Your message"
+          required
+        />
+
+        {error && (
+          <Alert color="warning" id="error">
+            {error}
+          </Alert>
         )}
-      </Form>
+        {message && (
+          <Alert color="primary" id="message">
+            {message}
+          </Alert>
+        )}
+
+        <Button className="self-end" disabled={submitting} type="submit">
+          Submit
+        </Button>
+      </form>
     </>
   );
 }

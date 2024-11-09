@@ -20,7 +20,6 @@
     "@vercel/analytics": "1.3.2",
     "class-variance-authority": "0.7.0",
     "highlight.js": "11.10.0",
-    "houseform": "1.13.0",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "lucide-react": "0.456.0",
