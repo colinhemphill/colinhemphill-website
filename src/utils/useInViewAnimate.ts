@@ -1,12 +1,7 @@
-import { animate, inView, stagger } from 'motion';
+import { animate, stagger } from 'motion';
+import { useInView } from 'motion/react';
 import { useEffect, useRef } from 'react';
-import {
-  delay,
-  delayShort,
-  duration,
-  easeOut,
-  inViewAnimation,
-} from './animations';
+import { delay, delayShort, duration, inViewAnimation } from './animations';
 import usePrefersReducedMotion from './usePrefersReducedMotion';
 
 export default function useInViewAnimate(
@@ -14,23 +9,19 @@ export default function useInViewAnimate(
   speed: 'fast' | 'slow' = 'slow',
 ) {
   const viewRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(viewRef, { margin: '-100px 0px' });
   const prefersReducedMotion = usePrefersReducedMotion();
   const staggerClassName = `${name}-stagger`;
   const staggerDelay = speed === 'fast' ? delayShort : delay;
 
   useEffect(() => {
-    inView(
-      viewRef.current as Element,
-      () => {
-        animate(`.${staggerClassName}`, inViewAnimation(prefersReducedMotion), {
-          duration,
-          easing: easeOut,
-          delay: stagger(staggerDelay, { start: delay }),
-        });
-      },
-      { margin: '-200px 0px' },
-    );
-  }, [name, prefersReducedMotion, staggerClassName, staggerDelay]);
+    if (isInView) {
+      animate(`.${staggerClassName}`, inViewAnimation(prefersReducedMotion), {
+        duration,
+        delay: stagger(staggerDelay, { startDelay: delay }),
+      });
+    }
+  }, [name, prefersReducedMotion, staggerClassName, staggerDelay, isInView]);
 
   return { staggerClassName: `${staggerClassName} opacity-0`, viewRef };
 }
