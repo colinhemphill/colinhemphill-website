@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@fontsource/inter": "5.2.6",
+    "@formspree/react": "3.0.0",
     "@icons-pack/react-simple-icons": "13.7.0",
     "@radix-ui/react-accordion": "1.2.12",
     "@strum/colors": "0.1.8",

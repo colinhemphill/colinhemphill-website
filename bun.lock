@@ -5,6 +5,7 @@
       "name": "colinhemphill",
       "dependencies": {
         "@fontsource/inter": "5.2.6",
+        "@formspree/react": "3.0.0",
         "@icons-pack/react-simple-icons": "13.7.0",
         "@radix-ui/react-accordion": "1.2.12",
         "@strum/colors": "0.1.8",
@@ -174,6 +175,10 @@
     "@fal-works/esbuild-plugin-global-externals": ["@fal-works/esbuild-plugin-global-externals@2.1.2", "", {}, "sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ=="],
 
     "@fontsource/inter": ["@fontsource/inter@5.2.6", "", {}, "sha512-CZs9S1CrjD0jPwsNy9W6j0BhsmRSQrgwlTNkgQXTsAeDRM42LBRLo3eo9gCzfH4GvV7zpyf78Ozfl773826csw=="],
+
+    "@formspree/core": ["@formspree/core@4.0.0", "", { "dependencies": { "@stripe/stripe-js": "^5.7.0" } }, "sha512-geNlUut5nME1Ztej5Pzx1BrlQ1fFIcJYIqmF+Vm0jaUbpZxjXvt7SDOGeQVkuxn80QJiIHlwBGGjSBFjPX/KDw=="],
+
+    "@formspree/react": ["@formspree/react@3.0.0", "", { "dependencies": { "@formspree/core": "^4.0.0", "@stripe/react-stripe-js": "^3.1.1", "@stripe/stripe-js": "^5.7.0" }, "peerDependencies": { "react": "^16.8 || ^17.0 || ^18.0 || ^19.0", "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0" } }, "sha512-8PufBZ4l13VmCp9xTGQXwyF6mZtYSecqgTlFuMo5Fbe4Q6zUk7PMU2uKOwIaytZyTyJgFVCvdbpQElPPBKYNLw=="],
 
     "@grpc/grpc-js": ["@grpc/grpc-js@1.13.4", "", { "dependencies": { "@grpc/proto-loader": "^0.7.13", "@js-sdsl/ordered-map": "^4.4.2" } }, "sha512-GsFaMXCkMqkKIvwCQjCrwH+GHbPKBjhwo/8ZuUkWHqbI73Kky9I+pQltrlT0+MWpedCoosda53lgjYfyEPgxBg=="],
 
@@ -412,6 +417,10 @@
     "@speed-highlight/core": ["@speed-highlight/core@1.2.7", "", {}, "sha512-0dxmVj4gxg3Jg879kvFS/msl4s9F3T9UXC1InxgOf7t5NvcPD97u/WTA5vL/IxWHMn7qSxBozqrnnE2wvl1m8g=="],
 
     "@standard-schema/spec": ["@standard-schema/spec@1.0.0", "", {}, "sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA=="],
+
+    "@stripe/react-stripe-js": ["@stripe/react-stripe-js@3.9.1", "", { "dependencies": { "prop-types": "^15.7.2" }, "peerDependencies": { "@stripe/stripe-js": ">=1.44.1 <8.0.0", "react": ">=16.8.0 <20.0.0", "react-dom": ">=16.8.0 <20.0.0" } }, "sha512-t5KZiu7jkUTHOx0adGSlSj4xPpFSvW6BsgIRQHNXqhHeYBH0mpddVUZsO33WM1m6Vyd1Wl96JoBhwEsw8jMHTQ=="],
+
+    "@stripe/stripe-js": ["@stripe/stripe-js@5.10.0", "", {}, "sha512-PTigkxMdMUP6B5ISS7jMqJAKhgrhZwjprDqR1eATtFfh0OpKVNp110xiH+goeVdrJ29/4LeZJR4FaHHWstsu0A=="],
 
     "@strum/colors": ["@strum/colors@0.1.8", "", {}, "sha512-JR8T8brIqZQ+/uKjOXEM2BiSBgGMa8Y9wN1JTLEnjhlDuHJWTs6X/0tHomMoPqQPSRQzpfaqelV29Lyf08ZeAQ=="],
 
