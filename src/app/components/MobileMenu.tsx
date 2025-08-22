@@ -34,7 +34,7 @@ export default function MobileMenu() {
       {/* overlay */}
       <div
         className={twMerge(
-          'fixed left-0 top-0 z-10 h-full w-full bg-neutral-0 transition-opacity duration-300',
+          'bg-neutral-0 fixed top-0 left-0 z-10 h-full w-full transition-opacity duration-300',
           isOpen ? 'opacity-95' : 'pointer-events-none opacity-0',
         )}
         onClick={toggleMenu}
@@ -42,7 +42,7 @@ export default function MobileMenu() {
 
       <nav
         className={twMerge(
-          'pointer absolute left-0 top-0 z-10 max-h-full w-full overflow-y-auto bg-neutral-1 px-10 py-24 shadow-lg transition-all duration-500',
+          'pointer bg-neutral-1 absolute top-0 left-0 z-10 max-h-full w-full overflow-y-auto px-10 py-24 shadow-lg transition-all duration-500',
           isOpen
             ? 'pointer-events-auto translate-y-0 opacity-100'
             : 'pointer-events-none -translate-y-full opacity-0',

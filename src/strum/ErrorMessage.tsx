@@ -9,7 +9,7 @@ export default function ErrorMessage({
   describes,
 }: PropsWithChildren<ErrorMessageProps>) {
   return (
-    <div id={describes} className="text-sm text-danger-7 dark:text-danger-6">
+    <div id={describes} className="text-danger-7 dark:text-danger-6 text-sm">
       {children}
     </div>
   );

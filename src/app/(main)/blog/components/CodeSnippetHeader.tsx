@@ -12,7 +12,7 @@ export default function CodeSnippetHeader({
   text,
 }: CodeSnippetHeaderProps) {
   return (
-    <pre className="flex items-center justify-between rounded-t-md bg-neutral-2 px-4 py-2">
+    <pre className="bg-neutral-2 flex items-center justify-between rounded-t-md px-4 py-2">
       <div className="text-sm">{text}</div>
 
       {enableCopy && <CopyButton copy={copy} />}

@@ -46,7 +46,7 @@ export default function CodeBlock({
 
   return (
     <CodeBlockContext.Provider value={{ codeRef, copySuccess }}>
-      <div className="relative my-8 rounded-lg border border-neutral-3 bg-neutral-10 font-mono dark:bg-neutral-0">
+      <div className="border-neutral-6 bg-neutral-1 relative my-8 rounded-lg border">
         {header && (
           <CodeSnippetHeader
             copy={copy}

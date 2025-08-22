@@ -6,12 +6,12 @@ import { usePathname } from 'next/navigation';
 import { PropsWithChildren } from 'react';
 
 export const buttonVariants = cva(
-  'list-none text-2xl font-semibold underline decoration-2 underline-offset-2 transition-colors duration-300 hocus:text-neutral-10 md:text-base',
+  'list-none text-2xl font-semibold underline decoration-2 underline-offset-2 transition-colors duration-300 hocus:text-neutral-12 md:text-base',
   {
     variants: {
       state: {
-        active: 'text-neutral-10 decoration-primary-6',
-        default: 'text-neutral-6 decoration-transparent',
+        active: 'text-neutral-12 decoration-primary-11',
+        default: 'text-neutral-11 decoration-transparent',
       },
     },
     defaultVariants: {

@@ -5,11 +5,11 @@ import { twMerge } from 'tailwind-merge';
 export const alertVariants = cva('alert border rounded-md', {
   variants: {
     color: {
-      neutral: 'border-neutral-3 bg-neutral-0 text-neutral-6',
-      primary: 'border-primary-3 bg-primary-0 text-primary-6',
-      success: 'border-success-3 bg-success-0 text-success-6',
-      warning: 'border-warning-3 bg-warning-0 text-warning-6',
-      danger: 'border-danger-3 bg-danger-0 text-danger-6',
+      neutral: 'border-neutral-6 bg-neutral-1 text-neutral-11',
+      primary: 'border-primary-6 bg-primary-1 text-primary-11',
+      success: 'border-success-6 bg-success-1 text-success-11',
+      warning: 'border-warning-6 bg-warning-1 text-warning-11',
+      danger: 'border-danger-6 bg-danger-0 text-danger-6',
     },
     margin: {
       default: '',

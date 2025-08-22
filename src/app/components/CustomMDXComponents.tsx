@@ -1,8 +1,6 @@
-import Code from '@/app/(main)/blog/components/Code';
 import CodeBlock from '@/app/(main)/blog/components/CodeBlock';
 import CodeSnippetHeader from '@/app/(main)/blog/components/CodeSnippetHeader';
 import Alert from '@/strum/Alert';
-import CodeInline from '@/strum/CodeInline';
 import Heading from '@/strum/Heading';
 import HeadingWithIcon from '@/strum/HeadingWithIcon';
 import Lightbox from '@/strum/Lightbox';
@@ -23,12 +21,6 @@ export const CustomMDXComponents = {
       </Link>
     ),
   Alert,
-  code: ({ className, children }: any) =>
-    className?.includes('hljs') ? (
-      <Code>{children}</Code>
-    ) : (
-      <CodeInline>{children}</CodeInline>
-    ),
   CodeBlock,
   CodeSnippetHeader,
   h1: ({ children }: any) => <Heading level={1}>{children}</Heading>,

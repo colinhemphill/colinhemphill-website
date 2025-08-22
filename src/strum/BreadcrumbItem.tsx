@@ -12,7 +12,7 @@ export default function BreadcrumbItem({
   ...linkProps
 }: BreadcrumbItemProps) {
   return (
-    <li className="before:mr-4 before:text-neutral-6 before:content-['/'] before:first-of-type:content-none">
+    <li className="before:text-neutral-11 before:mr-4 before:content-['/'] first:before:content-none">
       {!active && (
         <Link
           aria-current={active ? 'page' : 'false'}
@@ -23,7 +23,7 @@ export default function BreadcrumbItem({
           {title}
         </Link>
       )}
-      {active && <span className="text-neutral-6">{title}</span>}
+      {active && <span className="text-neutral-11">{title}</span>}
     </li>
   );
 }

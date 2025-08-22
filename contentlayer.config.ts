@@ -1,10 +1,36 @@
+import rehypeShiki, { RehypeShikiOptions } from '@shikijs/rehype';
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+} from '@shikijs/transformers';
+import { transformerTwoslash } from '@shikijs/twoslash';
 import {
   defineDocumentType,
   defineNestedType,
   makeSource,
 } from 'contentlayer2/source-files';
-import highlight from 'rehype-highlight';
+import { createCssVariablesTheme } from 'shiki';
 import slug from 'slug';
+
+const strumCodeTheme = createCssVariablesTheme({
+  name: 'strum-code',
+  variablePrefix: '--shiki-',
+  variableDefaults: {},
+  fontStyle: false,
+});
+
+const shikiOptions: RehypeShikiOptions = {
+  inline: 'tailing-curly-colon',
+  langs: ['shell', 'ts', 'tsx', 'css'],
+  theme: strumCodeTheme,
+  transformers: [
+    transformerNotationHighlight(),
+    transformerNotationDiff(),
+    transformerTwoslash({
+      explicitTrigger: true,
+    }),
+  ],
+};
 
 const Image = defineNestedType(() => ({
   name: 'Image',
@@ -144,7 +170,6 @@ export default makeSource({
   contentDirPath: 'content',
   documentTypes: [Project, Post, Link],
   mdx: {
-    // @ts-ignore
-    rehypePlugins: [highlight],
+    rehypePlugins: [[rehypeShiki, shikiOptions]],
   },
 });

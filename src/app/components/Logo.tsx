@@ -13,8 +13,8 @@ export default function Logo() {
       Colin{' '}
       <span
         className={twMerge(
-          'underline underline-offset-4 transition-colors duration-300 group-hocus:decoration-primary-6',
-          active ? 'decoration-primary-6' : 'decoration-neutral-6',
+          'group-hover:decoration-primary-11 group-focus:decoration-primary-11 underline underline-offset-4 transition-colors duration-300',
+          active ? 'decoration-primary-11' : 'decoration-neutral-9',
         )}
       >
         Hemphill

@@ -23,7 +23,7 @@ export default function CreateSoftware() {
               My goal is to make the web a friendly and enjoyable place for
               everyone.
             </p>
-            <ul className="mt-4 list-disc pl-6 font-light text-neutral-6">
+            <ul className="text-neutral-11 mt-4 list-disc pl-6 font-light">
               <li className="my-1 pl-2">
                 Design and build amazing front end experiences.
               </li>

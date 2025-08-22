@@ -39,13 +39,13 @@ const Lightbox: React.FC<Lightbox> = ({
           {/* overlay */}
           <div
             className={twMerge(
-              'fixed left-0 top-0 z-10 h-full w-full bg-black transition-opacity duration-300',
+              'fixed top-0 left-0 z-10 h-full w-full bg-black transition-opacity duration-300',
               showLightbox ? 'opacity-95' : 'pointer-events-none opacity-0',
             )}
             onClick={toggleLightbox}
           />
           <div
-            className="fixed left-0 top-0 z-20 flex h-full w-full items-center justify-center"
+            className="fixed top-0 left-0 z-20 flex h-full w-full items-center justify-center"
             onClick={toggleLightbox}
           >
             <Image
@@ -57,7 +57,7 @@ const Lightbox: React.FC<Lightbox> = ({
             />
           </div>
           <Button
-            className="fixed right-10 top-10 z-20 h-10 w-10 rounded-full p-0"
+            className="fixed top-10 right-10 z-20 h-10 w-10 rounded-full p-0"
             onClick={toggleLightbox}
           >
             <span className="sr-only">Close enlarged image</span>

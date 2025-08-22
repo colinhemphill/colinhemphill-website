@@ -5,10 +5,10 @@ import { twMerge } from 'tailwind-merge';
 const headingVariants = cva('font-bold', {
   variants: {
     color: {
-      danger: 'text-danger-7 dark:text-danger-6',
-      neutral: 'text-neutral-10',
-      neutralSubtle: 'text-neutral-7',
-      primary: 'text-primary-7',
+      danger: 'text-danger-11',
+      neutral: 'text-neutral-12',
+      neutralSubtle: 'text-neutral-11',
+      primary: 'text-primary-11',
     },
     size: {
       1: 'text-4xl md:text-5xl md:leading-normal',
@@ -42,7 +42,7 @@ export default function Heading({
   const classes = twMerge(
     headingVariants({ color, size: size || level }),
     level === 1 &&
-      'bg-gradient-to-r from-primary-10 to-primary-6 bg-clip-text text-transparent',
+      'bg-gradient-to-r from-primary-12 to-primary-9 bg-clip-text text-transparent',
     className,
   );
 

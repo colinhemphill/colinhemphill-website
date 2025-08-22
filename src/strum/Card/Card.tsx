@@ -8,7 +8,7 @@ export default function Card({
   return (
     <div
       className={twMerge(
-        'flex flex-col rounded-md border border-neutral-3 bg-neutral-1',
+        'border-neutral-3 bg-neutral-1 flex flex-col rounded-md border',
         className,
       )}
     >

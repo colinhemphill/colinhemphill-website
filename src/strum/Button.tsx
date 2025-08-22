@@ -7,9 +7,9 @@ export const buttonVariants = cva(
   {
     variants: {
       color: {
-        neutral: 'hocus:bg-neutral-8 ring-neutral-4',
-        primary: 'hocus:bg-primary-8 ring-primary-4',
-        success: 'hocus:bg-success-8 ring-success-4',
+        neutral: 'hocus:bg-neutral-8 ring-neutral-11',
+        primary: 'hocus:bg-primary-8 ring-primary-11',
+        success: 'hocus:bg-success-8 ring-success-11',
       },
       size: {
         sm: 'text-base px-3 py-1',
@@ -32,32 +32,32 @@ export const buttonVariants = cva(
       {
         color: 'neutral',
         variant: 'solid',
-        className: 'bg-neutral-7 text-neutral-0',
+        className: 'bg-neutral-6 text-neutral-12',
       },
       {
         color: 'primary',
         variant: 'solid',
-        className: 'bg-primary-7 text-neutral-0',
+        className: 'bg-primary-6 text-neutral-12',
       },
       {
         color: 'success',
         variant: 'solid',
-        className: 'bg-success-7 text-neutral-0',
+        className: 'bg-success-6 text-neutral-12',
       },
       {
         color: 'neutral',
         variant: 'outline',
-        className: 'border-neutral-7 text-neutral-7',
+        className: 'border-neutral-6 text-neutral-11',
       },
       {
         color: 'primary',
         variant: 'outline',
-        className: 'border-primary-7 text-primary-7',
+        className: 'border-primary-6 text-primary-11',
       },
       {
         color: 'success',
         variant: 'outline',
-        className: 'border-success-7 text-success-7',
+        className: 'border-success-6 text-success-11',
       },
     ],
   },

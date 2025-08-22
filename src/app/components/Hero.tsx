@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div className="container flex flex-col items-center gap-10 py-16 md:py-48 lg:flex-row">
       <div className="flex-1">
-        <h1 className="bg-gradient-to-r from-primary-10 to-primary-6 bg-clip-text text-center text-6xl font-extrabold text-transparent md:text-8xl lg:text-left">
+        <h1 className="from-primary-12 to-primary-9 bg-gradient-to-r bg-clip-text text-center text-6xl font-extrabold text-transparent md:text-8xl lg:text-left">
           Colin Hemphill
         </h1>
         <Heading

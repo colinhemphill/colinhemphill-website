@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="bg-neutral-0">
-      <div className="container flex flex-col justify-between gap-8 pb-4 pt-16 lg:flex-row lg:pt-24">
+      <div className="container flex flex-col justify-between gap-8 pt-16 pb-4 lg:flex-row lg:pt-24">
         <div className="flex flex-col gap-2">
           <Heading level={3}>Sitemap</Heading>
           <Link className="link-solid" href="/">
@@ -45,10 +45,10 @@ export default function Footer() {
 
       <div className="container flex flex-col gap-1 py-8 text-center">
         <div>Copyright ©{new Date().getFullYear()} Colin Hemphill</div>
-        <p className="text-sm text-neutral-7">
+        <p className="text-sm">
           This site was built with <a href="https://nextjs.org/">Next.js</a> and{' '}
           <a href="https://www.contentlayer.dev/">Contentlayer</a>, and deployed
-          on <a href="https://vercel.com/">Vercel</a>.
+          on <a href="https://netlify.com/">Netlify</a>.
         </p>
       </div>
     </footer>

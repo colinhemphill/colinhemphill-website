@@ -11,9 +11,9 @@ export default function Code({
   const { codeRef } = useContext(CodeBlockContext);
 
   return (
-    <div className="text-neutral-0 dark:text-neutral-10">
+    <div className="text-neutral-12">
       <div
-        className={twMerge('overflow-x-auto whitespace-pre p-4', className)}
+        className={twMerge('overflow-x-auto p-4 whitespace-pre', className)}
         ref={codeRef}
         tabIndex={0}
       >

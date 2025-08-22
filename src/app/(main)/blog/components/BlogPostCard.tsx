@@ -33,7 +33,7 @@ export default function BlogPostCard({
         <Heading className="line-clamp-2" level={3}>
           {title}
         </Heading>
-        <div className="mt-1 text-sm text-neutral-6">{formattedDate}</div>
+        <div className="text-neutral-11 mt-1 text-sm">{formattedDate}</div>
         <p className="mt-2 line-clamp-3">{description}</p>
         <div className="mt-4 flex flex-wrap items-start gap-1">
           {sortedTags.map((tag) => (

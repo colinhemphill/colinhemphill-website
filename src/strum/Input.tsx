@@ -26,7 +26,7 @@ export default function Input({
         id={name}
         name={name}
         className={twMerge(
-          'block w-full rounded-md border-0 bg-neutral-0 px-4 py-2 leading-loose text-neutral-10 outline-none ring-1 ring-inset ring-neutral-3 placeholder:text-neutral-5 focus:ring-2 focus:ring-inset focus:ring-primary-7',
+          'bg-neutral-0 text-neutral-12 ring-neutral-6 placeholder:text-neutral-9 focus:ring-primary-11 block w-full rounded-md border-0 px-4 py-2 leading-loose ring-1 outline-none ring-inset focus:ring-2 focus:ring-inset',
           className,
         )}
         {...rest}

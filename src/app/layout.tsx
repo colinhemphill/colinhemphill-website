@@ -2,13 +2,12 @@ import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
 } from '@/utils/metadata';
+import { rgb } from '@strum/colors/base';
 import { Metadata, Viewport } from 'next';
+import { ThemeProvider } from 'next-themes';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
-import colors from 'tailwindcss/colors';
-
-// STYLES
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -60,8 +59,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: colors.cyan[300] },
-    { media: '(prefers-color-scheme: light)', color: colors.cyan[700] },
+    { media: '(prefers-color-scheme: dark)', color: rgb.cyan.dark[11] },
+    { media: '(prefers-color-scheme: light)', color: rgb.cyan.light[11] },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -69,9 +68,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html className={twMerge(inter.variable, jetbrainsMono.variable)} lang="en">
-      <body className="bg-neutral-0 text-neutral-10 selection:bg-primary-9 selection:text-neutral-0">
-        {children}
+    <html
+      className={twMerge(inter.variable, jetbrainsMono.variable)}
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body className="bg-neutral-0 text-neutral-12 selection:bg-primary-11 selection:text-neutral-1">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

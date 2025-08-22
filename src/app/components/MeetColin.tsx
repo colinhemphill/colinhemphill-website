@@ -23,11 +23,11 @@ export default function MeetColin() {
               I’ve lived in Texas most of my life, and grew up fascinated with
               both computers and music.
             </p>
-            <p className="mt-4 font-light text-neutral-6">
+            <p className="text-neutral-11 mt-4 font-light">
               In my full-time career I make software, with an emphasis on front
               end technology like React.
             </p>
-            <p className="mt-4 font-light text-neutral-6">
+            <p className="text-neutral-11 mt-4 font-light">
               With training in audio engineering and music, I spend much of my
               free time in my home studio.
             </p>

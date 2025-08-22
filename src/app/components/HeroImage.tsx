@@ -59,7 +59,7 @@ export default function ColinImage() {
     >
       <Image
         alt="A 3D illustration of a young man playing an acoustic guitar"
-        className="-scale-x-1 h-auto w-full pl-[10%]"
+        className="h-auto w-full pl-[10%]"
         priority
         ref={illustrationRef}
         src={Illustration}

@@ -6,7 +6,7 @@ export default function CardFooter({
   className,
 }: PropsWithChildren<WithClassName>) {
   return (
-    <div className={twMerge('border-t border-neutral-3 px-4 py-2', className)}>
+    <div className={twMerge('border-neutral-3 border-t px-4 py-2', className)}>
       {children}
     </div>
   );

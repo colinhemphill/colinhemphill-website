@@ -1,0 +1,56 @@
+:root {
+  --shiki-foreground: theme(--color-neutral-12);
+  --shiki-background: theme(--color-neutral-1);
+  --shiki-token-constant: theme(--color-violet-11);
+  --shiki-token-string: theme(--color-amber-11);
+  --shiki-token-comment: theme(--color-neutral-10);
+  --shiki-token-keyword: theme(--color-crimson-11);
+  --shiki-token-parameter: theme(--color-amber-11);
+  --shiki-token-function: theme(--color-blue-11);
+  --shiki-token-string-expression: theme(--color-amber-11);
+  --shiki-token-punctuation: theme(--color-neutral-12);
+  --shiki-token-link: #ee0000;
+}
+
+span.strum-code code {
+  --shiki-token-function: theme(--color-primary-11);
+  background-color: theme(--color-primary-3);
+  border-radius: theme(--radius-md);
+  padding: 0 theme(--spacing);
+}
+
+.strum-code code .highlighted {
+  background-color: var(--color-neutral-3);
+  display: inline-block;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 48px);
+}
+
+.strum-code code .diff {
+  display: inline-block;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 48px);
+}
+
+.strum-code code .diff.remove {
+  background-color: var(--color-red-3);
+  opacity: 0.7;
+}
+
+.strum-code code .diff.remove:before {
+  color: var(--color-red-10);
+  content: '-';
+  margin-right: theme(--spacing);
+}
+
+.strum-code code .diff.add {
+  background-color: var(--color-green-3);
+}
+
+.strum-code code .diff.add:before {
+  color: var(--color-green-10);
+  content: '+';
+  margin-right: theme(--spacing);
+}

@@ -1,23 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config './tailwind.config.ts';
+@import '@strum/colors/tailwind.css';
+@import '@strum/colors/tailwind/alias-neutral-slate.css';
+@import '@strum/colors/tailwind/alias-primary-cyan.css';
+@import '@strum/colors/tailwind/alias-danger-red.css';
+@import '@strum/colors/tailwind/alias-warning-yellow.css';
+@import '@strum/colors/tailwind/alias-success-green.css';
+@import './shiki-theme.css';
+
+@variant hocus (&:hover, &:focus);
+@variant dark (&:where(.dark, .dark *));
 
 @layer components {
   .link,
   p a {
-    @apply underline decoration-primary-6 decoration-2 underline-offset-2 transition-colors duration-300 hocus:decoration-current;
+    @apply decoration-primary-11 hocus:decoration-current underline decoration-2 underline-offset-2 transition-colors duration-300;
   }
   .link-solid {
-    @apply text-primary-8 transition-colors duration-300 hocus:text-neutral-10;
+    @apply text-primary-11 hocus:text-neutral-12 transition-colors duration-300;
   }
   body[data-menu-open] {
     @apply h-full overflow-hidden;
   }
   .blog-post ul {
-    @apply mt-4 list-outside list-disc pl-4 marker:text-primary-7;
+    @apply marker:text-primary-11 mt-4 list-outside list-disc pl-4;
   }
   .blog-post ol {
-    @apply mt-4 list-outside list-decimal pl-4 marker:text-primary-7;
+    @apply marker:text-primary-11 mt-4 list-outside list-decimal pl-4;
   }
   .blog-post li {
     @apply mt-1 pl-2;

@@ -29,14 +29,14 @@ export default function BlogPost({
     <div className="blog-post leading-relaxed">
       <div className="flex flex-col gap-4">
         <Heading
-          className="bg-gradient-to-r from-primary-10 to-primary-6 bg-clip-text text-transparent"
+          className="from-primary-12 to-primary-9 bg-gradient-to-r bg-clip-text text-transparent"
           level={1}
         >
           {title}
         </Heading>
 
         <div className="flex items-center gap-4">
-          <div className="h-14 w-14 rounded-full bg-neutral-7 p-0.5">
+          <div className="bg-neutral-7 h-14 w-14 rounded-full p-0.5">
             <Image
               alt="A headshot of Colin Hemphill"
               className="rounded-full"
@@ -70,7 +70,7 @@ export default function BlogPost({
         <MDXContent components={CustomMDXComponents as MDXComponents} />
       </article>
 
-      <div className="mt-10 flex flex-wrap gap-2 border-t-2 border-neutral-3 pt-10">
+      <div className="border-neutral-3 mt-10 flex flex-wrap gap-2 border-t-2 pt-10">
         {sortedTags.map((tag) => (
           <Badge color="primary" key={tag.title}>
             {tag.title}

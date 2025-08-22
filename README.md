@@ -11,4 +11,4 @@
 - [Lucide icons](https://lucide.dev/)
 - [Contentlayer](https://www.contentlayer.dev/)
 - [MDX](https://mdxjs.com/)
-- [Highlight.js](https://highlightjs.org/)
+- [Shiki](https://shiki.matsu.io/)

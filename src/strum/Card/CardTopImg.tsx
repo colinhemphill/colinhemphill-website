@@ -12,7 +12,7 @@ export default function CardTopImg({
     <Image
       alt={alt}
       className={twMerge(
-        'inline-block w-full rounded-t-md border-b border-neutral-3',
+        'border-neutral-3 inline-block w-full rounded-t-md border-b',
         className,
       )}
       height={height}

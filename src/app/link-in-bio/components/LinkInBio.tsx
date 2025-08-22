@@ -51,7 +51,7 @@ export default function LinkInBio() {
                   />
                   <CardBody>
                     <div className="text-lg font-bold">{project.title}</div>
-                    <div className="text-neutral-6">{project.subtitle}</div>
+                    <div className="text-neutral-11">{project.subtitle}</div>
                   </CardBody>
                   <CardFooter className="text-center">
                     <a className="link-solid" href={project.url}>
@@ -75,7 +75,7 @@ export default function LinkInBio() {
         </AccordionItem>
       </Accordion>
 
-      <p className="mt-8 rounded-md border border-neutral-3 bg-neutral-2 p-4 text-sm text-neutral-6">
+      <p className="border-neutral-3 bg-neutral-2 text-neutral-11 mt-8 rounded-md border p-4 text-sm">
         This link-in-bio is part of my <Link href="/">personal website</Link>,
         which is built with the Next.js App Router, TypeScript, Contentlayer,
         and Tailwind CSS. All links are Bitly shortlinks with a custom domain,

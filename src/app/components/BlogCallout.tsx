@@ -11,7 +11,7 @@ export default function BlogCallout() {
         level={2}
         text="Colin’s Blog"
       />
-      <p className="mx-auto mb-6 mt-4 max-w-3xl text-xl font-semibold md:text-2xl">
+      <p className="mx-auto mt-4 mb-6 max-w-3xl text-xl font-semibold md:text-2xl">
         Read up on Colin’s explorations of front end web development, music
         production, audio engineering, and podcasting.
       </p>

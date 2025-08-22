@@ -8,8 +8,8 @@ export default function SocialLinks() {
         {getSocialLinksWithIcons().map((link) => (
           <SocialLink
             href={link.url}
-            key={link._id}
             icon={link.body.code}
+            key={link._id}
             name={link.description}
           />
         ))}

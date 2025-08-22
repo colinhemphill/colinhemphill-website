@@ -22,7 +22,7 @@ export default function ProjectCard({
       />
       <CardBody>
         <Heading level={3}>{title}</Heading>
-        <div className="text-lg text-neutral-6">{subtitle}</div>
+        <div className="text-neutral-11 text-lg">{subtitle}</div>
         <div className="mt-2" dangerouslySetInnerHTML={{ __html: body.html }} />
       </CardBody>
       <CardFooter className="text-center">

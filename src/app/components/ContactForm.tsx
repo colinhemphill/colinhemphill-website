@@ -6,13 +6,6 @@ import Input from '@/strum/Input';
 import Textarea from '@/strum/Textarea';
 import { FormEventHandler, useRef, useState } from 'react';
 
-interface ContactFormFields {
-  botcheck: boolean;
-  name: string;
-  email: string;
-  message: string;
-}
-
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [error, setError] = useState('');
@@ -46,10 +39,10 @@ export default function ContactForm() {
 
   return (
     <>
-      <p className="mt-4 text-neutral-6">
+      <p className="text-neutral-11 mt-4">
         Colin is pretty busy, but if you’re not spam he will do his best to get
         back to you! Please <em>do not reach out</em> if you’re recruiting for
-        opportunities in Web3, crypto, AI/ML, or finances.
+        opportunities in Web3, crypto, AI/ML, or fintech.
       </p>
 
       <form

@@ -22,7 +22,7 @@ export default function HeadingWithIcon({
       level={level}
       size={size}
     >
-      <div className="mr-3 flex h-[1.15em] w-[1.15em] items-center justify-center rounded-full bg-neutral-10">
+      <div className="bg-neutral-11 mr-3 flex h-[1.15em] w-[1.15em] items-center justify-center rounded-full">
         <Icon className="stroke-neutral-1" size="0.65em" />
       </div>
       {text}
