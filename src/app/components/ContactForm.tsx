@@ -7,7 +7,7 @@ import Textarea from '@/strum/Textarea';
 import { useForm, ValidationError } from '@formspree/react';
 
 export default function ContactForm() {
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID!);
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM!);
 
   if (state.succeeded) {
     return (
