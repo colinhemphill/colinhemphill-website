@@ -2,7 +2,6 @@
   "dependencies": {
     "@fontsource/inter": "5.2.6",
     "@icons-pack/react-simple-icons": "13.7.0",
-    "@opennextjs/cloudflare": "1.6.5",
     "@radix-ui/react-accordion": "1.2.12",
     "@strum/colors": "0.1.8",
     "class-variance-authority": "0.7.1",
@@ -50,13 +49,10 @@
   "scripts": {
     "build": "next build",
     "build:content": "contentlayer2 build",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "dev": "next dev --turbo",
     "format": "prettier --write .",
     "lint": "next lint",
     "prepare": "husky",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "start": "next start",
     "sync": "syncpack fix-mismatches",
     "types": "tsc -p tsconfig.json --noEmit",
