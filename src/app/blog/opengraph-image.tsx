@@ -1,4 +1,4 @@
-import { loadOpengraphImageFonts } from '@/utils/loadOpengraphImageFonts';
+import { loadOpengraphImageFonts } from '@/utilities/load-opengraph-image-fonts';
 import { ImageResponse } from 'next/og';
 
 export const alt = 'Colin Hemphill’s Blog';
@@ -42,8 +42,9 @@ export default async function og() {
         ],
       },
     );
-  } catch (err: any) {
-    console.error(`${err.message}`);
+  } catch (error: unknown) {
+    const errorMessage = (error as Error).message;
+    console.error(`${errorMessage}`);
     return new Response('Failed to generate og image', {
       status: 500,
     });

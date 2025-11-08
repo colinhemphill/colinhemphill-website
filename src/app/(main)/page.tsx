@@ -1,15 +1,15 @@
-import BlogCallout from '@/app/components/BlogCallout';
-import ContactForm from '@/app/components/ContactForm';
-import CreateSoftware from '@/app/components/CreateSoftware';
-import Hero from '@/app/components/Hero';
-import MeetColin from '@/app/components/MeetColin';
-import CardsGrid from '@/strum/Card/CardsGrid';
-import HeadingWithIcon from '@/strum/HeadingWithIcon';
-import PreviewSection from '@/strum/PreviewSection';
-import ProjectCard from '@/strum/ProjectCard';
-import Section from '@/strum/Section';
-import Separator from '@/strum/Separator';
-import { getProjects } from '@/utils/fetchers/projects';
+import BlogCallout from '@/app/components/blog-callout';
+import ContactForm from '@/app/components/contact-form';
+import CreateSoftware from '@/app/components/create-software';
+import Hero from '@/app/components/hero';
+import MeetColin from '@/app/components/meet-colin';
+import CardsGrid from '@/strum/card/cards-grid';
+import HeadingWithIcon from '@/strum/heading-with-icon';
+import PreviewSection from '@/strum/preview-section';
+import ProjectCard from '@/strum/project-card';
+import Section from '@/strum/section';
+import Separator from '@/strum/separator';
+import { getProjects } from '@/utilities/fetchers/projects';
 import { LayoutTemplate, Mail } from 'lucide-react';
 import { Metadata } from 'next';
 

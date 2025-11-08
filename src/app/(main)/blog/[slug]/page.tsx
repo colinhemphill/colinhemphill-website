@@ -1,22 +1,22 @@
-import BreadcrumbItem from '@/strum/BreadcrumbItem';
-import Breadcrumbs from '@/strum/Breadcrumbs';
-import Loading from '@/strum/Loading';
-import Section from '@/strum/Section';
-import Separator from '@/strum/Separator';
+import BreadcrumbItem from '@/strum/breadcrumb-item';
+import Breadcrumbs from '@/strum/breadcrumbs';
+import Loading from '@/strum/loading';
+import Section from '@/strum/section';
+import Separator from '@/strum/separator';
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-import BlogPost from './components/BlogPost';
-import { getBlogPost } from './utils/getBlogPost';
+import BlogPost from './components/blog-post';
+import { getBlogPost } from './utilities/get-blog-post';
 
-export interface BlogPostParams {
+export interface BlogPostParameters {
   slug: string;
 }
 
-export async function generateMetadata(props: {
-  params: Promise<BlogPostParams>;
+export async function generateMetadata(properties: {
+  params: Promise<BlogPostParameters>;
 }): Promise<Metadata> {
-  const params = await props.params;
-  const { blogPost } = getBlogPost(params);
+  const parameters = await properties.params;
+  const { blogPost } = getBlogPost(parameters);
 
   return {
     title: { absolute: `${blogPost.title} | Colin Hemphill’s Blog` },
@@ -33,11 +33,11 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function BlogPage(props: {
-  params: Promise<BlogPostParams>;
+export default async function BlogPage(properties: {
+  params: Promise<BlogPostParameters>;
 }) {
-  const params = await props.params;
-  const { blogPost, readingStats } = getBlogPost(params);
+  const parameters = await properties.params;
+  const { blogPost, readingStats } = getBlogPost(parameters);
 
   return (
     <>

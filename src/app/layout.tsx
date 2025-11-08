@@ -1,7 +1,7 @@
 import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
-} from '@/utils/metadata';
+} from '@/utilities/metadata';
 import { rgb } from '@strum/colors/base';
 import { Metadata, Viewport } from 'next';
 import { ThemeProvider } from 'next-themes';

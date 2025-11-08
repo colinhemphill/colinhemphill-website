@@ -1,13 +1,13 @@
-import ContactForm from '@/app/components/ContactForm';
-import BreadcrumbItem from '@/strum/BreadcrumbItem';
-import Breadcrumbs from '@/strum/Breadcrumbs';
-import Heading from '@/strum/Heading';
-import Section from '@/strum/Section';
-import Separator from '@/strum/Separator';
+import ContactForm from '@/app/components/contact-form';
+import BreadcrumbItem from '@/strum/breadcrumb-item';
+import Breadcrumbs from '@/strum/breadcrumbs';
+import Heading from '@/strum/heading';
+import Section from '@/strum/section';
+import Separator from '@/strum/separator';
 import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
-} from '@/utils/metadata';
+} from '@/utilities/metadata';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

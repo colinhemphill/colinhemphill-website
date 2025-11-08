@@ -1,12 +1,10 @@
 import { MetadataRoute } from 'next';
-import { allBlogPosts } from './(main)/blog/[slug]/utils/allBlogPosts';
+import { allBlogPosts } from './(main)/blog/[slug]/utilities/all-blog-posts';
 
 const baseUrl = 'https://colinhemphill.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let routes: MetadataRoute.Sitemap = [];
-
-  routes = routes.concat([
+  const baseRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -19,14 +17,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
     },
-  ]);
+  ];
 
   const blogRoutes: MetadataRoute.Sitemap = allBlogPosts.map((blogPost) => ({
     lastModified: new Date(blogPost.date),
     url: `${baseUrl}/blog/${blogPost.slug}`,
   }));
 
-  routes = routes.concat(blogRoutes);
-
-  return routes;
+  return [...baseRoutes, ...blogRoutes];
 }

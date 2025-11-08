@@ -1,6 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
-import { appUrl } from '@/utils/env';
-import { loadOpengraphImageFonts } from '@/utils/loadOpengraphImageFonts';
+import { appUrl } from '@/utilities/environment';
+import { loadOpengraphImageFonts } from '@/utilities/load-opengraph-image-fonts';
 import { ImageResponse } from 'next/og';
 
 export const alt = 'Colin Hemphill';
@@ -51,8 +50,9 @@ export default async function og() {
         ],
       },
     );
-  } catch (err: any) {
-    console.error(`${err.message}`);
+  } catch (error: unknown) {
+    const errorMessage = (error as Error).message;
+    console.error(`${errorMessage}`);
     return new Response('Failed to generate og image', {
       status: 500,
     });

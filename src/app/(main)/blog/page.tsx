@@ -1,17 +1,17 @@
-import BreadcrumbItem from '@/strum/BreadcrumbItem';
-import Breadcrumbs from '@/strum/Breadcrumbs';
-import CardsGrid from '@/strum/Card/CardsGrid';
-import Heading from '@/strum/Heading';
-import PreviewSection from '@/strum/PreviewSection';
-import Section from '@/strum/Section';
-import Separator from '@/strum/Separator';
+import BreadcrumbItem from '@/strum/breadcrumb-item';
+import Breadcrumbs from '@/strum/breadcrumbs';
+import CardsGrid from '@/strum/card/cards-grid';
+import Heading from '@/strum/heading';
+import PreviewSection from '@/strum/preview-section';
+import Section from '@/strum/section';
+import Separator from '@/strum/separator';
 import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
-} from '@/utils/metadata';
+} from '@/utilities/metadata';
 import { Metadata } from 'next';
-import { allBlogPosts } from './[slug]/utils/allBlogPosts';
-import BlogPostCard from './components/BlogPostCard';
+import { allBlogPosts } from './[slug]/utilities/all-blog-posts';
+import BlogPostCard from './components/blog-post-card';
 
 export const metadata: Metadata = {
   title: 'Blog',

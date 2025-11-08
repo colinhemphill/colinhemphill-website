@@ -1,6 +1,6 @@
-import Footer from '@/app/components/Footer';
-import Header from '@/app/components/Header';
-import Separator from '@/strum/Separator';
+import Footer from '@/app/components/footer';
+import Header from '@/app/components/header';
+import Separator from '@/strum/separator';
 import { PropsWithChildren } from 'react';
 
 export default function MainLayout({ children }: PropsWithChildren) {

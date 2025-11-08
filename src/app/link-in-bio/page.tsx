@@ -1,13 +1,13 @@
-import Heading from '@/strum/Heading';
-import Separator from '@/strum/Separator';
+import Heading from '@/strum/heading';
+import Separator from '@/strum/separator';
 import {
   metadataOpenGraphDefaults,
   metadataTwitterDefaults,
-} from '@/utils/metadata';
+} from '@/utilities/metadata';
 import ColinPhoto from '@public/img/Colin-Square-Small.jpg';
 import { Metadata } from 'next';
 import Image from 'next/image';
-import LinkInBio from './components/LinkInBio';
+import LinkInBio from './components/link-in-bio';
 
 export const metadata: Metadata = {
   title: 'Link-in-bio',

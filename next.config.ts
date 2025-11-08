@@ -9,7 +9,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  reactCompiler: true,
   reactStrictMode: true,
+  turbopack: {},
 };
 
 export default withContentlayer(nextConfig);

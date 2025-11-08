@@ -1,14 +1,12 @@
-import path from 'path';
+import path from 'node:path';
 
 const buildEslintCommand = (filenames) =>
-  `next lint --fix --file ${filenames
-    .map((f) => path.relative(process.cwd(), f))
-    .join(' --file ')}`;
+  `eslint --fix ${filenames
+    .map((f) => `"${path.relative(process.cwd(), f)}"`)
+    .join(' ')}`;
 
-const config = {
-  '**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
-  '*.{js,jsx,ts,tsx,md,html,css}': 'prettier --write',
+const eslintConfig = {
   '*.{js,jsx,ts,tsx}': [buildEslintCommand],
 };
 
-export default config;
+export default eslintConfig;
