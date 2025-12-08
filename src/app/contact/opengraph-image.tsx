@@ -14,18 +14,16 @@ export default async function og() {
     const { inter400, inter700 } = await loadOpengraphImageFonts();
 
     return new ImageResponse(
-      (
-        <div
-          style={{ fontFamily: 'Inter 400' }}
-          tw="bg-zinc-900 w-full h-full flex py-8 px-16 flex-col items-center justify-center text-zinc-50 text-center"
-        >
-          <div style={{ fontFamily: 'Inter 700' }} tw="text-9xl flex">
-            <div tw="border-b-8 border-transparent pr-4">Colin</div>
-            <div tw="border-b-8 border-cyan-300">Hemphill</div>
-          </div>
-          <div tw="text-6xl mt-10 text-zinc-400">Get in touch with Colin</div>
+      <div
+        style={{ fontFamily: 'Inter 400' }}
+        tw="bg-zinc-900 w-full h-full flex py-8 px-16 flex-col items-center justify-center text-zinc-50 text-center"
+      >
+        <div style={{ fontFamily: 'Inter 700' }} tw="text-9xl flex">
+          <div tw="border-b-8 border-transparent pr-4">Colin</div>
+          <div tw="border-b-8 border-cyan-300">Hemphill</div>
         </div>
-      ),
+        <div tw="text-6xl mt-10 text-zinc-400">Get in touch with Colin</div>
+      </div>,
       {
         ...size,
         fonts: [

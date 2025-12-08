@@ -2,11 +2,10 @@ import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import ErrorMessage from './error-message';
 
-interface InputProperties
-  extends DetailedHTMLProps<
-    InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
+interface InputProperties extends DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+> {
   label: string;
   name: string;
   errors: string[];
