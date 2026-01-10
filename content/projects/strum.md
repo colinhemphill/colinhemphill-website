@@ -4,7 +4,7 @@ subtitle: An accessible Tailwind-first color palette
 url: https://www.strum.design/colors
 image:
   alt: Strum Design logo
-  src: /projects/randime.jpg
+  src: /projects/strum.jpg
   height: 720
   width: 1280
 ---
