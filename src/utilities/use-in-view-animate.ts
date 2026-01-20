@@ -10,16 +10,18 @@ export default function useInViewAnimate(
 ) {
   const viewReference = useRef<HTMLDivElement>(null);
   const isInView = useInView(viewReference, { margin: '-100px 0px' });
+  const isDisplayed = useRef(false);
   const prefersReducedMotion = usePrefersReducedMotion();
   const staggerClassName = `${name}-stagger`;
   const staggerDelay = speed === 'fast' ? delayShort : delay;
 
   useEffect(() => {
-    if (isInView) {
+    if (isInView && !isDisplayed.current) {
       animate(`.${staggerClassName}`, inViewAnimation(prefersReducedMotion), {
         duration,
         delay: stagger(staggerDelay, { startDelay: delay }),
       });
+      isDisplayed.current = true;
     }
   }, [name, prefersReducedMotion, staggerClassName, staggerDelay, isInView]);
 
