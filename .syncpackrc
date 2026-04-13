@@ -1,32 +1,16 @@
 {
-  "dependencyTypes": [
-    "prod",
-    "dev"
-  ],
   "semverGroups": [
     {
-      "label": "use exact version numbers in production",
+      "label": "use exact version numbers",
       "packages": [
         "**"
       ],
       "dependencyTypes": [
+        "dev",
         "prod"
       ],
       "dependencies": [
-        "**"
-      ],
-      "range": ""
-    },
-    {
-      "label": "use exact version numbers in dev",
-      "packages": [
-        "**"
-      ],
-      "dependencyTypes": [
-        "dev"
-      ],
-      "dependencies": [
-        "**"
+        "!motion-plus"
       ],
       "range": ""
     }
