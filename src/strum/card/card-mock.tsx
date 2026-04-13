@@ -1,4 +1,4 @@
-import PlaceholderImage from 'public/img/placeholder.jpg';
+import PlaceholderImage from '@public/img/placeholder.jpg';
 import Heading from '../heading';
 import Skeleton from '../skeleton';
 import Card from './card';

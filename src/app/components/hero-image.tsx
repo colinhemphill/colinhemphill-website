@@ -2,10 +2,10 @@
 
 import { delay, duration } from '@/utilities/animations';
 import usePrefersReducedMotion from '@/utilities/use-prefers-reduced-motion';
+import Laptop from '@public/illustrations/laptop.png';
+import Illustration from '@public/illustrations/man-with-guitar.png';
 import { animate } from 'motion';
 import Image from 'next/image';
-import Laptop from 'public/illustrations/laptop.png';
-import Illustration from 'public/illustrations/man-with-guitar.png';
 import { useEffect, useRef } from 'react';
 
 export default function ColinImage() {

@@ -4,10 +4,10 @@ import Heading from '@/strum/heading';
 import { formatDateString } from '@/utilities/date';
 import { sortAlphabetical } from '@/utilities/sort';
 import { Post } from '@content';
+import ColinPhoto from '@public/img/Colin-Square-Small.jpg';
 import { MDXComponents } from 'mdx/types';
 import { useMDXComponent } from 'next-contentlayer2/hooks';
 import Image from 'next/image';
-import ColinPhoto from 'public/img/Colin-Square-Small.jpg';
 
 interface BlogPostProperties extends Post {
   readingStats: ReadingTime;
