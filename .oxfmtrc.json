@@ -3,7 +3,7 @@
   "singleQuote": true,
   "trailingComma": "all",
   "printWidth": 80,
-  "sortPackageJson": false,
-  "sortTailwindcss": {},
+  "sortPackageJson": true,
+  "sortTailwindcss": true,
   "ignorePatterns": []
 }
