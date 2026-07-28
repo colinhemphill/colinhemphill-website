@@ -1,12 +1,12 @@
 import path from 'node:path';
 
-const buildEslintCommand = (filenames) =>
-  `eslint --fix ${filenames
+const buildLintCommand = (filenames) =>
+  `oxlint --fix ${filenames
     .map((f) => `"${path.relative(process.cwd(), f)}"`)
     .join(' ')}`;
 
-const eslintConfig = {
-  '*.{js,jsx,ts,tsx}': [buildEslintCommand],
+const lintConfig = {
+  '*.{js,jsx,ts,tsx}': [buildLintCommand],
 };
 
-export default eslintConfig;
+export default lintConfig;
