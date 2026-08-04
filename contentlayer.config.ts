@@ -3,7 +3,6 @@ import {
   transformerNotationDiff,
   transformerNotationHighlight,
 } from '@shikijs/transformers';
-import { transformerTwoslash } from '@shikijs/twoslash';
 import {
   defineDocumentType,
   defineNestedType,
@@ -26,9 +25,6 @@ const shikiOptions: RehypeShikiOptions = {
   transformers: [
     transformerNotationHighlight(),
     transformerNotationDiff(),
-    transformerTwoslash({
-      explicitTrigger: true,
-    }),
   ],
 };
 
